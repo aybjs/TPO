@@ -1,4 +1,4 @@
-package src.pruebaserver;
+package pruebaserver;
 
 public class pruebaserver {
 	
