@@ -1,4 +1,4 @@
-package pruebacliente;
+package src.pruebacliente;
 
 public class Cliente {
 

@@ -1,4 +1,4 @@
-package pruebarepo;
+package src.pruebarepo;
 
 public class pruebarepo {
 
