@@ -25,5 +25,17 @@ public class Pedido {
 		return rta;
 	}
 	
+	public void cambiarEstadoItem(ItemPedido item, String estado) throws Exception{
+		boolean cambio = false;
+		for (ItemPedido i:items)
+			if (i.getProducto().equalsIgnoreCase(item.getProducto())){
+				i.setEstado(estado);
+				cambio = true;
+			}
+		if (cambio = false)
+			throw new Exception("item no encontrado");
+	}
+	
+	
 	
 }
