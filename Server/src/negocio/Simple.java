@@ -29,6 +29,8 @@ public class Simple extends Producto {
 		return stock;
 	}
 	
+	
+	//comment de prueba para pablo
 
 	
 
