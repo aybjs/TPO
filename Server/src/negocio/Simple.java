@@ -2,7 +2,7 @@ package negocio;
 
 import java.util.Vector;
 
-import enumerators.UnidadMedida;
+import enumerators.*;
 
 public class Simple extends Producto {
 	
@@ -30,7 +30,6 @@ public class Simple extends Producto {
 	}
 	
 	
-	//comment de prueba para pablo
 
 	
 

@@ -7,30 +7,26 @@ import enumerators.EstadosMesa;
 
 public abstract class Mesa {
 	
-	private int id;
-	private int cantComen;
-	private int capacidad;
-	private String sector;
-	private Date fecha;
-	private Date apertura;
-	private Date cierre; //no se manejar tiempos, esto es lo mejor que encontre
-	private EstadosMesa estado;
-	private Mozo mozo;
-	public Mesa(int id, int capacidad, String sector,
-			String apertura, String cierre, Mozo mozo) {
+	protected int id;
+	protected int cantComen;
+	protected String sector;
+	protected Date fecha;
+	protected Date apertura;
+	protected Date cierre; //no se manejar tiempos, esto es lo mejor que encontre
+	protected EstadosMesa estado;
+	protected Mozo mozo;
+	public Mesa(int id, String sector) {
 		super();
 		this.id = id;
-		this.capacidad = capacidad;
 		this.cantComen = 0;
 		this.sector = sector;
 		this.fecha = null;
 		this.apertura = null;
-		this.cierre = null;
-		this.estado = EstadosMesa.libre;
-		this.mozo = mozo;
+		this.cierre = null;	
+		this.mozo = null;
 	}
 	
-	public abstract void AbrirMesa(int personas);
+	public abstract void AbrirMesa(int personas, Mozo mozo);
 	
 	public abstract void SiguienteEstado();
 	
@@ -38,6 +34,15 @@ public abstract class Mesa {
 	
 	public abstract void HabilitarMesa();
 	
+	public String getSector(){
+		return sector;
+	}
+	
+	public abstract void setEstado(EstadosMesa estado);
+	
+	public String getEstado(){
+		return estado.toString();
+	}
 	
 
 }
