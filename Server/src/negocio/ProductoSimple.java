@@ -34,6 +34,12 @@ public class ProductoSimple extends Producto {
 	public float getPrecio(){
 		return precioUnitario;
 	}
+
+	@Override
+	public int getTiempoElaboracion() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 

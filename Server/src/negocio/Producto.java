@@ -38,6 +38,8 @@ public abstract class Producto {
 	public abstract float getStockActual();
 	
 	public abstract float getPrecio();
+	
+	public abstract int getTiempoElaboracion();
 		
 	public int getCodigo() {
 		return codigo;
