@@ -2,13 +2,13 @@ package negocio;
 
 import java.util.Vector;
 
-public class Compuesto extends Producto {
+public class ProductoCompuesto extends Producto {
 	
 	private Vector<Producto> items;
 	private Vector<Integer> cantItem;
 	private int tiempoElaboracion; //siempre en minutos
 
-	public Compuesto(int codigo, String nombre, int sectorEncargado,
+	public ProductoCompuesto(int codigo, String nombre, int sectorEncargado,
 			float minimo, float comisionExtra, float consumoEstimado, int tiempo) throws Exception {
 		super(codigo, nombre, sectorEncargado, minimo, comisionExtra, consumoEstimado);
 		
@@ -24,6 +24,15 @@ public class Compuesto extends Producto {
 		for (Producto item : items)
 			stock = stock + item.getStockActual();
 		return stock;
+	}
+	
+	public float getPrecio(){
+		float precio = 0;
+		for (Producto p : items){
+			precio = precio + p.getPrecio();
+		}
+		return precio;
+		
 	}
 
 	public int getTiempoElaboracion() {

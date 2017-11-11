@@ -42,6 +42,13 @@ public class ItemPedido {
 		return cantidad + "x " + producto.getNombre();
 	}
 	
+	public float subTotal(){
+		if (this.facturable.compareToIgnoreCase("si") == 0){
+			return producto.getPrecio() * cantidad;
+		}
+		return 0;			
+	}
+	
 	
 	
 	

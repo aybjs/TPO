@@ -36,6 +36,8 @@ public abstract class Producto {
 	}
 	
 	public abstract float getStockActual();
+	
+	public abstract float getPrecio();
 		
 	public int getCodigo() {
 		return codigo;
