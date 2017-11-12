@@ -16,7 +16,10 @@ public class Deposito {
 		remitos = new Vector<Remito>();
 		notasDevolucion = new Vector<NotaDevolucion>();
 		movimientos = new Vector<MovStock>();
+		init();
 	}
+
+	
 
 	public String getResponsable() {
 		return responsable;
@@ -89,6 +92,11 @@ public class Deposito {
 				item = s;
 		}
 		return item;
+	}
+	
+	private void init() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
