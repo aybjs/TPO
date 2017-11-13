@@ -14,15 +14,15 @@ public class CambiarEstadoMesa extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-    	String nombre = request.getParameter("nombre");
+    	String nombre = request.getParameter("mesa");
 		if ((nombre != null)) {
 			response.setContentType("text/xml ");
 			response.setHeader("Cache-Control", "no-cache");
-			response.getWriter().write("<h4> LA LA LA </h4>");
+			response.getWriter().write("AJAX OK" + " para mesa " + nombre);
 		} else {
 			response.setContentType("text/xml ");
 			response.setHeader("Cache-Control", "no-cache");
-			response.getWriter().write("<valido>false</valido>");
+			response.getWriter().write("AJAX OK 2");
 		}
 	}
 
