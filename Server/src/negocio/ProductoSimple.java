@@ -2,16 +2,18 @@ package negocio;
 
 import java.util.Vector;
 
-import enumerators.UnidadMedida;
+import enumerators.*;
 
-public class Simple extends Producto {
+public class ProductoSimple extends Producto {
 	
 	private UnidadMedida medida;
+	private float precioUnitario;
 
-	public Simple(int codigo, String nombre, int sectorEncargado, float minimo,
-			float comisionExtra, float consumoEstimado, String unidadMedida)
+	public ProductoSimple(int codigo, String nombre, int sectorEncargado, float minimo,
+			float comisionExtra, float consumoEstimado, String unidadMedida, float precio)
 			throws Exception {
 		super(codigo, nombre, sectorEncargado, minimo, comisionExtra, consumoEstimado);
+		this.precioUnitario = precio;
 		switch(unidadMedida){
 			case "Kilogramo": this.medida = UnidadMedida.kilogramo;
 			case "Litro": this.medida = UnidadMedida.litro;
@@ -29,8 +31,17 @@ public class Simple extends Producto {
 		return stock;
 	}
 	
+	public float getPrecio(){
+		return precioUnitario;
+	}
+
+	@Override
+	public int getTiempoElaboracion() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
-	//comment de prueba para pablo
+	
 
 	
 

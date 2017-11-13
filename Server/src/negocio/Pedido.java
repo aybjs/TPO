@@ -11,7 +11,14 @@ public class Pedido {
 	public Pedido (Mesa mesa){
 		this.mesa=mesa;
 		this.id++;
-		this.items=null;
+		this.items=new Vector<ItemPedido>();
+	}
+	
+	public float subTotal(){
+		float st = 0;
+		for (ItemPedido i : items)
+			st = st + i.subTotal();
+		return st;
 	}
 	
 	public void agregarItem(Producto producto, int cantidad){
