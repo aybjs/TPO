@@ -1,6 +1,5 @@
 package controllers;
 
-import java.util.ArrayList;
 import java.util.Vector;
 
 import negocio.*;
@@ -33,8 +32,10 @@ public class Sucursal {
 		else
 			AbrirMesaCompuesta(mesas, mozo, cantPersonas);		
 	}
-	 public GenerarPedido (int nroMesa, )
 	
+	/* Quedó incompleto
+	public GenerarPedido (int nroMesa, )
+	*/
 
 
 	/***** Metodos privados *****/

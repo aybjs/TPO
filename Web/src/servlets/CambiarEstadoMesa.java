@@ -24,7 +24,8 @@ public class CambiarEstadoMesa extends HttpServlet {
 		} else {
 			response.setContentType("text/xml ");
 			response.setHeader("Cache-Control", "no-cache");
-			response.getWriter().write("AJAX OK 2");
+			response.getWriter().write("AJ0"
+					+ "AX OK 2");
 		}
 	
 	}
