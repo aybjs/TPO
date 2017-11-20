@@ -1,6 +1,5 @@
 package test;
 
-import controllers.ControladorCentral;
 import dao.MozoDAO;
 import exceptions.SinMozosException;
 import negocio.Mozo;

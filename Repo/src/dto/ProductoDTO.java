@@ -1,9 +1,12 @@
 package dto;
 
+import java.io.Serializable;
 import java.util.List;
 
-public abstract class ProductoDTO {
-	
+public abstract class ProductoDTO  implements Serializable {
+
+	private static final long serialVersionUID = 1066814429833576979L;
+		
 	private int codigo;
 	private float precio;
 	private String nombre;

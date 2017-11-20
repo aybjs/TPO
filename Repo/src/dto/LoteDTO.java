@@ -1,8 +1,11 @@
 package dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class LoteDTO {
+public class LoteDTO implements Serializable {
+
+	private static final long serialVersionUID = 1066814429833576977L;
 	
 	private int nro;
 	private Date fechaCompra;
