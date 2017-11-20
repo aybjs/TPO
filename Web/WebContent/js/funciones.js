@@ -13,7 +13,7 @@ function cambiarEstadoMesa(idMesa, numero){
 
 function cambiarEstadoMesaAjax(numeroMesa) {
 	crearRequest();
-	var url = "/AD_TPO_TOMCAT/CambiarEstadoMesa?mesa=" + numeroMesa;
+	var url = "CambiarEstadoMesa?mesa=" + numeroMesa;
 	request.onreadystatechange = procesarCambiarEstadoMesa; 
 	request.open("GET", url, true);
 	request.send(null);
@@ -29,6 +29,7 @@ function crearRequest() {
 }
 
 function procesarCambiarEstadoMesa() {
+	alert (request.readyState + "  --  " + request.status);
 	if (request.readyState == 4) {
 		if (request.status == 200) {
 			document.getElementById("respuesta").innerHTML = request.responseText;

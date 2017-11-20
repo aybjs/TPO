@@ -9,4 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>CambiarEstadoMesa</display-name>
+    <servlet-name>CambiarEstadoMesa</servlet-name>
+    <servlet-class>servlets.CambiarEstadoMesa</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CambiarEstadoMesa</servlet-name>
+    <url-pattern>/CambiarEstadoMesa</url-pattern>
+  </servlet-mapping>
 </web-app>

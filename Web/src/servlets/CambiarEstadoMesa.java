@@ -1,3 +1,5 @@
+package servlets;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,20 +15,25 @@ public class CambiarEstadoMesa extends HttpServlet {
         super();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-    	String nombre = request.getParameter("mesa");
-		if ((nombre != null)) {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String mesa = request.getParameter("mesa");
+		if ((mesa != null)) {
 			response.setContentType("text/xml ");
 			response.setHeader("Cache-Control", "no-cache");
-			response.getWriter().write("AJAX OK" + " para mesa " + nombre);
+			response.getWriter().write("AJAX OK");
 		} else {
 			response.setContentType("text/xml ");
 			response.setHeader("Cache-Control", "no-cache");
 			response.getWriter().write("AJAX OK 2");
 		}
+	
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
