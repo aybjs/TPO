@@ -12,7 +12,5 @@ public class PruebaDaos {
 		Mozo m1 = MozoDAO.getInstance().recuperarMozo(1);
 		System.out.println("id: " + m1.getNroEmpleado() + " nombre: " +m1.getNombre()+" comision: " + m1.getComision() );
 				
-	}
-	
-	
+	}	
 }
