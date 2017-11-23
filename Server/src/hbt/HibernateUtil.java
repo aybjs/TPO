@@ -3,6 +3,7 @@ package hbt;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
+import entities.LoteEntity;
 import entities.MozoEntity;
 
 public class HibernateUtil
@@ -14,6 +15,7 @@ public class HibernateUtil
         {
         	 AnnotationConfiguration config = new AnnotationConfiguration();
         	 config.addAnnotatedClass(MozoEntity.class);
+        	 config.addAnnotatedClass(LoteEntity.class);
         	 sessionFactory = config.buildSessionFactory();
         }
         catch (Throwable ex)
