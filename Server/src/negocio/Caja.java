@@ -6,7 +6,7 @@ import java.util.Vector;
 import enumerators.FormaPago;
 
 public class Caja {
-	
+
 	private float montoDiarioEfectivo;
 	private float montoDiarioInicial;
 	private float montoDiarioTarjeta;
@@ -15,20 +15,20 @@ public class Caja {
 	private Date cierre;
 	private Vector<Factura> facturas;
 	private Vector<Float> comisiones;
-	
-	public Caja(){
+
+	public Caja() {
 		montoDiarioEfectivo = 0;
 		montoDiarioInicial = 0;
 		montoDiarioTarjeta = 0;
 		cantVentasTarjeta = 0;
-		estado = true; //TRUE es abierta
+		estado = true; // TRUE es abierta
 		cierre = null;
 		facturas = new Vector<Factura>();
 		comisiones = new Vector<Float>();
 	}
-	
-	public void CerrarCaja() throws Exception{
-		if (estado){
+
+	public void CerrarCaja() throws Exception {
+		if (estado) {
 			calcularTotales();
 			calcularComisiones();
 			cierre = new Date();
@@ -39,18 +39,18 @@ public class Caja {
 	}
 
 	private void calcularTotales() {
-		for (Factura f : facturas){
+		for (Factura f : facturas) {
 			if (f.getFormaPago() == FormaPago.efectivo)
 				montoDiarioEfectivo = montoDiarioEfectivo + f.calcularTotal();
-			if (f.getFormaPago() == FormaPago.tarjeta){
+			if (f.getFormaPago() == FormaPago.tarjeta) {
 				montoDiarioTarjeta = montoDiarioTarjeta + f.calcularTotal();
 				cantVentasTarjeta++;
 			}
 		}
 	}
-	
-	private void calcularComisiones(){
-		
+
+	private void calcularComisiones() {
+
 	}
 
 	public float getMontoDiarioEfectivo() {
@@ -92,7 +92,5 @@ public class Caja {
 	public void setComisiones(Vector<Float> comisiones) {
 		this.comisiones = comisiones;
 	}
-	
-	
 
 }

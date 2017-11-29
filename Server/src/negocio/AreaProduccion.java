@@ -3,18 +3,18 @@ package negocio;
 import java.util.Vector;
 
 public class AreaProduccion {
-	
+
 	private String nombreArea;
 	private Vector<Tarea> tareas;
-	private int tiempoLibre; //siempre en minutos
-	
+	private int tiempoLibre; // siempre en minutos
+
 	public AreaProduccion(String nombreArea, int tiempoLibre) {
 		this.nombreArea = nombreArea;
 		this.tareas = new Vector<Tarea>();
 		this.tiempoLibre = tiempoLibre;
 	}
-	
-	public void agregarTarea(Tarea tarea){
+
+	public void agregarTarea(Tarea tarea) {
 		tareas.add(tarea);
 	}
 
@@ -37,9 +37,5 @@ public class AreaProduccion {
 	public Vector<Tarea> getTareas() {
 		return tareas;
 	}
-	
-	
-	
-	
 
 }

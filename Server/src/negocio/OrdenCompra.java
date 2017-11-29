@@ -3,21 +3,21 @@ package negocio;
 import java.util.Vector;
 
 public class OrdenCompra {
-	
+
 	private static long id = 0;
-	private Vector<ItemOC> items;
+	private Vector<ItemOCEntity> items;
 	private Proveedor proveedor;
 	private String responsable;
 	private String destino;
-	
+
 	public OrdenCompra() {
 		id++;
-		items = new Vector<ItemOC>();
+		items = new Vector<ItemOCEntity>();
 	}
 
 	public OrdenCompra(Proveedor proveedor, String responsable, String destino) {
 		id++;
-		items = new Vector<ItemOC>();
+		items = new Vector<ItemOCEntity>();
 		this.proveedor = proveedor;
 		this.responsable = responsable;
 		this.destino = destino;
@@ -50,20 +50,13 @@ public class OrdenCompra {
 	public static long getId() {
 		return id;
 	}
-	
-	public void agregarItem(ItemOC item){
+
+	public void agregarItem(ItemOCEntity item) {
 		this.items.add(item);
 	}
 
-	public Vector<ItemOC> getItems() {
+	public Vector<ItemOCEntity> getItems() {
 		return items;
 	}
-	
-	
-	
-	
-	
-	
-	
 
 }

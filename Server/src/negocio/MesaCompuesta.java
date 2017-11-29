@@ -5,16 +5,16 @@ import java.util.Vector;
 import enumerators.*;
 
 public class MesaCompuesta extends Mesa {
-	
+
 	private Vector<Mesa> mesas;
-	
-	public MesaCompuesta (int id, Vector<Mesa> mesas, int personas, Mozo mozo){
+
+	public MesaCompuesta(int id, Vector<Mesa> mesas, int personas, Mozo mozo) {
 		super(id, mesas.elementAt(0).getSector());
-		this.mesas=mesas;
-		super.mozo=mozo;
-		super.cantComen=personas;
+		this.mesas = mesas;
+		super.mozo = mozo;
+		super.cantComen = personas;
 		setEstadoIndividuales(EstadosMesa.combinada);
-		super.estado=EstadosMesa.ocupada;
+		super.estado = EstadosMesa.ocupada;
 	}
 
 	@Override
@@ -45,14 +45,14 @@ public class MesaCompuesta extends Mesa {
 		// TODO Auto-generated method stub
 		for (Mesa m : mesas)
 			m.setEstado(estado);
-		
+
 	}
 
 	@Override
 	public void setEstado(EstadosMesa estado) {
 		// TODO Auto-generated method stub
-		super.estado=estado;
-		
+		super.estado = estado;
+
 	}
 
 }

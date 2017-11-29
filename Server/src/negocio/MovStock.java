@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class MovStock {
-	
+
 	private String origen;
 	private String destino;
 	private boolean entrante;
@@ -13,9 +13,10 @@ public class MovStock {
 	private LocalDate fecha;
 	private String solicitante;
 	private String responsable;
-	
-	public MovStock(String origen, String destino, Producto producto, 
-			String solicitante, String responsable, float cantidad, boolean entrante) {
+
+	public MovStock(String origen, String destino, Producto producto,
+			String solicitante, String responsable, float cantidad,
+			boolean entrante) {
 		this.origen = origen;
 		this.destino = destino;
 		this.entrante = entrante;
@@ -69,8 +70,5 @@ public class MovStock {
 	public String getFecha() {
 		return fecha.toString();
 	}
-	
-	
-	
 
 }

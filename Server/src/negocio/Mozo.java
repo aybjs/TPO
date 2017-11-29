@@ -1,11 +1,11 @@
 package negocio;
 
 public class Mozo {
-	
+
 	private int nroEmpleado;
 	private String nombre;
 	private float comision;
-	
+
 	public Mozo(int nroEmpleado, String nombre, float comision) {
 		this.nroEmpleado = nroEmpleado;
 		this.nombre = nombre;
@@ -35,7 +35,5 @@ public class Mozo {
 	public void setComision(float comision) {
 		this.comision = comision;
 	}
-	
-	
 
 }

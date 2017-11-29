@@ -3,27 +3,28 @@ package negocio;
 import enumerators.FormaPago;
 
 public class Factura {
-	
+
 	private static double nroFactura = 0;
 	private String cliente;
 	private Pedido pedido;
 	private FormaPago formaPago;
-	
-	public Factura(){
+
+	public Factura() {
 		nroFactura++;
-		pedido = null;		
+		pedido = null;
 	}
-	
-	public Factura(String cliente, Pedido pedido, FormaPago formaPago){
+
+	public Factura(String cliente, Pedido pedido, FormaPago formaPago) {
 		nroFactura++;
 		this.pedido = pedido;
 		this.cliente = cliente;
 		this.formaPago = formaPago;
 	}
-	
-	public float calcularTotal(){
-		return pedido.subTotal()*(float)1.21; // le sumo el iva (como para hacer algo) 
-		
+
+	public float calcularTotal() {
+		return pedido.subTotal() * (float) 1.21; // le sumo el iva (como para
+													// hacer algo)
+
 	}
 
 	public static double getNroFactura() {

@@ -1,11 +1,11 @@
 package negocio;
 
 public class Proveedor {
-	
+
 	private int codProveedor;
 	private String razonSocial;
 	private String CUIT;
-	
+
 	public Proveedor(int codProveedor, String razonSocial, String cUIT) {
 		this.codProveedor = codProveedor;
 		this.razonSocial = razonSocial;
@@ -35,7 +35,5 @@ public class Proveedor {
 	public void setCUIT(String cUIT) {
 		CUIT = cUIT;
 	}
-	
-	
 
 }

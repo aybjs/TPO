@@ -3,12 +3,12 @@ package negocio;
 import java.util.Date;
 
 public class Lote {
-	
+
 	private int nro;
 	private Date fechaCompra;
 	private Date fechaVto;
 	private float cantidad;
-	
+
 	public Lote(int nro, Date fechaCompra, Date fechaVto, float cantidad) {
 		super();
 		this.nro = nro;
