@@ -1,10 +1,10 @@
 package negocio;
 
 public class Stock {
-	
+
 	private Producto producto;
 	private float cantidad;
-	
+
 	public Stock(Producto producto, float cantidad) {
 		this.producto = producto;
 		this.cantidad = cantidad;
@@ -21,9 +21,5 @@ public class Stock {
 	public Producto getProducto() {
 		return producto;
 	}
-	
-	
-	
-	
 
 }

@@ -6,7 +6,7 @@ import java.util.Vector;
 import enumerators.SectorEncargado;
 
 public abstract class Producto {
-	
+
 	protected int codigo;
 	protected String nombre;
 	protected SectorEncargado sectorEncargado;
@@ -14,33 +14,41 @@ public abstract class Producto {
 	protected float comisionExtra;
 	protected Vector<Lote> lotes;
 	protected float consumoEstimado;
-	
+
 	public Producto(int codigo, String nombre, int sectorEncargado,
-			float minimo, float comisionExtra, float consumoEstimado) throws Exception {
+			float minimo, float comisionExtra, float consumoEstimado)
+			throws Exception {
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.minimo = minimo;
 		this.comisionExtra = comisionExtra;
 		this.lotes = null;
 		this.consumoEstimado = consumoEstimado;
-		switch (sectorEncargado){
-			case 1: this.sectorEncargado= SectorEncargado.Barra;
-			case 2: this.sectorEncargado=SectorEncargado.Cafeteria;
-			case 3: this.sectorEncargado=SectorEncargado.Cocina;
-			default: throw new Exception("Sector incorrecto");	// probablemente tengamos que hacer una exception específica
+		switch (sectorEncargado) {
+		case 1:
+			this.sectorEncargado = SectorEncargado.Barra;
+		case 2:
+			this.sectorEncargado = SectorEncargado.Cafeteria;
+		case 3:
+			this.sectorEncargado = SectorEncargado.Cocina;
+		default:
+			throw new Exception("Sector incorrecto"); // probablemente tengamos
+														// que hacer una
+														// exception específica
 		}
 	}
-	
-	public void agregarLote(int nro, Date fechaCompra, Date fechaVto, float cantidad){
+
+	public void agregarLote(int nro, Date fechaCompra, Date fechaVto,
+			float cantidad) {
 		this.lotes.add(new Lote(nro, fechaCompra, fechaVto, cantidad));
 	}
-	
+
 	public abstract float getStockActual();
-	
+
 	public abstract float getPrecio();
-	
+
 	public abstract int getTiempoElaboracion();
-		
+
 	public int getCodigo() {
 		return codigo;
 	}
@@ -96,11 +104,5 @@ public abstract class Producto {
 	public void setConsumoEstimado(float consumoEstimado) {
 		this.consumoEstimado = consumoEstimado;
 	}
-	
-	
-	
-	
-	
-	
 
 }
