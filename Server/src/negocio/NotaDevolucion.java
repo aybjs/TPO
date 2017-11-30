@@ -3,14 +3,14 @@ package negocio;
 import java.time.LocalDate;
 
 public class NotaDevolucion {
-	
+
 	private static long id = 0;
 	private Remito remito;
 	private LocalDate fecha;
-	
-	public NotaDevolucion(Remito remito){
+
+	public NotaDevolucion(Remito remito) {
 		id++;
-		this.remito=remito;
+		this.remito = remito;
 		fecha = LocalDate.now();
 	}
 
@@ -29,7 +29,5 @@ public class NotaDevolucion {
 	public Remito getRemito() {
 		return remito;
 	}
-	
-	
 
 }

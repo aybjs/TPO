@@ -1,23 +1,21 @@
 package enumerators;
 
 public enum EstadoTarea {
-	NoIniciado,
-	EnProceso,
-	Finalizado{
+	NoIniciado, EnProceso, Finalizado {
 		@Override
-		public EstadoTarea next(){
+		public EstadoTarea next() {
 			return this;
 		}
 	},
-	Cancelado{
+	Cancelado {
 		@Override
-		public EstadoTarea next(){
+		public EstadoTarea next() {
 			return this;
 		}
 	};
 
 	public EstadoTarea next() {
 		// TODO Auto-generated method stub
-		return values()[ordinal()+1];
+		return values()[ordinal() + 1];
 	}
-	}
+}
