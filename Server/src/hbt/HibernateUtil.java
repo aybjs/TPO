@@ -6,7 +6,7 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import entities.LoteEntity;
 import entities.MozoEntity;
 
-<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
 public class HibernateUtil
 {
     private static final SessionFactory sessionFactory;
@@ -30,8 +30,8 @@ public class HibernateUtil
     {
         return sessionFactory;
     }
-=======
-public class HibernateUtil {
+
+/*public HibernateUtil() {
 	private static final SessionFactory sessionFactory;
 	static {
 		try {
@@ -42,10 +42,9 @@ public class HibernateUtil {
 			System.err.println("Initial SessionFactory creation failed." + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
-	}
 
 	public static SessionFactory getSessionFactory() {
 		return sessionFactory;
-	}
->>>>>>> Stashed changes
+	}*/
+// >>>>>>> Stashed changes
 }

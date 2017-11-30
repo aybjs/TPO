@@ -15,6 +15,8 @@ public class LoteDAO {
 	private static LoteDAO instancia;
 	private static SessionFactory sf;
 	
+	private LoteDAO(){}
+	
 	public static LoteDAO getInstance(){
 		if(instancia==null){
 			instancia = new LoteDAO();

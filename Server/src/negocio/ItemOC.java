@@ -1,15 +1,19 @@
 package negocio;
 
-public class ItemOCEntity {
+public class ItemOC {
 
 	private Producto producto;
 	private float cantidad;
 	private int diasHastaVto;
 
-	public ItemOCEntity(Producto producto, float cantidad, int diasHastaVto) {
+	public ItemOC(Producto producto, float cantidad, int diasHastaVto) {
 		this.producto = producto;
 		this.cantidad = cantidad;
 		this.diasHastaVto = diasHastaVto;
+	}
+
+	public ItemOC() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Producto getProducto() {
