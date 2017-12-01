@@ -47,7 +47,7 @@ public class OrdenCompra {
 		this.destino = destino;
 	}
 
-	public static long getId() {
+	public long getId() {
 		return id;
 	}
 

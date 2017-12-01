@@ -55,13 +55,13 @@ public class OrdenCompraDAO {
 			ItemOCEntity ent = new ItemOCEntity();
 			ent.setCantidad(aux.getCantidad());
 			ent.setDiasHastaVto(aux.getDiasHastaVto());
-			ProductoEntity pe = ProductoDAO.getInstancia().toEntity(aux.getProducto());
+			ProductoEntity pe = ProductoDAO.getInstance().toEntity(aux.getProducto());
 			ent.setProducto(pe);
 			items.add(ent);
 		}
 		oce.setItems(items);
 		
-		return null;
+		return oce;
 	}
 
 	

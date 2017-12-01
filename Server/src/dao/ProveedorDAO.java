@@ -8,7 +8,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import entities.ProveedorEntity;
-import hbt.HibernateUtil;
 import negocio.Proveedor;
 
 public class ProveedorDAO {
@@ -31,6 +30,7 @@ public class ProveedorDAO {
 		List <Proveedor> rta = new ArrayList<Proveedor>();
 		Session sesion = sf.openSession();
 		sesion.beginTransaction();
+		@SuppressWarnings("unchecked")
 		List<ProveedorEntity> aux = (List<ProveedorEntity>) sesion.createQuery("from proveedores").list();
 		for (ProveedorEntity ent : aux){
 			Proveedor p = this.toNegocio(ent);

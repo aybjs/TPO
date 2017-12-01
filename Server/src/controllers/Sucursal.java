@@ -33,7 +33,7 @@ public class Sucursal {
 		else
 			AbrirMesaCompuesta(mesas, mozo, cantPersonas);		
 	}
-	 public GenerarPedido (int nroMesa, )
+	 public GenerarPedido (int nroMesa ){}
 	
 
 
