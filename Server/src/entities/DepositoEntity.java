@@ -39,7 +39,7 @@ public class DepositoEntity {
 		this.responsable = responsable;
 		productos = new Vector<StockEntity>();
 		remitos = new Vector<RemitoEntity>();
-		notasDevolucion = new Vector<NotaDevolucionEntity>();
+		notasDevolucion = new Vector<NotaDevEntity>();
 		movimientos = new Vector<MovStockEntity>();
 	}
 	public Vector<StockEntity> getProductos() {
@@ -54,10 +54,10 @@ public class DepositoEntity {
 	public void setRemitos(Vector<RemitoEntity> remitos) {
 		this.remitos = remitos;
 	}
-	public Vector<NotaDevolucionEntity> getNotasDevolucion() {
+	public Vector<NotaDevEntity> getNotasDevolucion() {
 		return notasDevolucion;
 	}
-	public void setNotasDevolucion(Vector<NotaDevolucionEntity> notasDevolucion) {
+	public void setNotasDevolucion(Vector<NotaDevEntity> notasDevolucion) {
 		this.notasDevolucion = notasDevolucion;
 	}
 	public Vector<MovStockEntity> getMovimientos() {
