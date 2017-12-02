@@ -48,15 +48,10 @@ public class ControladorCentral {
 		sucursal.add(new Sucursal("codigoResto"));
 	}
 	
-	public List<Producto> getComprasPendiente(int idProducto){
-		List<Producto> listProductos = new ArrayList<Producto>();
+	public List<ProductoDTO> getComprasPendiente(int idProducto) throws ComprasPendientesException { 
+		List<ProductoDTO> listProductos = new ArrayList<ProductoDTO>();
 		Producto prod = new Producto();
 		ProductoDAO.getInstance().recuperarProducto(idProducto);
-	public List<ProductoDTO> getComprasPendiente() throws ComprasPendientesException{
-		
-		return listProductos;
-	
-		
 	}
 	
 	public void ingresarProducto(String codigo, int cantidad, int lote, Date vencimiento){
