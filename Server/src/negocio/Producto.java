@@ -17,6 +17,8 @@ public abstract class Producto {
 	protected float comisionExtra;
 	protected Vector<Lote> lotes;
 	protected float consumoEstimado;
+	private Vector<Producto> items;
+	private Vector<Integer> cantItem;
 
 	public Producto(int codigo, String nombre, int sectorEncargado,
 			float minimo, float comisionExtra, float consumoEstimado)
@@ -118,5 +120,28 @@ public abstract class Producto {
 		
 		return p;
 	}
+	public void agregarItem(Producto p) {
+		items.add(p);
+	}
+
+	public String getItems() {
+		String rta = null;
+		for (Producto item : items)
+			rta = rta + item.getNombre() + ", ";
+		return rta;
+	}
+
+	public Vector<Integer> getCantItem() {
+		return cantItem;
+	}
+
+	public void setCantItem(Vector<Integer> cantItem) {
+		this.cantItem = cantItem;
+	}
+
+	public void setItems(Vector<Producto> items) {
+		this.items = items;
+	}
+	
 
 }

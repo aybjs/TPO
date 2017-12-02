@@ -19,6 +19,10 @@ public class ProductoCompuesto extends Producto {
 		this.tiempoElaboracion = tiempo;
 	}
 
+	public ProductoCompuesto() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public float getStockActual() {
 		// TODO Auto-generated method stub
@@ -55,5 +59,19 @@ public class ProductoCompuesto extends Producto {
 			rta = rta + item.getNombre() + ", ";
 		return rta;
 	}
+
+	public Vector<Integer> getCantItem() {
+		return cantItem;
+	}
+
+	public void setCantItem(Vector<Integer> cantItem) {
+		this.cantItem = cantItem;
+	}
+
+	public void setItems(Vector<Producto> items) {
+		this.items = items;
+	}
+	
+	
 
 }

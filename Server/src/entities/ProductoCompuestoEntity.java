@@ -2,6 +2,7 @@ package entities;
 
 import java.util.Vector;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -17,9 +18,9 @@ public class ProductoCompuestoEntity extends ProductoEntity {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	private Vector<ProductoEntity> items;
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	private Vector<Integer> cantItem;
 	@Column(name="tiempoElaboracion")
 	private int tiempoElaboracion; 
