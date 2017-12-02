@@ -3,54 +3,43 @@ package entities;
 import java.util.Date;
 import java.util.Vector;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import enumerators.FormaPago;
 
-public class Caja {
+@Entity
+@Table(name="CajaEntity")
 
+public class CajaEntity {
+
+	@Id
+	@GeneratedValue
+	@Column(name="montoDiarioEfectivo")
 	private float montoDiarioEfectivo;
+	@Column(name=" montoDiarioInicial")
 	private float montoDiarioInicial;
+	@Column(name="montoDiarioTarjeta")
 	private float montoDiarioTarjeta;
+	@Column(name="catVentasTarjeta")
 	private int cantVentasTarjeta;
+	@Column(name="estado")
 	private boolean estado;
+	@Column(name="cierre")
 	private Date cierre;
-	private Vector<Factura> facturas;
+	@OneToMany
+	@JoinColumn(name="nroFactura")
+	private Vector<FacturaEntity> facturas;
+	@OneToMany
+	@JoinColumn(name="nroEmpleado")
 	private Vector<Float> comisiones;
-
-	public Caja() {
-		montoDiarioEfectivo = 0;
-		montoDiarioInicial = 0;
-		montoDiarioTarjeta = 0;
-		cantVentasTarjeta = 0;
-		estado = true; // TRUE es abierta
-		cierre = null;
-		facturas = new Vector<Factura>();
-		comisiones = new Vector<Float>();
-	}
-
-	public void CerrarCaja() throws Exception {
-		if (estado) {
-			calcularTotales();
-			calcularComisiones();
-			cierre = new Date();
-			estado = false;
-		} else {
-			throw new Exception("la caja ya estaba cerrada");
-		}
-	}
-
-	private void calcularTotales() {
-		for (Factura f : facturas) {
-			if (f.getFormaPago() == FormaPago.efectivo)
-				montoDiarioEfectivo = montoDiarioEfectivo + f.calcularTotal();
-			if (f.getFormaPago() == FormaPago.tarjeta) {
-				montoDiarioTarjeta = montoDiarioTarjeta + f.calcularTotal();
-				cantVentasTarjeta++;
-			}
-		}
-	}
-
-	private void calcularComisiones() {
-
+	
+	public CajaEntity(){
 	}
 
 	public float getMontoDiarioEfectivo() {

@@ -5,7 +5,10 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import entities.ProductoEntity;
+import entities.ProductoSimpleEntity;
 import hbt.HibernateUtil;
+import entities.ProductoSimpleEntity;
+import entities.ProductoCompuestoEntity;
 
 public class ProductoDAO {
 	
@@ -23,21 +26,21 @@ public class ProductoDAO {
 	
 	
 	// AGREGAR UN PRODUCTO A LA BASE DE DATOS
-	public void grabarProducto(Producto c) {
+	public void grabarProducto(Producto p) {
 		Session s = sf.openSession();
 		s.beginTransaction();
-		ProductoEntity ce = toEntity(c);
-		s.save(ce);
+		ProductoEntity pe = toEntity(p);
+		s.save(pe);
 		s.flush();
 		s.getTransaction().commit();
 		s.close();
 	}
 
 	// ACTUALIZAR UN PRODUCTO EN LA BASE DE DATOS
-	public void actualizarProducto(Producto c) {
+	public void actualizarProducto(Producto p) {
 		Session s = sf.openSession();
-		ProductoEntity ce = toEntity(c);
-		s.update(ce);
+		ProductoEntity pe = toEntity(p);
+		s.update(pe);
 		s.beginTransaction().commit();
 		s.close();
 	}
@@ -46,9 +49,17 @@ public class ProductoDAO {
 	public Producto recuperarProducto(Integer idProducto) {
 		Session s = sf.openSession();
 		s.beginTransaction();
-		Query q = s.createQuery("FROM ProductoEntity WHERE codigo=?");
+		Query q = s.createQuery("FROM ProductoEntity WHERE codigo=? and tipoProducto = 'Compuesto'");
 		q.setParameter(0, idProducto);
-		ProductoEntity pe = (ProductoEntity) q.uniqueResult();
+		ProductoEntity aux = (ProductoEntity) q.uniqueResult();
+		ProductoEntity pe;
+		if(aux!=null){
+			pe = (ProductoCompuestoEntity) q.uniqueResult();
+		} else {
+			q = s.createQuery("FROM ProductoEntity WHERE codigo=? and tipoProducto = 'Simple'");
+			q.setParameter(0, idProducto);
+			pe = (ProductoSimpleEntity) q.uniqueResult();
+		}
 		Producto p = this.toNegocio(pe);
 		s.flush();
 		s.getTransaction().commit();
@@ -56,13 +67,18 @@ public class ProductoDAO {
 		return p;
 	}
 
-	private Producto toNegocio(ProductoEntity pe) {
-		if(pe.get)
+	public Producto toNegocio(ProductoEntity pe) {
+		Producto p;
+		if(pe instanceof ProductoSimpleEntity){
+			
+			
+			
+		}
 		
 		return p;
 	}
 
-	private ProductoEntity toEntity(Producto p) {
+	public ProductoEntity toEntity(Producto p) {
 		ProductoEntity pe = new ProductoEntity();
 
 		return pe;

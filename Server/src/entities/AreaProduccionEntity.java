@@ -12,24 +12,28 @@ import javax.persistence.Table;
 @Entity
 @Table(name="AreaProduccion")
 
-public class AreaProduccion {
+public class AreaProduccionEntity {
 
 	@Id
 	@Column(name="nombreArea")
 	private String nombreArea;
 	@OneToOne
 	@JoinColumn(name="id")
-	private Vector<Tarea> tareas;
+	private Vector<TareaEntity> tareas;
 	@Column(name="tiempoLibre")
 	private int tiempoLibre; // siempre en minutos
 
-	public AreaProduccion(String nombreArea, int tiempoLibre) {
+	public AreaProduccionEntity(){
+		
+	}
+	
+	public AreaProduccionEntity(String nombreArea, int tiempoLibre) {
 		this.nombreArea = nombreArea;
-		this.tareas = new Vector<Tarea>();
+		this.tareas = new Vector<TareaEntity>();
 		this.tiempoLibre = tiempoLibre;
 	}
 
-	public void agregarTarea(Tarea tarea) {
+	public void agregarTarea(TareaEntity tarea) {
 		tareas.add(tarea);
 	}
 
@@ -49,7 +53,7 @@ public class AreaProduccion {
 		this.tiempoLibre = tiempoLibre;
 	}
 
-	public Vector<Tarea> getTareas() {
+	public Vector<TareaEntity> getTareas() {
 		return tareas;
 	}
 

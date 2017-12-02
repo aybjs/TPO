@@ -8,7 +8,7 @@ import enumerators.*;
 import negocio.Lote;
 
 @Entity
-@DiscriminatorValue(value="prodSimple")
+@DiscriminatorValue(value="Simple")
 public class ProductoSimpleEntity extends ProductoEntity {
 
 	/**
