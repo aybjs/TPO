@@ -1,4 +1,3 @@
-
 package controllers;
 
 import java.util.ArrayList;
@@ -49,6 +48,7 @@ public class ControladorCentral {
 	public List<ProductoDTO> getComprasPendiente() throws ComprasPendientesException { 
 		return null;
 	}
+	
 	public List<ProductoDTO> getProductos(int idProducto) { 
 		List<ProductoDTO> listProductos = new ArrayList<ProductoDTO>();
 		Producto prod = ProductoDAO.getInstance().recuperarProducto(idProducto);
