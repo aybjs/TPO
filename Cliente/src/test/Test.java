@@ -8,7 +8,7 @@ public class Test {
 	{
 		try{
 			BusinessDelegate sys = BusinessDelegate.getInstancia();			
-			System.out.println(sys.test("hola"));
+			System.out.println(sys.test("ghghghjhjgg"));
 		} 
 		catch(Exception e){
 			e.printStackTrace();

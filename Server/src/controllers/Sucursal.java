@@ -6,14 +6,22 @@ import negocio.*;
 
 public class Sucursal {
 	
+	@SuppressWarnings("unused")
 	private String codigoResto;
-	private Vector<Mesa> mesas; 
+	@SuppressWarnings("unused")
+	private Vector<Mesa> mesas;
+	@SuppressWarnings("unused")
 	private Caja caja;
+	@SuppressWarnings("unused")
 	private Deposito deposito;
+	@SuppressWarnings("unused")
 	private Carta carta;
+	@SuppressWarnings("unused")
 	private Vector<Mozo> mozos; //los mozos se cargan de la DB cuando se abre la app
+	@SuppressWarnings("unused")
 	private Vector<Pedido> pedidos; //sigo pensando que los pedidos van en la mesa
-	
+
+	@SuppressWarnings("unused")
 	public Sucursal(String codigoResto){
 		this.codigoResto = codigoResto;
 		mesas = new Vector<Mesa>();
@@ -32,12 +40,9 @@ public class Sucursal {
 		else
 			AbrirMesaCompuesta(mesas, mozo, cantPersonas);		
 	}
-	 public GenerarPedido (int nroMesa, )
-	
-	/* Qued� incompleto
-	public GenerarPedido (int nroMesa, )
-	*/
-
+	 public void GenerarPedido (int nroMesa, Vector<Pedido> pedidos ){
+		 //FALTA
+	 }
 
 	/***** Metodos privados *****/
 	
