@@ -34,25 +34,13 @@ public class CajaEntity {
 	private Date cierre;
 	@OneToMany
 	@JoinColumn(name="nroFactura")
-	private Vector<Factura> facturas;
+	private Vector<FacturaEntity> facturas;
 	@OneToMany
 	@JoinColumn(name="nroEmpleado")
 	private Vector<Float> comisiones;
 	
 	public CajaEntity(){
 	}
-
-	/*public CajaEntity() {
-		this.montoDiarioEfectivo = 0;
-		this.montoDiarioInicial = 0;
-		this.montoDiarioTarjeta = 0;
-		this.cantVentasTarjeta = 0;
-		this.estado = true; // TRUE es abierta
-		this.cierre = null;
-		this.facturas = new Vector<Factura>();
-		this.comisiones = new Vector<Float>();
-	}*/
-
 
 	public float getMontoDiarioEfectivo() {
 		return montoDiarioEfectivo;
