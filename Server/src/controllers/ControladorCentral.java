@@ -1,26 +1,24 @@
+
 package controllers;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import dao.ProductoDAO;
+import dao.*;
 import exceptions.*;
 import dto.*;
 import negocio.*;
 
+@SuppressWarnings("unused")
 public class ControladorCentral {
 	
 	private static ControladorCentral instancia;
-	@SuppressWarnings("unused")
 	private List<Tarea> planProduccion;
-	@SuppressWarnings("unused")
 	private List<Proveedor> proveedor;
 	private List<Deposito> deposito;
 	private List<Sucursal> sucursal;
-	@SuppressWarnings("unused")
 	private List<OrdenCompra> ordenCompra;
-	@SuppressWarnings("unused")
 	private String codigoResto; // hay que hacer algo con esto, ingresarlo en algún lugar a mano.
 	
 	private ControladorCentral (){
@@ -44,18 +42,18 @@ public class ControladorCentral {
 		//Cargamos los datos de la base de datos
 		
 		//Y le agregamos...
-		deposito.add(new Deposito("responsable"));
-		sucursal.add(new Sucursal("codigoResto"));
+		//deposito.add(new Deposito("responsable"));
+		//sucursal.add(new Sucursal("codigoResto"));
 	}
 	
 	public List<ProductoDTO> getComprasPendiente() throws ComprasPendientesException { 
 		return null;
 	}
-	
 	public List<ProductoDTO> getProductos(int idProducto) { 
 		List<ProductoDTO> listProductos = new ArrayList<ProductoDTO>();
-		Producto prod = ProductoDAO.getInstance().recuperarProducto(idProducto);
 		return listProductos;
+		Producto prod = ProductoDAO.getInstance().recuperarProducto(idProducto);
+	
 	}
 	
 	public void ingresarProducto(String codigo, int cantidad, int lote, Date vencimiento){
@@ -88,7 +86,7 @@ public class ControladorCentral {
 	
 	public List<ReposicionDTO> recibirListaReposicion(List<ReposicionDTO> lista){
 		return lista;
-	}// de donde viene esta lista???
+	}
 	
 	public void crearOC(){
 		
