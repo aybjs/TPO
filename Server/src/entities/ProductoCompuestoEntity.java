@@ -2,13 +2,13 @@ package entities;
 
 import java.util.Vector;
 
-public class ProductoCompuesto extends Producto {
+public class ProductoCompuestoEntity extends Producto {
 
 	private Vector<Producto> items;
 	private Vector<Integer> cantItem;
 	private int tiempoElaboracion; // siempre en minutos
 
-	public ProductoCompuesto(int codigo, String nombre, int sectorEncargado,
+	public ProductoCompuestoEntity(int codigo, String nombre, int sectorEncargado,
 			float minimo, float comisionExtra, float consumoEstimado, int tiempo)
 			throws Exception {
 		super(codigo, nombre, sectorEncargado, minimo, comisionExtra,

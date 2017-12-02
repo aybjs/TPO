@@ -4,7 +4,11 @@ import java.io.Serializable;
 import java.util.Vector;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -15,8 +19,10 @@ import enumerators.SectorEncargado;
 import negocio.Lote;
 
 @Entity
-@Table(name="Productos")
-public class ProductoEntity implements Serializable {
+@Table(name="productos")  // tabla unica
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="tipoProducto", discriminatorType=DiscriminatorType.STRING)
+public abstract class ProductoEntity implements Serializable {
 
 	/**
 	 * 
@@ -43,7 +49,6 @@ public class ProductoEntity implements Serializable {
 	
 	public ProductoEntity(int codigo, String nombre, SectorEncargado sectorEncargado, float minimo, float comisionExtra,
 			Vector<Lote> lotes, float consumoEstimado) {
-		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.sectorEncargado = sectorEncargado;
@@ -54,10 +59,24 @@ public class ProductoEntity implements Serializable {
 	}
 	
 	
-	
-	public ProductoEntity() {
-		super();
+
+
+
+
+
+	public ProductoEntity(int codigo2, String nombre2, SectorEncargado sectorEncargado2, float minimo2, float comisionExtra2,
+			float consumoEstimado2) {
+		this.codigo = codigo2;
+		this.nombre = nombre2;
+		this.sectorEncargado = sectorEncargado2;
+		this.minimo = minimo2;
+		this.comisionExtra = comisionExtra2;
+		this.consumoEstimado = consumoEstimado2;
 	}
+
+
+
+
 
 
 
