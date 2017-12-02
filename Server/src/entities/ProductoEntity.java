@@ -45,7 +45,9 @@ public abstract class ProductoEntity implements Serializable {
 	@Column(name="consumoEstimado")
 	private float consumoEstimado;
 	
-	
+	public ProductoEntity(){
+		
+	}
 	
 	public ProductoEntity(int codigo, String nombre, SectorEncargado sectorEncargado, float minimo, float comisionExtra,
 			Vector<Lote> lotes, float consumoEstimado) {
