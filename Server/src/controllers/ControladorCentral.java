@@ -9,9 +9,6 @@ import negocio.*;
 
 public class ControladorCentral {
 	
-	/////////////////ALERTA////////////////
-	//Se están pasando objetos de negocio en funciones PUBLIC!!!!!
-	
 	private List<Tarea> planProduccion;
 	private List<Proveedor> proveedor;
 	private List<Deposito> deposito;
@@ -39,10 +36,10 @@ public class ControladorCentral {
 	}
 	
 	public List<Producto> getComprasPendiente(){
-		
 		return null;
 		
 	}
+	
 	public void ingresarProducto(String codigo, int cantidad, int lote, Date vencimiento){
 		
 	}

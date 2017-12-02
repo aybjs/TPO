@@ -41,17 +41,11 @@ public class MozoDAO {
 		s.beginTransaction().commit();
 		s.close();
 	}
-<<<<<<< HEAD
 	
-	//RECUPERAR UN MOZO DE LA BASE DE DATOS
-	public Mozo recuperarMozo(Integer idMozo) throws SinMozosException{	
-		Mozo c;
-=======
-
 	// RECUPERAR UN MOZO DE LA BASE DE DATOS
-	public Mozo recuperarMozo(Integer idMozo) {
->>>>>>> master
+	public Mozo recuperarMozo(Integer idMozo) throws SinMozosException {
 		Session s = sf.openSession();
+		Mozo c;
 		s.beginTransaction();
 		Query q = s.createQuery("FROM MozoEntity WHERE nroEmpleado=?");
 		q.setParameter(0, idMozo);

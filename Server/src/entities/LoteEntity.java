@@ -8,9 +8,6 @@ import javax.persistence.*;
 @Table(name="Lotes")
 public class LoteEntity implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
