@@ -6,14 +6,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Mozos")
 public class MozoEntity implements Serializable {
-<<<<<<< HEAD
 	
-=======
-
-	/**
-	 * 
-	 */
->>>>>>> master
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -50,15 +43,6 @@ public class MozoEntity implements Serializable {
 	public void setComision(Float comision) {
 		this.comision = comision;
 	}
-<<<<<<< HEAD
-	
-	
-	
-	
-	
-	
-}
-=======
->>>>>>> master
+
 
 }

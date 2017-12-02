@@ -1,9 +1,9 @@
 package entities;
 
-public class ItemPedido {
+public class ItemPedidoEntity {
 
 	private static double id = 0; // me parece que esto no va
-	private Producto producto;
+	private ProductoEntity producto;
 	private int cantidad;
 	private String facturable;
 	private String estado;
