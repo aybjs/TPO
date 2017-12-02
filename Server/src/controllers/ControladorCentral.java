@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import dto.*;
+import dao.ProductoDAO;
 import exceptions.*;
+import dto.*;
 import negocio.*;
 
 public class ControladorCentral {
@@ -47,8 +48,14 @@ public class ControladorCentral {
 		sucursal.add(new Sucursal("codigoResto"));
 	}
 	
+	public List<Producto> getComprasPendiente(int idProducto){
+		List<Producto> listProductos = new ArrayList<Producto>();
+		Producto prod = new Producto();
+		ProductoDAO.getInstance().recuperarProducto(idProducto);
 	public List<ProductoDTO> getComprasPendiente() throws ComprasPendientesException{
-		return null;
+		
+		return listProductos;
+	
 		
 	}
 	

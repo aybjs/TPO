@@ -80,7 +80,6 @@ public class ProductoDAO {
 
 	public ProductoEntity toEntity(Producto p) {
 		ProductoEntity pe = new ProductoEntity();
-
 		return pe;
 	}
 	
