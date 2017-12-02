@@ -3,7 +3,7 @@ package entities;
 import java.util.Vector;
 import javax.persistence.*;
 
-import negocio.ItemOCEntity;
+import negocio.ItemOC;
 import negocio.Proveedor;
 
 @Entity
@@ -19,7 +19,7 @@ public class OrdenCompraEntity {
 	@OneToMany
 	private Vector<ItemOCEntity> items;
 	@OneToOne
-	private Proveedor proveedor;
+	private ProveedorEntity proveedor;
 	private String responsable;
 	private String destino;
 	
@@ -41,11 +41,11 @@ public class OrdenCompraEntity {
 		this.items = items;
 	}
 
-	public Proveedor getProveedor() {
+	public ProveedorEntity getProveedor() {
 		return proveedor;
 	}
 
-	public void setProveedor(Proveedor proveedor) {
+	public void setProveedor(ProveedorEntity proveedor) {
 		this.proveedor = proveedor;
 	}
 

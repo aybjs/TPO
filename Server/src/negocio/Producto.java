@@ -37,6 +37,9 @@ public abstract class Producto {
 														// exception específica
 		}
 	}
+	
+	public Producto(){};
+
 
 	public void agregarLote(int nro, Date fechaCompra, Date fechaVto,
 			float cantidad) {

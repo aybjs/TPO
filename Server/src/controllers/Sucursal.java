@@ -32,8 +32,9 @@ public class Sucursal {
 		else
 			AbrirMesaCompuesta(mesas, mozo, cantPersonas);		
 	}
+	 public GenerarPedido (int nroMesa, )
 	
-	/* Quedó incompleto
+	/* Quedï¿½ incompleto
 	public GenerarPedido (int nroMesa, )
 	*/
 
