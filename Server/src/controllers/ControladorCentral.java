@@ -4,19 +4,25 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import dto.ReposicionDTO;
+import dto.*;
+import exceptions.*;
 import negocio.*;
 
 public class ControladorCentral {
 	
+	private static ControladorCentral instancia;
+	@SuppressWarnings("unused")
 	private List<Tarea> planProduccion;
+	@SuppressWarnings("unused")
 	private List<Proveedor> proveedor;
 	private List<Deposito> deposito;
 	private List<Sucursal> sucursal;
+	@SuppressWarnings("unused")
 	private List<OrdenCompra> ordenCompra;
+	@SuppressWarnings("unused")
 	private String codigoResto; // hay que hacer algo con esto, ingresarlo en algún lugar a mano.
 	
-	public ControladorCentral (){
+	private ControladorCentral (){
 		planProduccion = new ArrayList<Tarea>();
 		proveedor = new ArrayList<Proveedor>();
 		deposito = new ArrayList<Deposito>();
@@ -24,6 +30,12 @@ public class ControladorCentral {
 		ordenCompra = new ArrayList<OrdenCompra>();
 		
 		init();
+	}
+	
+	public static ControladorCentral getInstancia(){
+		if(instancia == null)
+			instancia = new ControladorCentral();
+		return instancia;
 	}
 	
 	private void init(){
@@ -35,7 +47,7 @@ public class ControladorCentral {
 		sucursal.add(new Sucursal("codigoResto"));
 	}
 	
-	public List<Producto> getComprasPendiente(){
+	public List<ProductoDTO> getComprasPendiente() throws ComprasPendientesException{
 		return null;
 		
 	}
@@ -88,4 +100,7 @@ public class ControladorCentral {
 		
 	}
 	
+	public String test(String aux) {
+		return "chau";
+	}
 }
