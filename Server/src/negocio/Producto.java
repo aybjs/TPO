@@ -1,8 +1,11 @@
 package negocio;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Vector;
 
+import dto.LoteDTO;
+import dto.*;
 import enumerators.SectorEncargado;
 
 public abstract class Producto {
@@ -34,7 +37,7 @@ public abstract class Producto {
 		default:
 			throw new Exception("Sector incorrecto"); // probablemente tengamos
 														// que hacer una
-														// exception específica
+														// exception especï¿½fica
 		}
 	}
 	
@@ -106,6 +109,14 @@ public abstract class Producto {
 
 	public void setConsumoEstimado(float consumoEstimado) {
 		this.consumoEstimado = consumoEstimado;
+	}
+	public ProductoDTO toProdDTO(Producto prod){
+		ProductoDTO p = new ProductoDTO(prod.getCodigo(), prod.getStockActual(), prod.getPrecio(), prod.getNombre(),prod.getSectorEncargado(), prod.getMinimo(), prod.getComisionExtra(), prod.getLotes(), prod.getConsumoEstimado());
+		
+		//(p.setCodigo(prod.getCodigo()), p.setStock(prod.getStockActual()), p.setPrecio(prod.getPrecio()), p.setNombre(prod.getNombre()),p.setSectorEncargado(prod.getSectorEncargado()), p.setMinimo(prod.getMinimo()), p.setComisionExtra(prod.getComisionExtra()), p.setLotes(prod.getLotes()), p.setConsumoEstimado(prod.getConsumoEstimado()));
+		//(int codigo, float stock, float precio, String nombre, String sectorEncargado, float minimo, float comisionExtra, List<LoteDTO> lotes, float consumoEstimado)
+		
+		return p;
 	}
 
 }

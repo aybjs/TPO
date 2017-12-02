@@ -2,6 +2,11 @@ package dto;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Vector;
+
+
+
+
 
 public abstract class ProductoDTO  implements Serializable {
 
@@ -16,6 +21,10 @@ public abstract class ProductoDTO  implements Serializable {
 	private List<LoteDTO> lotes;
 	private float consumoEstimado;
 	private float stock;
+	
+	public ProductoDTO(){
+		
+	}
 	
 	public ProductoDTO(int codigo, float stock, float precio, String nombre, String sectorEncargado, float minimo, float comisionExtra, List<LoteDTO> lotes, float consumoEstimado) throws Exception {
 		this.codigo = codigo;
@@ -65,5 +74,42 @@ public abstract class ProductoDTO  implements Serializable {
 	public float getConsumoEstimado() {
 		return consumoEstimado;
 	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public void setPrecio(float precio) {
+		this.precio = precio;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setSectorEncargado(String sectorEncargado) {
+		this.sectorEncargado = sectorEncargado;
+	}
+
+	public void setMinimo(float minimo) {
+		this.minimo = minimo;
+	}
+
+	public void setComisionExtra(float comisionExtra) {
+		this.comisionExtra = comisionExtra;
+	}
+
+	public void setLotes(List<LoteDTO> vector) {
+		this.lotes = vector;
+	}
+
+	public void setConsumoEstimado(float consumoEstimado) {
+		this.consumoEstimado = consumoEstimado;
+	}
+
+	public void setStock(float stock) {
+		this.stock = stock;
+	}
+
 }
 

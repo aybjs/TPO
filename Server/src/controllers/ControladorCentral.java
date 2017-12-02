@@ -51,9 +51,8 @@ public class ControladorCentral {
 	}
 	public List<ProductoDTO> getProductos(int idProducto) { 
 		List<ProductoDTO> listProductos = new ArrayList<ProductoDTO>();
-		return listProductos;
 		Producto prod = ProductoDAO.getInstance().recuperarProducto(idProducto);
-	
+		return listProductos;
 	}
 	
 	public void ingresarProducto(String codigo, int cantidad, int lote, Date vencimiento){
