@@ -1,7 +1,6 @@
 package negocio;
 
 import java.util.Date;
-import java.util.List;
 
 import dto.LoteDTO;
 
@@ -51,9 +50,10 @@ public class Lote {
 	public void setCantidad(float cantidad) {
 		this.cantidad = cantidad;
 	}
-	public LoteDTO toLoteDTO(List<Lote> lote){
-		LoteDTO aux = new ;
-		
+	
+	public LoteDTO toLoteDTO(){
+		LoteDTO aux = new LoteDTO(this.getNro(), this.getFechaCompra(), this.getFechaVto(), this.getCantidad());		
 		return aux;
 	}
+	
 }

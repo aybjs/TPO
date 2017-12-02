@@ -4,11 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Vector;
 
-
-
-
-
-public abstract class ProductoDTO  implements Serializable {
+public class ProductoDTO  implements Serializable {
 
 	private static final long serialVersionUID = 1066814429833576979L;
 		
@@ -18,7 +14,7 @@ public abstract class ProductoDTO  implements Serializable {
 	private String sectorEncargado;
 	private float minimo;
 	private float comisionExtra;
-	private List<LoteDTO> lotes;
+	private Vector<LoteDTO> lotes;
 	private float consumoEstimado;
 	private float stock;
 	
@@ -26,7 +22,7 @@ public abstract class ProductoDTO  implements Serializable {
 		
 	}
 	
-	public ProductoDTO(int codigo, float stock, float precio, String nombre, String sectorEncargado, float minimo, float comisionExtra, List<LoteDTO> lotes, float consumoEstimado) throws Exception {
+	public ProductoDTO(int codigo, float stock, float precio, String nombre, String sectorEncargado, float minimo, float comisionExtra, Vector<LoteDTO> lotes, float consumoEstimado) throws Exception {
 		this.codigo = codigo;
 		this.precio = precio;
 		this.nombre = nombre;
@@ -99,7 +95,7 @@ public abstract class ProductoDTO  implements Serializable {
 		this.comisionExtra = comisionExtra;
 	}
 
-	public void setLotes(List<LoteDTO> vector) {
+	public void setLotes(Vector<LoteDTO> vector) {
 		this.lotes = vector;
 	}
 
