@@ -27,6 +27,9 @@ public class ProductoSimple extends Producto {
 		}
 	}
 
+	public ProductoSimple() {
+	}
+
 	@Override
 	public float getStockActual() {
 		float stock = 0;

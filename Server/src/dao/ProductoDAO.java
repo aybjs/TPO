@@ -1,6 +1,9 @@
 package dao;
 
 import negocio.Producto;
+import negocio.ProductoCompuesto;
+import negocio.ProductoSimple;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -70,10 +73,28 @@ public class ProductoDAO {
 	public Producto toNegocio(ProductoEntity pe) {
 		Producto p;
 		if(pe instanceof ProductoSimpleEntity){
-			
-			
+			ProductoSimple ps = new ProductoSimple();
+			ps = new ProductoSimple();
+			ps.setCodigo(pe.getCodigo());
+			ps.setComisionExtra(pe.getComisionExtra());
+			ps.setConsumoEstimado(pe.getConsumoEstimado());
+			//ps.setLotes(pe.getLotes());
+			ps.setMinimo(pe.getMinimo());
+			ps.setNombre(pe.getNombre());
+			//p.setSectorEncargado(pe.getSectorEncargado());
+		}else{
+			ProductoCompuesto pc = new ProductoCompuesto();
+			pc.setCodigo(pe.getCodigo());
+			pc.setComisionExtra(pe.getComisionExtra());
+			pc.setConsumoEstimado(pe.getConsumoEstimado());
+			//p.setLotes(pe.getLotes());
+			pc.setMinimo(pe.getMinimo());
+			pc.setNombre(pe.getNombre());
+			pc.setSectorEncargado(pe.getSectorEncargado());
+			pc.setCantItem(pe.get);
 			
 		}
+		
 		
 		return p;
 	}
