@@ -60,12 +60,12 @@ public class LoteDAO {
 		return c;
 	}
 	
-	private Lote toNegocio(LoteEntity le) {
+	public Lote toNegocio(LoteEntity le) {
 		Lote l = new Lote(le.getNroLote(),le.getFechaCompra(),le.getFechaVenta(),le.getCantidad());
 		return l;
 	}
 
-	private LoteEntity toEntity(Lote l) {
+	public LoteEntity toEntity(Lote l) {
 		LoteEntity le = new LoteEntity();
 		le.setCantidad(l.getCantidad());
 		le.setFechaCompra(l.getFechaCompra());

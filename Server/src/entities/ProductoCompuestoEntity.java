@@ -1,5 +1,6 @@
 package entities;
 
+import java.util.List;
 import java.util.Vector;
 
 import javax.persistence.CascadeType;
@@ -14,6 +15,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import negocio.Lote;
+
 
 
 @Entity
@@ -21,18 +24,21 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 public class ProductoCompuestoEntity extends ProductoEntity {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
-	@ManyToMany(cascade=CascadeType.ALL)
+	/*@ManyToMany(cascade=CascadeType.ALL)
 	@LazyCollection(LazyCollectionOption.FALSE) 
 	@JoinTable(name="items",joinColumns=@JoinColumn (name="IDProdComp",referencedColumnName="codigo"),inverseJoinColumns=@JoinColumn(name="IDProdSimple",referencedColumnName="codigo"))
 	private Vector<ProductoSimpleEntity> items;
+	*/
 	//@OneToMany(cascade=CascadeType.ALL)
 	//private Vector<Integer> cantItem;
 	@Column(name="tiempoElaboracion")
 	private int tiempoElaboracion; 
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="nroLote1")
+	private List<LoteEntity> lotes;
+	
 	
 	public ProductoCompuestoEntity(int codigo, String nombre, String sectorEncargado,
 			float minimo, float comisionExtra, float consumoEstimado, int tiempo, float precio)
@@ -67,6 +73,18 @@ public class ProductoCompuestoEntity extends ProductoEntity {
 
 	public void setTiempoElaboracion(int tiempoElaboracion) {
 		this.tiempoElaboracion = tiempoElaboracion;
-	}	
+	}
+	
+	public void addLote(LoteEntity l){
+		this.lotes.add(l);
+	}
+	
+	public List<LoteEntity> getLotes() {
+		return lotes;
+	}
+	public void setLotes(Vector<LoteEntity> lotes) {
+		this.lotes = lotes;
+	}
+	
 
 }
