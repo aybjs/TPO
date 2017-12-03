@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
+import com.sun.scenario.effect.impl.prism.PrDrawable;
+
 import dao.*;
 import enumerators.EstadosMesa;
 import exceptions.*;
@@ -47,9 +49,10 @@ public class ControladorCentral {
 		//sucursal.add(new Sucursal("codigoResto"));
 		
 		Carta carta = new Carta();
-		Producto p = null;
+		Vector<ProductoCompuesto> pc = new Vector<ProductoCompuesto>();
 		//Vector<ProductoCompuesto> carta = new Vector<ProductoCompuesto>();
-		carta.agregarProducto(ProductoCompuestoDAO.getInstance().recuperarProductos()); 
+		pc=ProductoCompuestoDAO.getInstance().recuperarProductos();
+		carta.agregarProducto(pc); 
 		
 		/*for (int idProducto= 0; idProducto<100; idProducto++){ 
 			p = ProductoDAO.getInstance().recuperarProducto(idProducto);
