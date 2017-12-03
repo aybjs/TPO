@@ -45,9 +45,10 @@ public abstract class ProductoEntity implements Serializable {
 	private float minimo;
 	@Column(name="comisionExtra")
 	private float comisionExtra;
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="codigo")
+	/*@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="nroLote1")
 	private Vector<LoteEntity> lotes;
+	*/
 	@Column(name="consumoEstimado")
 	private float consumoEstimado;
 	@Column(name="precio")
@@ -64,7 +65,7 @@ public abstract class ProductoEntity implements Serializable {
 		this.sectorEncargado = sectorEncargado;
 		this.minimo = minimo;
 		this.comisionExtra = comisionExtra;
-		this.lotes = lotes;
+		//this.lotes = lotes;
 		this.consumoEstimado = consumoEstimado;
 		this.precio = precio;
 	}
@@ -122,12 +123,14 @@ public abstract class ProductoEntity implements Serializable {
 	public void setComisionExtra(float comisionExtra) {
 		this.comisionExtra = comisionExtra;
 	}
+	/*
 	public Vector<LoteEntity> getLotes() {
 		return lotes;
 	}
 	public void setLotes(Vector<LoteEntity> lotes) {
 		this.lotes = lotes;
 	}
+	*/
 	public float getConsumoEstimado() {
 		return consumoEstimado;
 	}
@@ -143,9 +146,11 @@ public abstract class ProductoEntity implements Serializable {
 		this.precio = precio;
 	}
 	
+	/*
 	public void addLote(LoteEntity l){
 		this.lotes.addElement(l);
 	}
+	*/
 	
 	
 	
