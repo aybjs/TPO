@@ -46,7 +46,7 @@ public abstract class ProductoEntity implements Serializable {
 	@Column(name="comisionExtra")
 	private float comisionExtra;
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="nroLote1")
+	@JoinColumn(name="codigo")
 	private Vector<LoteEntity> lotes;
 	@Column(name="consumoEstimado")
 	private float consumoEstimado;
