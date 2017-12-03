@@ -16,6 +16,10 @@ public class Sucursal {
 	private Vector<Mozo> mozos; //los mozos se cargan de la DB cuando se abre la app
 	private Vector<Pedido> pedidos; //sigo pensando que los pedidos van en la mesa
 
+	public Sucursal(){
+		
+	}
+	
 	public Sucursal(String codigoResto){
 		this.codigoResto = codigoResto;
 		mesas = new Vector<Mesa>();
@@ -86,6 +90,70 @@ public class Sucursal {
 	private void AbrirMesaCompuesta(Vector<Integer> mesas2, Mozo mozo, int cantPersonas) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public String getCodigoResto() {
+		return codigoResto;
+	}
+
+	public void setCodigoResto(String codigoResto) {
+		this.codigoResto = codigoResto;
+	}
+
+	public Vector<Mesa> getMesas() {
+		return mesas;
+	}
+
+	public void setMesas(Vector<Mesa> mesas) {
+		this.mesas = mesas;
+	}
+
+	public Caja getCaja() {
+		return caja;
+	}
+
+	public void setCaja(Caja caja) {
+		this.caja = caja;
+	}
+
+	public Deposito getDeposito() {
+		return deposito;
+	}
+
+	public void setDeposito(Deposito deposito) {
+		this.deposito = deposito;
+	}
+
+	public Carta getCarta() {
+		return carta;
+	}
+
+	public void setCarta(Carta carta) {
+		this.carta = carta;
+	}
+
+	public Vector<AreaProduccion> getAreas() {
+		return areas;
+	}
+
+	public void setAreas(Vector<AreaProduccion> areas) {
+		this.areas = areas;
+	}
+
+	public Vector<Mozo> getMozos() {
+		return mozos;
+	}
+
+	public void setMozos(Vector<Mozo> mozos) {
+		this.mozos = mozos;
+	}
+
+	public Vector<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(Vector<Pedido> pedidos) {
+		this.pedidos = pedidos;
 	}
 
 

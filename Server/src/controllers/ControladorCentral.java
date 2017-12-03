@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Vector;
 
 import dao.*;
+import enumerators.EstadosMesa;
 import exceptions.*;
 import dto.*;
 import negocio.*;
@@ -44,16 +45,37 @@ public class ControladorCentral {
 		//Y le agregamos...
 		//deposito.add(new Deposito("responsable"));
 		//sucursal.add(new Sucursal("codigoResto"));
+		Sucursal s1= new Sucursal("1000");
+		Vector<Mesa> mesas = new Vector<Mesa>();
+		for (int i=0; i< 5; i++){
+			Mesa mesa = null;
+			mesa.setId(1);
+			mesa.setCantComen(4);
+			mesa.setSector("Central");
+			mesas.add(mesa);
+		}
+		for (int i=0; i< 5; i++){
+			Mesa mesa = null;
+			mesa.setId(1);
+			mesa.setCantComen(6);
+			mesa.setSector("Lateral Izquierdo");
+			mesas.add(mesa);
+		}
+		s1.setMesas(mesas);
+		Carta carta = new Carta();
+		carta.
+		s1.setCarta();
+		sucursales.add(s1);
 	}
 	
 	public List<ProductoDTO> getComprasPendiente() throws ComprasPendientesException { 
 		return null;
 	}
 	
-	public List<ProductoDTO> getProductos(int idProducto) { 
+	public ProductoDTO getProductos(int idProducto) { 
 		List<ProductoDTO> listProductos = new ArrayList<ProductoDTO>();
 		Producto prod = ProductoDAO.getInstance().recuperarProducto(idProducto);
-		return listProductos;
+		return prod.toProdDTO();
 	}
 	
 	public void ingresarProducto(String codigo, int cantidad, int lote, Date vencimiento){
@@ -123,6 +145,6 @@ public class ControladorCentral {
 	}
 	
 	public String test(String aux) {
-		return "Llegó al controlador";
+		return "Llegï¿½ al controlador";
 	}
 }
