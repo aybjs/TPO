@@ -11,6 +11,7 @@ public class ProductoCompuesto extends Producto {
 	private int tiempoElaboracion; // siempre en minutos
 	private float stock;
 
+
 	public ProductoCompuesto(int codigo, String nombre, String sectorEncargado,
 			float minimo, float comisionExtra, float consumoEstimado, int tiempo,float precio)
 			throws Exception {

@@ -167,6 +167,20 @@ public class ControladorCentral {
 				s2.setMozos(mozos3);
 				sucursales.add(s3);
 				
+				
+				ProductoCompuesto prodComp = new ProductoCompuesto();
+				prodComp.setCodigo(1001);
+				prodComp.setNombre("Milanesa Napolitana con Papas Fritas");
+				ProductoCompuestoDAO.getInstance().grabarProducto(prodComp);
+				ProductoCompuesto prodComp2 = new ProductoCompuesto();
+				prodComp2.setCodigo(1002);
+				prodComp.setNombre("Fideos al Pesto");
+				ProductoCompuestoDAO.getInstance().grabarProducto(prodComp2);
+				ProductoCompuesto prodComp3 = new ProductoCompuesto();
+				prodComp3.setCodigo(1001);
+				prodComp3.setNombre("Ravioles con Salsa Bolognesa");
+				ProductoCompuestoDAO.getInstance().grabarProducto(prodComp3);
+				
 		
 	}
 	
