@@ -64,15 +64,15 @@ public class ProductoDAO {
 			q.setParameter(0, idProducto);
 			pe = (ProductoSimpleEntity) q.uniqueResult();
 		}
-		Producto p = this.toNegocio(pe);
+		//Producto p = this.toNegocio(pe);
 		s.flush();
 		s.getTransaction().commit();
 		s.close();
-		return p;
+		return null;
 	}
 
 	public Producto toNegocio(ProductoEntity pe) {
-		Producto p;
+		//Producto p;
 		if(pe instanceof ProductoSimpleEntity){
 			ProductoSimple ps = new ProductoSimple();
 			ps = new ProductoSimple();
@@ -91,24 +91,20 @@ public class ProductoDAO {
 			//p.setLotes(pe.getLotes());
 			pc.setMinimo(pe.getMinimo());
 			pc.setNombre(pe.getNombre());
-			pc.setSectorEncargado(pe.getSectorEncargado());
-			pc.setCantItem(pe.get);
+			//pc.setSectorEncargado(pe.getSectorEncargado());
+			//pc.setCantItem(pe.get);
 			
 		}
 		
 		
-		return p;
+		return null;
 	}
 
 	public ProductoEntity toEntity(Producto p) {
-		ProductoEntity pe;
-		if (p instanceof ProductoSimple){
-			Pro
-		}
-		if (p instanceof ProductoCompuesto){
-		
-		}
-		return pe;
+		//ProductoEntity pe = new ProductoEntity();
+		//return pe;
+		 return null;
+		 
 	}
 	
 }

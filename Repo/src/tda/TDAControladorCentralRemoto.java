@@ -4,6 +4,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.List;
+import java.util.Vector;
 
 import dto.*;
 import exceptions.*;
@@ -37,5 +38,7 @@ public interface TDAControladorCentralRemoto extends Remote {
 	public void generarMovimientoStock() throws RemoteException;
 	
 	public String test(String aux) throws RemoteException;
+	
+	public Vector<ProductoDTO> buscarProductos() throws RemoteException;
 	
 }

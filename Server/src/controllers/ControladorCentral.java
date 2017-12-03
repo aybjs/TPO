@@ -246,4 +246,7 @@ public class ControladorCentral {
 	public String test(String aux) {
 		return "Lleg� al controlador";
 	}
+	
+
+	
 }

@@ -3,24 +3,25 @@ package entities;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import enumerators.*;
 import negocio.Lote;
 
 @Entity
-@DiscriminatorValue(value="Simple")
+@Table(name="semielaborados")
 public class ProductoSimpleEntity extends ProductoEntity {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -1802406766174218765L;
-	@Column(name="medida")
-	private UnidadMedida medida;
+	//@Column(name="medida")
+	private String medida;
 	@Column(name="precioUnitario")
 	private float precioUnitario;
 
-	public ProductoSimpleEntity(int codigo, String nombre, SectorEncargado sectorEncargado,
+	public ProductoSimpleEntity(int codigo, String nombre, String sectorEncargado,
 			float minimo, float comisionExtra, float consumoEstimado,
 			String unidadMedida, float precio) throws Exception {
 		
@@ -28,7 +29,8 @@ public class ProductoSimpleEntity extends ProductoEntity {
 				consumoEstimado);
 		
 		this.precioUnitario = precio;
-		switch (unidadMedida) {
+		
+		/*switch (unidadMedida) {
 		case "Kilogramo":
 			this.setMedida(UnidadMedida.kilogramo);
 		case "Litro":
@@ -37,10 +39,16 @@ public class ProductoSimpleEntity extends ProductoEntity {
 			this.setMedida(UnidadMedida.unidad);
 		default:
 			throw new Exception("Unidad de medida incorrecta");
-		}
+			
+		}*/
 	}
 
 	
+	public ProductoSimpleEntity() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public float getStockActual() {
 		float stock = 0;
 		for (Lote lotes : this.getLotes()) {
@@ -49,9 +57,6 @@ public class ProductoSimpleEntity extends ProductoEntity {
 		return stock;
 	}
 
-	public float getPrecio() {
-		return precioUnitario;
-	}
 
 	public int getTiempoElaboracion() {
 		// TODO Auto-generated method stub
@@ -59,12 +64,12 @@ public class ProductoSimpleEntity extends ProductoEntity {
 	}
 
 
-	public UnidadMedida getMedida() {
+	public String getMedida() {
 		return medida;
 	}
 
 
-	public void setMedida(UnidadMedida medida) {
+	public void setMedida(String medida) {
 		this.medida = medida;
 	}
 

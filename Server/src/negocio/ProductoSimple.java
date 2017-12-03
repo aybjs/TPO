@@ -6,15 +6,17 @@ import enumerators.*;
 
 public class ProductoSimple extends Producto {
 
-	private UnidadMedida medida;
+	private String medida;
 	private float precioUnitario;
 
-	public ProductoSimple(int codigo, String nombre, int sectorEncargado,
+	public ProductoSimple(int codigo, String nombre, String sectorEncargado,
 			float minimo, float comisionExtra, float consumoEstimado,
 			String unidadMedida, float precio) throws Exception {
 		super(codigo, nombre, sectorEncargado, minimo, comisionExtra,
 				consumoEstimado);
 		this.precioUnitario = precio;
+		this.medida = unidadMedida;
+		/*
 		switch (unidadMedida) {
 		case "Kilogramo":
 			this.medida = UnidadMedida.kilogramo;
@@ -24,7 +26,7 @@ public class ProductoSimple extends Producto {
 			this.medida = UnidadMedida.unidad;
 		default:
 			throw new Exception("Unidad de medida incorrecta");
-		}
+		}*/
 	}
 
 	public ProductoSimple() {
@@ -39,14 +41,27 @@ public class ProductoSimple extends Producto {
 		return stock;
 	}
 
-	public float getPrecio() {
-		return precioUnitario;
-	}
-
 	@Override
 	public int getTiempoElaboracion() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
+	public String getMedida() {
+		return medida;
+	}
+
+	public void setMedida(String medida) {
+		this.medida = medida;
+	}
+
+	public float getPrecioUnitario() {
+		return precioUnitario;
+	}
+
+	public void setPrecioUnitario(float precioUnitario) {
+		this.precioUnitario = precioUnitario;
+	}
+	
+	
 }

@@ -6,6 +6,7 @@ import java.util.Vector;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -20,8 +21,7 @@ import negocio.Lote;
 
 @Entity
 @Table(name="productos")  // tabla unica
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="tipoProducto", discriminatorType=DiscriminatorType.STRING)
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public abstract class ProductoEntity implements Serializable {
 
 	/**
@@ -31,11 +31,12 @@ public abstract class ProductoEntity implements Serializable {
 	
 	
 	@Id
+	@GeneratedValue
 	private int codigo;
 	@Column(name="nombre")
 	private String nombre;
-	@ManyToMany
-	private SectorEncargado sectorEncargado;
+	@Column(name="Sector")
+	private String sectorEncargado;
 	@Column(name="minimo")
 	private float minimo;
 	@Column(name="comisionExtra")
@@ -49,7 +50,7 @@ public abstract class ProductoEntity implements Serializable {
 		
 	}
 	
-	public ProductoEntity(int codigo, String nombre, SectorEncargado sectorEncargado, float minimo, float comisionExtra,
+	public ProductoEntity(int codigo, String nombre, String sectorEncargado, float minimo, float comisionExtra,
 			Vector<Lote> lotes, float consumoEstimado) {
 		this.codigo = codigo;
 		this.nombre = nombre;
@@ -66,7 +67,7 @@ public abstract class ProductoEntity implements Serializable {
 
 
 
-	public ProductoEntity(int codigo2, String nombre2, SectorEncargado sectorEncargado2, float minimo2, float comisionExtra2,
+	public ProductoEntity(int codigo2, String nombre2, String sectorEncargado2, float minimo2, float comisionExtra2,
 			float consumoEstimado2) {
 		this.codigo = codigo2;
 		this.nombre = nombre2;
@@ -94,10 +95,10 @@ public abstract class ProductoEntity implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public SectorEncargado getSectorEncargado() {
+	public String getSectorEncargado() {
 		return sectorEncargado;
 	}
-	public void setSectorEncargado(SectorEncargado sectorEncargado) {
+	public void setSectorEncargado(String sectorEncargado) {
 		this.sectorEncargado = sectorEncargado;
 	}
 	public float getMinimo() {

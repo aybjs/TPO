@@ -129,4 +129,6 @@ public class BusinessDelegate{
     	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
 	}
 	
+
+	
 }
