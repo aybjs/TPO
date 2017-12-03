@@ -72,8 +72,8 @@ public class ControladorCentralRemoto extends UnicastRemoteObject implements TDA
 		return negocio.test(aux);
 	}
 
-	public Vector<ProductoDTO> buscarProductos() throws RemoteException {
-		return negocio.buscarProductos();
+	public Vector<ProductoDTO> getTodosLosProductos() throws RemoteException {
+		return negocio.getTodosLosProductos();
 	}
 
 	public ProductoDTO getProducto(int idProducto) throws RemoteException {

@@ -6,6 +6,7 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.List;
+import java.util.Vector;
 
 import dto.*;
 import exceptions.*;
@@ -45,16 +46,16 @@ public class BusinessDelegate{
     	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
 	}
 	
-	public void ingresarTarea(String codigo, String nombre, String categoria, int minutos) throws BusinessDelegateException{
+	public void ingresarTarea(Integer codigo, String nombre, String categoria, int cantidad) throws BusinessDelegateException{
 		try{
-			ControladorCentralRemoto.ingresarTarea(codigo, nombre, categoria, minutos);
+			ControladorCentralRemoto.ingresarTarea(codigo, nombre, categoria, cantidad);
 		}
     	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
 	}
 	
-	public void asignarTarea(String codigo, int cantidad, String resto) throws BusinessDelegateException{
+	public void asignarTareas() throws BusinessDelegateException{
 		try {
-			ControladorCentralRemoto.asignarTarea(codigo, cantidad, resto);
+			ControladorCentralRemoto.asignarTareas();
 		} 
     	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
 	}
@@ -129,6 +130,11 @@ public class BusinessDelegate{
     	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
 	}
 	
-
+	public Vector<ProductoDTO> getTodosLosProductos() throws BusinessDelegateException{
+		try {
+			return ControladorCentralRemoto.getTodosLosProductos();
+		}
+    	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
+	}
 	
 }
