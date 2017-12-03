@@ -177,7 +177,7 @@ public class ControladorCentral {
 				ProductoCompuestoDAO.getInstance().grabarProducto(prodComp);
 				ProductoCompuesto prodComp2 = new ProductoCompuesto();
 				prodComp2.setCodigo(1002);
-				prodComp.setNombre("Fideos al Pesto");
+				prodComp2.setNombre("Fideos al Pesto");
 				ProductoCompuestoDAO.getInstance().grabarProducto(prodComp2);
 				ProductoCompuesto prodComp3 = new ProductoCompuesto();
 				prodComp3.setCodigo(1001);

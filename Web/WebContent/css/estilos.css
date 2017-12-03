@@ -63,6 +63,7 @@ li a:hover {
     border:5px solid green;
     padding:10px;
     width:100px;
+    float:left;
 }
 
 .cajaMesaOcupada {
@@ -70,4 +71,14 @@ li a:hover {
     border:5px solid red;
     padding:10px;
     width:100px;
+    float:left;
+}
+
+.sucursal {
+	width: 300px;
+    border: 1px solid black;
+    overflow: hidden;
+    float:left;
+    margin-left:30px;
+    margin-top: 30px;
 }
