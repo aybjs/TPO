@@ -3,6 +3,7 @@ package controllers;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Vector;
 
 import dao.*;
 import exceptions.*;
@@ -16,7 +17,7 @@ public class ControladorCentral {
 	private List<Tarea> planProduccion;
 	private List<Proveedor> proveedor;
 	private List<Deposito> deposito;
-	private List<Sucursal> sucursal;
+	private List<Sucursal> sucursales;
 	private List<OrdenCompra> ordenCompra;
 	private String codigoResto; // hay que hacer algo con esto, ingresarlo en algún lugar a mano.
 	
@@ -24,7 +25,7 @@ public class ControladorCentral {
 		planProduccion = new ArrayList<Tarea>();
 		proveedor = new ArrayList<Proveedor>();
 		deposito = new ArrayList<Deposito>();
-		sucursal = new ArrayList<Sucursal>();
+		sucursales = new ArrayList<Sucursal>();
 		ordenCompra = new ArrayList<OrdenCompra>();
 		
 		init();
@@ -59,12 +60,30 @@ public class ControladorCentral {
 		
 	}
 	
-	public void ingresarTarea(String codigo, String nombre, String categoria, int minutos){
-		
+	public void ingresarTarea(Integer codigoProducto, String nombre, String categoria, int cantidad){
+		Producto producto = ProductoDAO.getInstance().recuperarProducto(codigoProducto);
+		Tarea tarea = new Tarea(nombre, categoria, producto, cantidad);
+		planProduccion.add(tarea);	
 	}
 	
-	public void asignarTarea(String codigo, int cantidad, String resto){
-		
+	public void asignarTareas(){
+		for (Tarea t : planProduccion){
+			if(t.getEstado().compareTo("Asignado") != 0 || t.getEstado().compareTo("Finalizado") != 0){
+				AsignarAlMasLibre(t);
+				t.setAsignado();
+			}			
+		}
+	}
+	
+	public Vector<TareaDTO> getTareas(int codigo){
+		Sucursal aux = sucursales.get(codigo);
+		return aux.getTareas();
+	}
+	private void AsignarAlMasLibre(Tarea t){
+		Sucursal s = sucursales.get(0);
+		for (Sucursal aux : sucursales)
+			if (aux.getTiempoTareas(t.getCategoria()) < s.getTiempoTareas(t.getCategoria()))
+				s = aux;		
 	}
 	
 	public void noFacturable(String resto, String nroEmpleado, int cantidad){

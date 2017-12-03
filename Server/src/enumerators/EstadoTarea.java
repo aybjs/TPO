@@ -1,7 +1,7 @@
 package enumerators;
 
 public enum EstadoTarea {
-	NoIniciado, EnProceso, Finalizado {
+	Asignado, NoIniciado, EnProceso, Finalizado {
 		@Override
 		public EstadoTarea next() {
 			return this;

@@ -2,26 +2,20 @@ package controllers;
 
 import java.util.Vector;
 
+import dto.TareaDTO;
 import negocio.*;
 
 public class Sucursal {
 	
-	@SuppressWarnings("unused")
 	private String codigoResto;
-	@SuppressWarnings("unused")
 	private Vector<Mesa> mesas;
-	@SuppressWarnings("unused")
 	private Caja caja;
-	@SuppressWarnings("unused")
 	private Deposito deposito;
-	@SuppressWarnings("unused")
 	private Carta carta;
-	@SuppressWarnings("unused")
+	private Vector<AreaProduccion> areas;
 	private Vector<Mozo> mozos; //los mozos se cargan de la DB cuando se abre la app
-	@SuppressWarnings("unused")
 	private Vector<Pedido> pedidos; //sigo pensando que los pedidos van en la mesa
 
-	@SuppressWarnings("unused")
 	public Sucursal(String codigoResto){
 		this.codigoResto = codigoResto;
 		mesas = new Vector<Mesa>();
@@ -43,8 +37,38 @@ public class Sucursal {
 	 public void GenerarPedido (int nroMesa, Vector<Pedido> pedidos ){
 		 //FALTA
 	 }
+	 
+	 public int getTiempoTareas(String area) {
+		 // TODO Auto-generated method stub
+		 AreaProduccion aux = getArea(area);
+		 return aux.getTiempoRestante();
+		}
+	 
+		public Vector<TareaDTO> getTareas() {
+			// TODO Auto-generated method stub
+			Vector<TareaDTO> rta = new Vector<TareaDTO>();
+			Vector<Tarea> aux = new Vector<Tarea>();
+			for (AreaProduccion area : areas)
+				for (Tarea t : area.getTareas())			
+					aux.add(t);
+			for (Tarea t : aux)
+				rta.add(t.toDTO());			
+			return rta;
+		}
 
-	/***** Metodos privados *****/
+		
+
+		/***** Metodos privados *****/
+	
+	 private AreaProduccion getArea(String area) {
+		// TODO Auto-generated method stub
+		 for (AreaProduccion aux : areas)
+			 if (aux.getNombreArea().compareToIgnoreCase(area)== 0)
+				 return aux;
+		 return null;
+	}
+
+
 	
 	private void init() {
 		// metodo que hace todo lo necesario al iniciar la aplicacion
@@ -63,5 +87,7 @@ public class Sucursal {
 		// TODO Auto-generated method stub
 		
 	}
+
+
 
 }
