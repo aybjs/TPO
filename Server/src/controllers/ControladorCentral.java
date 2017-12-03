@@ -48,11 +48,13 @@ public class ControladorCentral {
 		
 		Carta carta = new Carta();
 		Producto p = null;
+		//Vector<ProductoCompuesto> carta = new Vector<ProductoCompuesto>();
+		carta.agregarProducto(ProductoCompuestoDAO.getInstance().recuperarProductos()); 
 		
-		for (int idProducto= 0; idProducto<100; idProducto++){ 
+		/*for (int idProducto= 0; idProducto<100; idProducto++){ 
 			p = ProductoDAO.getInstance().recuperarProducto(idProducto);
 			carta.agregarProducto(p);
-		}//tenemos que ver como devolvemos algun contador de productos para limitar el for o devolver al cantidad de items de la DB
+		}//tenemos que ver como devolvemos algun contador de productos para limitar el for o devolver al cantidad de items de la DB*/
 		
 		//********Primera Sucursal********//
 		

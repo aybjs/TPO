@@ -22,8 +22,8 @@ public class Carta {
 		hasta = LocalDate.now().plusYears(1);
 	}
 
-	public void agregarProducto(Producto p) {
-		productos.add(p);
+	public void agregarProducto(Vector<ProductoCompuesto> vector) {
+		productos.addAll(vector);
 	}
 
 	public Vector<String[]> listarProductos() {
