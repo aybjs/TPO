@@ -13,7 +13,7 @@ public class MesaIndividual extends Mesa {
 		super(id, sector);
 		this.nro = nro;
 		this.maxCom = maxCom;
-		this.estado = EstadosMesa.libre;
+		this.estado = "libre";
 
 	}
 
@@ -24,28 +24,28 @@ public class MesaIndividual extends Mesa {
 		super.apertura = new Date();
 		super.fecha = new Date();
 		super.mozo = mozo;
-		super.estado = EstadosMesa.ocupada;
+		super.estado = "ocupada";
 	}
 
 	@Override
 	public void SiguienteEstado() {
 		// TODO Auto-generated method stub
-		// sigo pensando que esto está al pedo! :)
-		super.estado = EstadosMesa.cerrada;
+		// sigo pensando que esto estï¿½ al pedo! :)
+		super.estado = "cerrada";
 
 	}
 
 	@Override
 	public void CerrarMesa() {
 		// TODO Auto-generated method stub
-		super.estado = EstadosMesa.cerrada;
+		super.estado = "cerrada";
 
 	}
 
 	@Override
 	public void HabilitarMesa() {
 		// TODO Auto-generated method stub
-		super.estado = EstadosMesa.libre;
+		super.estado = "libre";
 
 	}
 
@@ -53,8 +53,14 @@ public class MesaIndividual extends Mesa {
 		return super.estado.toString();
 	}
 
-	public void setEstado(EstadosMesa estado) {
+	public void setEstado(String estado) {
 		super.estado = estado;
+	}
+
+	@Override
+	public void setEstado(EstadosMesa estado) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

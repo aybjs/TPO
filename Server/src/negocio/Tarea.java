@@ -11,7 +11,7 @@ public class Tarea {
 	private Producto producto;
 	private int cantidadUnidades;
 	private float completo; // numero de 0 a 1 q indica porcentaje de avance
-	private EstadoTarea estado;
+	private String estado;
 
 	public Tarea(String nombre, String categoria,
 			Producto producto, int cantidadUnidades) {
@@ -21,22 +21,23 @@ public class Tarea {
 		this.producto = producto;
 		this.cantidadUnidades = cantidadUnidades;
 		this.completo = 0;
-		this.estado = EstadoTarea.NoIniciado;
+		this.estado = "No Iniciado";
 	}
 
 	public void actualizarHs(int tiempo) {
-		if (estado == EstadoTarea.NoIniciado)
-			estado.next();
-		float mas = tiempo / producto.getTiempoElaboracion();
-		if ((completo + mas) > 1) {
-			completo = 1;
-			estado = EstadoTarea.Finalizado;
-		} else
-			completo = completo + mas;
+		if (estado != "Cancelado" || estado != "Finalizado"){
+			//estado.next();
+			float mas = tiempo / producto.getTiempoElaboracion();
+			if ((completo + mas) > 1) {
+				completo = 1;
+				estado = "Finalizado";
+			} else
+				completo = completo + mas;
+		}
 	}
 
 	public void cancelar() {
-		estado = EstadoTarea.Cancelado;
+		estado = "Cancelado";
 	}
 
 	public float getCompleado() {
@@ -52,7 +53,7 @@ public class Tarea {
 	}
 	
 	public void setAsignado(){
-		estado = EstadoTarea.Asignado;
+		estado = "Asignado";
 	}
 	
 	public String getCategoria(){
