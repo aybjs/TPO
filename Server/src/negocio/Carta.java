@@ -29,7 +29,7 @@ public class Carta {
 	public Vector<String[]> listarProductos() {
 		Vector<String[]> rta = new Vector<String[]>();
 		for (Producto p : productos) {
-			rta.add(new String[] { p.getNombre(), Float.toString(p.getPrecio()) });
+			rta.add(new String[] { p.getNombre(), Integer.toString(p.getCodigo())}); //revisen cambie el getPrecio 
 		}
 		return rta;
 	}
