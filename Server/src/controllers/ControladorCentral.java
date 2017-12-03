@@ -256,6 +256,16 @@ public class ControladorCentral {
 		return "Llego al controlador";
 	}
 	
+	public double GenerarPedido(PedidoDTO p){
+		Mesa mesa = new Mesa(p.getMesa());
+		Pedido ped = new Pedido(mesa);
+		for(ProductoDTO prod : p.getItems()){
+			ProductoCompuesto pc = new ProductoCompuesto(prod);
+			ped.agregarItem(pc);
+		}
+		return ped.getId();
+		
+	}
 
 	
 }

@@ -2,11 +2,14 @@ package negocio;
 
 import java.util.Vector;
 
+import dto.ProductoDTO;
+
 public class ProductoCompuesto extends Producto {
 
 	private Vector<ProductoSimple> items;
 	//private Vector<Integer> cantItem;
 	private int tiempoElaboracion; // siempre en minutos
+	private float stock;
 
 	public ProductoCompuesto(int codigo, String nombre, String sectorEncargado,
 			float minimo, float comisionExtra, float consumoEstimado, int tiempo,float precio)
@@ -23,13 +26,23 @@ public class ProductoCompuesto extends Producto {
 		// TODO Auto-generated constructor stub
 	}
 
+	public ProductoCompuesto(ProductoDTO prod) {
+		this.codigo = prod.getCodigo();
+		this.comisionExtra = prod.getComisionExtra();
+		this.precio = prod.getPrecio();
+		this.nombre = prod.getNombre();
+		this.stock = prod.getStock();
+	}
+
 	@Override
 	public float getStockActual() {
+	/*
 		// TODO Auto-generated method stub
 		float stock = 0;
 		for (Producto item : items)
 			stock = stock + item.getStockActual();
-		return stock;
+			*/
+		return this.stock;
 	}
 
 	public float getPrecio() {

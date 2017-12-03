@@ -6,15 +6,14 @@ import java.util.Timer;
 import dto.MesaDTO;
 import enumerators.EstadosMesa;
 
-public abstract class Mesa {
+public class Mesa {
 
 	protected int id;
 	protected int cantComen;
 	protected String sector;
 	protected Date fecha;
 	protected Date apertura;
-	protected Date cierre; // no se manejar tiempos, esto es lo mejor que
-							// encontre
+	protected Date cierre; 
 	protected String estado;
 	protected Mozo mozo;
 
@@ -29,20 +28,38 @@ public abstract class Mesa {
 		this.mozo = null;
 		this.estado = "libre";
 	}
+	
+	public Mesa(MesaDTO m){
+		this.id = m.getId();
+		this.cantComen = m.getCantComen();
+		this.sector = m.getSector();
+		this.fecha = m.getFecha();
+		this.apertura = m.getApertura();
+		this.cierre = m.getCierre();
+		Mozo mozo = new Mozo(m.getMozo());
+		this.mozo = mozo;
+		this.estado = m.getEstado();
+				
+	}
 
-	public abstract void AbrirMesa(int personas, Mozo mozo);
+	public void AbrirMesa(int personas, Mozo mozo) {
+	}
 
-	public abstract void SiguienteEstado();
+	public void SiguienteEstado() {
+	}
 
-	public abstract void CerrarMesa();
+	public void CerrarMesa() {
+	}
 
-	public abstract void HabilitarMesa();
+	public void HabilitarMesa() {
+	}
 
 	public String getSector() {
 		return sector;
 	}
 
-	public abstract void setEstado(EstadosMesa estado);
+	public void setEstado(EstadosMesa estado) {
+	}
 
 	public String getEstado() {
 		return estado.toString();
@@ -99,8 +116,10 @@ public abstract class Mesa {
 	public void setSector(String sector) {
 		this.sector = sector;
 	}
+	
+	@SuppressWarnings("null")
 	public MesaDTO toDTO(){
-		MesaDTO mesa = null;
+		MesaDTO mesa = new MesaDTO();
 		mesa.setApertura(apertura);
 		mesa.setCantComen(cantComen);
 		mesa.setCierre(cierre);
@@ -118,5 +137,7 @@ public abstract class Mesa {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
 
 }

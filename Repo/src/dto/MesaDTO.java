@@ -32,6 +32,10 @@ public class MesaDTO  implements Serializable {
 			this.estado = "libre";  
 		}
 
+		public MesaDTO() {
+			// TODO Auto-generated constructor stub
+		}
+
 		public int getId() {
 			return id;
 		}
