@@ -1,13 +1,17 @@
 package dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
 import entities.MozoEntity;
 import hbt.HibernateUtil;
 import negocio.Mozo;
 
-//se renombra la clase "MozoDao" a "MozoDAO" tal cual está declarado
+//se renombra la clase "MozoDao" a "MozoDAO" tal cual estï¿½ declarado
 public class MozoDAO {
 	private static MozoDAO instancia;
 	private static SessionFactory sf;
@@ -61,6 +65,17 @@ public class MozoDAO {
 		return c;
 	}
 
+	public List<Mozo> recuperarMozos (){
+		List<Mozo> listaMozos = new ArrayList<Mozo>();
+		Session s = sf.openSession();
+		s.beginTransaction();
+		listaMozos = s.createQuery("FROM MozoEntity").list();
+		s.getTransaction().commit();
+		s.close();
+		return listaMozos;
+		
+	}
+	
 	private Mozo toNegocio(MozoEntity ce) {
 		Mozo m = new Mozo(ce.getNroEmpleado(), ce.getNombre(), ce.getComision());
 		return m;
