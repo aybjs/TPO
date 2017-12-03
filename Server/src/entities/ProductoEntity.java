@@ -3,6 +3,7 @@ package entities;
 import java.io.Serializable;
 import java.util.Vector;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -44,9 +45,9 @@ public abstract class ProductoEntity implements Serializable {
 	private float minimo;
 	@Column(name="comisionExtra")
 	private float comisionExtra;
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="nroLote1")
-	private Vector<LoteEntity> lotes = new Vector<LoteEntity>();
+	private Vector<LoteEntity> lotes;
 	@Column(name="consumoEstimado")
 	private float consumoEstimado;
 	@Column(name="precio")
@@ -142,7 +143,9 @@ public abstract class ProductoEntity implements Serializable {
 		this.precio = precio;
 	}
 	
-	
+	public void addLote(LoteEntity l){
+		this.lotes.addElement(l);
+	}
 	
 	
 	

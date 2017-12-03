@@ -11,6 +11,7 @@ import entities.ProductoCompuestoEntity;
 import entities.ProductoEntity;
 import entities.ProductoSimpleEntity;
 import hbt.HibernateUtil;
+import negocio.Lote;
 import negocio.ProductoCompuesto;
 import negocio.ProductoSimple;
 
@@ -99,7 +100,9 @@ public class ProductoCompuestoDAO {
 		pse.setCodigo(p.getCodigo());
 		pse.setComisionExtra(p.getComisionExtra());
 		pse.setConsumoEstimado(p.getConsumoEstimado());
-		//pse.setLotes(p.getLotes());
+		for(Lote lotes : p.getLotes()){
+			pse.addLote( LoteDAO.getInstance().toEntity(lotes));			
+		}
 		pse.setMinimo(p.getMinimo());
 		pse.setNombre(p.getNombre());
 		pse.setPrecio(p.getPrecio());

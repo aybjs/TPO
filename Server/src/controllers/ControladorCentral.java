@@ -64,14 +64,14 @@ public class ControladorCentral {
 		Sucursal s1= new Sucursal("1000");
 		Vector<Mesa> mesas = new Vector<Mesa>();
 		for (int i=0; i< 5; i++){
-			Mesa mesa = null;
+			Mesa mesa = new Mesa(i, "central");
 			mesa.setId(i);
 			mesa.setCantComen(4);
 			mesa.setSector("Central");
 			mesas.add(mesa);
 		}
 		for (int i=5; i < 10; i++){
-			Mesa mesa = null;
+			Mesa mesa = new Mesa(i, "Lateral Izquierdo");
 			mesa.setId(i);
 			mesa.setCantComen(6);
 			mesa.setSector("Lateral Izquierdo");
@@ -101,14 +101,14 @@ public class ControladorCentral {
 		Sucursal s2= new Sucursal("1001");
 		Vector<Mesa> mesas2 = new Vector<Mesa>();
 		for (int i=0; i< 5; i++){
-			Mesa mesa = null;
+			Mesa mesa = new Mesa(i, "Sector Rio");
 			mesa.setId(i);
 			mesa.setCantComen(4);
 			mesa.setSector("Sector Rio");
 			mesas2.add(mesa);
 		}
 		for (int i=5; i < 10; i++){
-			Mesa mesa = null;
+			Mesa mesa = new Mesa(i, "Sector Calle");
 			mesa.setId(i);
 			mesa.setCantComen(6);
 			mesa.setSector("Sector Calle");
@@ -138,14 +138,14 @@ public class ControladorCentral {
 				Sucursal s3= new Sucursal("1001");
 				Vector<Mesa> mesas3 = new Vector<Mesa>();
 				for (int i=0; i< 5; i++){
-					Mesa mesa = null;
+					Mesa mesa = new Mesa(i, "Sector Rio");
 					mesa.setId(i);
 					mesa.setCantComen(4);
 					mesa.setSector("Sector Rio");
 					mesas.add(mesa);
 				}
 				for (int i=5; i < 10; i++){
-					Mesa mesa = null;
+					Mesa mesa = new Mesa(i, "Sector calle");
 					mesa.setId(i);
 					mesa.setCantComen(6);
 					mesa.setSector("Sector Calle");
