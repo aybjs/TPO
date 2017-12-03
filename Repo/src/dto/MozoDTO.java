@@ -1,14 +1,12 @@
-package negocio;
+package dto;
 
-import dto.MozoDTO;
-
-public class Mozo {
+public class MozoDTO {
 
 	private int nroEmpleado;
 	private String nombre;
 	private float comision;
 
-	public Mozo(int nroEmpleado, String nombre, float comision) {
+	public MozoDTO(int nroEmpleado, String nombre, float comision) {
 		this.nroEmpleado = nroEmpleado;
 		this.nombre = nombre;
 		this.comision = comision;
@@ -37,9 +35,5 @@ public class Mozo {
 	public void setComision(float comision) {
 		this.comision = comision;
 	}
-	public MozoDTO toDTO(){
-		MozoDTO mozo = new MozoDTO(nroEmpleado, nombre, comision);
-		return mozo;
-	}
-	
+
 }

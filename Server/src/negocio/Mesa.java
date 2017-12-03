@@ -3,6 +3,7 @@ package negocio;
 import java.util.Date;
 import java.util.Timer;
 
+import dto.MesaDTO;
 import enumerators.EstadosMesa;
 
 public abstract class Mesa {
@@ -96,6 +97,12 @@ public abstract class Mesa {
 
 	public void setSector(String sector) {
 		this.sector = sector;
+	}
+	public MesaDTO toDTO(){
+		MesaDTO mesa = new MesaDTO();
+		mesa.
+		return null;
+		
 	}
 
 }
