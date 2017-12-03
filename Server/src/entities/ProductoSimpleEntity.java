@@ -9,7 +9,7 @@ import enumerators.*;
 import negocio.Lote;
 
 @Entity
-@Table(name="semielaborados")
+@Table(name="ProductoSimple")
 public class ProductoSimpleEntity extends ProductoEntity {
 
 	/**
@@ -18,17 +18,13 @@ public class ProductoSimpleEntity extends ProductoEntity {
 	private static final long serialVersionUID = -1802406766174218765L;
 	//@Column(name="medida")
 	private String medida;
-	@Column(name="precioUnitario")
-	private float precioUnitario;
 
 	public ProductoSimpleEntity(int codigo, String nombre, String sectorEncargado,
 			float minimo, float comisionExtra, float consumoEstimado,
 			String unidadMedida, float precio) throws Exception {
 		
 		super(codigo, nombre, sectorEncargado, minimo, comisionExtra,
-				consumoEstimado);
-		
-		this.precioUnitario = precio;
+				consumoEstimado,precio);
 		
 		/*switch (unidadMedida) {
 		case "Kilogramo":
@@ -74,14 +70,5 @@ public class ProductoSimpleEntity extends ProductoEntity {
 	}
 
 
-	public float getPrecioUnitario() {
-		return precioUnitario;
-	}
-
-
-	public void setPrecioUnitario(float precioUnitario) {
-		this.precioUnitario = precioUnitario;
-	}
-	
 
 }

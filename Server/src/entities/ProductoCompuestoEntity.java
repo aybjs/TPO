@@ -17,7 +17,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 
 @Entity
-@Table(name="elaborados")
+@Table(name="ProductoCompuesto")
 public class ProductoCompuestoEntity extends ProductoEntity {
 
 	/**
@@ -32,14 +32,12 @@ public class ProductoCompuestoEntity extends ProductoEntity {
 	//private Vector<Integer> cantItem;
 	@Column(name="tiempoElaboracion")
 	private int tiempoElaboracion; 
-	@Column(name="precio")
-	private float precio;
-
+	
 	public ProductoCompuestoEntity(int codigo, String nombre, String sectorEncargado,
-			float minimo, float comisionExtra, float consumoEstimado, int tiempo)
+			float minimo, float comisionExtra, float consumoEstimado, int tiempo, float precio)
 			throws Exception {
 		super(codigo, nombre, sectorEncargado, minimo, comisionExtra,
-				consumoEstimado);
+				consumoEstimado, precio);
 
 		this.items = null;
 		//this.cantItem = null;
@@ -68,20 +66,6 @@ public class ProductoCompuestoEntity extends ProductoEntity {
 
 	public void setTiempoElaboracion(int tiempoElaboracion) {
 		this.tiempoElaboracion = tiempoElaboracion;
-	}
-
-	public float getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(float precio) {
-		this.precio = precio;
-	}
-	
-	
-	
-	
-	
-	
+	}	
 
 }

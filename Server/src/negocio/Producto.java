@@ -15,9 +15,10 @@ public abstract class Producto {
 	protected float comisionExtra;
 	protected Vector<Lote> lotes;
 	protected float consumoEstimado;
+	protected float precio;
 
 	public Producto(int codigo, String nombre, String sectorEncargado,
-			float minimo, float comisionExtra, float consumoEstimado)
+			float minimo, float comisionExtra, float consumoEstimado,float precio)
 			throws Exception {
 		this.codigo = codigo;
 		this.nombre = nombre;
@@ -25,6 +26,7 @@ public abstract class Producto {
 		this.comisionExtra = comisionExtra;
 		this.lotes = null;
 		this.consumoEstimado = consumoEstimado;
+		this.precio = precio;
 		/*
 		switch (sectorEncargado) {
 		case 1:
@@ -117,16 +119,26 @@ public abstract class Producto {
 	public void setConsumoEstimado(float consumoEstimado) {
 		this.consumoEstimado = consumoEstimado;
 	}
+	
+	public float getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(float precio) {
+		this.precio = precio;
+	}
+
 	public ProductoDTO toProdDTO(){
 		ProductoDTO p = new ProductoDTO();
 		p.setCodigo(this.getCodigo());
 		p.setComisionExtra(this.getComisionExtra());
-		p.setConsumoEstimado(this.getConsumoEstimado());
-		p.setLotes(this.toLoteDTO());
-		p.setMinimo(this.getMinimo());
+		//p.setConsumoEstimado(this.getConsumoEstimado());
+		//p.setLotes(this.toLoteDTO());
+		//p.setMinimo(this.getMinimo());
 		p.setNombre(this.getNombre());
-		p.setSectorEncargado(this.getSectorEncargado());
+		//p.setSectorEncargado(this.getSectorEncargado());
 		p.setStock(this.getStockActual());
+		p.setPrecio(this.getPrecio());
 		return p;		
 	}
 	

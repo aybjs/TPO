@@ -7,14 +7,12 @@ import enumerators.*;
 public class ProductoSimple extends Producto {
 
 	private String medida;
-	private float precioUnitario;
 
 	public ProductoSimple(int codigo, String nombre, String sectorEncargado,
 			float minimo, float comisionExtra, float consumoEstimado,
 			String unidadMedida, float precio) throws Exception {
 		super(codigo, nombre, sectorEncargado, minimo, comisionExtra,
-				consumoEstimado);
-		this.precioUnitario = precio;
+				consumoEstimado,precio);
 		this.medida = unidadMedida;
 		/*
 		switch (unidadMedida) {
@@ -55,13 +53,6 @@ public class ProductoSimple extends Producto {
 		this.medida = medida;
 	}
 
-	public float getPrecioUnitario() {
-		return precioUnitario;
-	}
-
-	public void setPrecioUnitario(float precioUnitario) {
-		this.precioUnitario = precioUnitario;
-	}
 	
 	
 }

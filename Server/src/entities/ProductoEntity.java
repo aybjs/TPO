@@ -45,13 +45,15 @@ public abstract class ProductoEntity implements Serializable {
 	private Vector<Lote> lotes;
 	@Column(name="consumoEstimado")
 	private float consumoEstimado;
+	@Column(name="precio")
+	private float precio;
 	
 	public ProductoEntity(){
 		
 	}
 	
 	public ProductoEntity(int codigo, String nombre, String sectorEncargado, float minimo, float comisionExtra,
-			Vector<Lote> lotes, float consumoEstimado) {
+			Vector<Lote> lotes, float consumoEstimado, float precio) {
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.sectorEncargado = sectorEncargado;
@@ -59,6 +61,7 @@ public abstract class ProductoEntity implements Serializable {
 		this.comisionExtra = comisionExtra;
 		this.lotes = lotes;
 		this.consumoEstimado = consumoEstimado;
+		this.precio = precio;
 	}
 	
 	
@@ -68,13 +71,14 @@ public abstract class ProductoEntity implements Serializable {
 
 
 	public ProductoEntity(int codigo2, String nombre2, String sectorEncargado2, float minimo2, float comisionExtra2,
-			float consumoEstimado2) {
+			float consumoEstimado2, float precio) {
 		this.codigo = codigo2;
 		this.nombre = nombre2;
 		this.sectorEncargado = sectorEncargado2;
 		this.minimo = minimo2;
 		this.comisionExtra = comisionExtra2;
 		this.consumoEstimado = consumoEstimado2;
+		this.precio = precio;
 	}
 
 
@@ -125,6 +129,15 @@ public abstract class ProductoEntity implements Serializable {
 	public void setConsumoEstimado(float consumoEstimado) {
 		this.consumoEstimado = consumoEstimado;
 	}
+
+	public float getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(float precio) {
+		this.precio = precio;
+	}
+	
 	
 	
 	

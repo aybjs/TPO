@@ -65,7 +65,7 @@ public class ProductoSimpleDAO {
 		ps.setMinimo(pe.getMinimo());
 		ps.setNombre(pe.getNombre());
 		ps.setSectorEncargado(pe.getSectorEncargado());
-		ps.setPrecioUnitario(pe.getPrecioUnitario());
+		ps.setPrecio(pe.getPrecio());
 		ps.setMedida(pe.getMedida());
 		return ps;	
 		}
@@ -81,7 +81,7 @@ public class ProductoSimpleDAO {
 		pse.setMedida(p.getMedida());
 		pse.setMinimo(p.getMinimo());
 		pse.setNombre(p.getNombre());
-		pse.setPrecioUnitario(p.getPrecioUnitario());
+		pse.setPrecio(p.getPrecio());
 		pse.setSectorEncargado(p.getSectorEncargado());
 		return pse;
 		 

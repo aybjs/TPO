@@ -7,18 +7,16 @@ public class ProductoCompuesto extends Producto {
 	private Vector<ProductoSimple> items;
 	//private Vector<Integer> cantItem;
 	private int tiempoElaboracion; // siempre en minutos
-	private float precio;
 
 	public ProductoCompuesto(int codigo, String nombre, String sectorEncargado,
 			float minimo, float comisionExtra, float consumoEstimado, int tiempo,float precio)
 			throws Exception {
 		super(codigo, nombre, sectorEncargado, minimo, comisionExtra,
-				consumoEstimado);
+				consumoEstimado,precio);
 
 		this.items = null;
 		//this.cantItem = null;
 		this.tiempoElaboracion = tiempo;
-		this.precio = precio;
 	}
 
 	public ProductoCompuesto() {
