@@ -13,6 +13,12 @@ public class Mozo {
 		this.nombre = nombre;
 		this.comision = comision;
 	}
+	
+	public Mozo(MozoDTO m){
+		this.nroEmpleado = m.getNroEmpleado();
+		this.nombre = m.getNombre();
+		this.comision = m.getComision();
+	}
 
 	public int getNroEmpleado() {
 		return nroEmpleado;

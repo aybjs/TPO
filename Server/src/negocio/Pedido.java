@@ -6,42 +6,70 @@ public class Pedido {
 
 	private static double id = 0;
 	private Mesa mesa;
-	private Vector<ItemPedido> items;
+	private Vector<ProductoCompuesto> items;
 
 	public Pedido(Mesa mesa) {
 		this.mesa = mesa;
 		this.id++;
-		this.items = new Vector<ItemPedido>();
+		this.items = new Vector<ProductoCompuesto>();
 	}
 
 	public float subTotal() {
 		float st = 0;
-		for (ItemPedido i : items)
-			st = st + i.subTotal();
+		for (ProductoCompuesto p : items)
+			st = st + p.getPrecio();
 		return st;
 	}
 
-	public void agregarItem(Producto producto, int cantidad) {
-		items.add(new ItemPedido(producto, cantidad, "si", "pedido"));
+	public void agregarItem(ProductoCompuesto producto) {
+		items.add(producto);
 	}
 
 	public String getPedido() {
 		String rta = "";
-		for (ItemPedido item : items)
-			rta += "id: " + item.getId() + " " + item.getItem() + "\n";
+		for (ProductoCompuesto item : items)
+			rta += "id: " + item.getCodigo() + " " + item.getNombre()+ "\n";
 		return rta;
 	}
 
-	public void cambiarEstadoItem(ItemPedido item, String estado)
+	public double getId() {
+		return id;
+	}
+
+	public static void setId(double id) {
+		Pedido.id = id;
+	}
+
+	public Mesa getMesa() {
+		return mesa;
+	}
+
+	public void setMesa(Mesa mesa) {
+		this.mesa = mesa;
+	}
+
+	public Vector<ProductoCompuesto> getItems() {
+		return items;
+	}
+
+	public void setItems(Vector<ProductoCompuesto> items) {
+		this.items = items;
+	}
+
+	/*
+	public void cambiarEstadoItem(ProductoCompuesto item, String estado)
 			throws Exception {
 		boolean cambio = false;
-		for (ItemPedido i : items)
-			if (i.getProducto().equalsIgnoreCase(item.getProducto())) {
+		for (ProductoCompuesto i : items)
+			if (i.getNombre().equalsIgnoreCase(item.getNombre())) {
 				i.setEstado(estado);
 				cambio = true;
 			}
 		if (cambio = false)
 			throw new Exception("item no encontrado");
 	}
+	*/
+	
+	
 
 }
