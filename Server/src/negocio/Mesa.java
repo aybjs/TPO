@@ -99,9 +99,16 @@ public abstract class Mesa {
 		this.sector = sector;
 	}
 	public MesaDTO toDTO(){
-		MesaDTO mesa = new MesaDTO();
-		mesa.
-		return null;
+		MesaDTO mesa = null;
+		mesa.setApertura(apertura);
+		mesa.setCantComen(cantComen);
+		mesa.setCierre(cierre);
+		mesa.setEstado(estado);
+		mesa.setFecha(fecha);
+		mesa.setId(id);
+		mesa.setMozo(mozo.toDTO());
+		mesa.setSector(sector);
+		return mesa;
 		
 	}
 
