@@ -6,6 +6,12 @@ import java.io.Serializable;
 
 public class TareaDTO implements Serializable{
 	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -142411408257189589L;
+	
 	private String nombre;
 	private String categoria;
 	private String producto;

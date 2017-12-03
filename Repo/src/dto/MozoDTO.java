@@ -1,7 +1,15 @@
 package dto;
 
-public class MozoDTO {
+import java.io.Serializable;
 
+public class MozoDTO implements Serializable{
+
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8871334780452198081L;
+	
 	private int nroEmpleado;
 	private String nombre;
 	private float comision;

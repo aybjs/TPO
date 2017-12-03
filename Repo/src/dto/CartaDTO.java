@@ -1,11 +1,17 @@
 package dto;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
 
-public class CartaDTO {
+public class CartaDTO implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4428099681924500167L;
 
 	private Vector<ProductoDTO> productos;
 	private static int idCarta = 0;

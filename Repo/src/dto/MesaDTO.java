@@ -16,7 +16,8 @@ public class MesaDTO  implements Serializable {
 		protected Date apertura;
 		protected Date cierre; // no se manejar tiempos, esto es lo mejor que
 								// encontre
-		protected EstadosMesa estado;
+		//protected EstadosMesa estado;
+		protected String estado; 
 		protected MozoDTO mozo;
 
 		public MesaDTO(int id, String sector) {
@@ -28,6 +29,7 @@ public class MesaDTO  implements Serializable {
 			this.apertura = null;
 			this.cierre = null;
 			this.mozo = null;
+			this.estado = "libre";  
 		}
 
 		public int getId() {
@@ -78,11 +80,11 @@ public class MesaDTO  implements Serializable {
 			this.cierre = cierre;
 		}
 
-		public EstadosMesa getEstado() {
+		public String getEstado() {
 			return estado;
 		}
 
-		public void setEstado(EstadosMesa estado) {
+		public void setEstado(String estado) {
 			this.estado = estado;
 		}
 

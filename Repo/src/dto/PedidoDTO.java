@@ -8,7 +8,12 @@ public class PedidoDTO implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -4590437813919959892L;
+	/**
+	 * 
+	 */
+	
+	
 	private static double id = 0;
 	private MesaDTO mesa;
 	private Vector<ProductoDTO> items;
