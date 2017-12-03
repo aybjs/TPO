@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import exceptions.BusinessDelegateException;
+import rmi.BusinessDelegate;
+
 @WebServlet("/CambiarEstadoMesa")
 public class CambiarEstadoMesa extends HttpServlet {
 
@@ -22,16 +25,27 @@ public class CambiarEstadoMesa extends HttpServlet {
 		if (mesa != null && sucursal != null) {
 			response.setContentType("text/xml");
 			response.setHeader("Cache-Control", "no-cache");
-			response.getWriter().write("ok");
+			response.getWriter().write(testBD());
 		} else {
 			response.setContentType("text/xml");
 			response.setHeader("Cache-Control", "no-cache");
-			response.getWriter().write("Error");
+			response.getWriter().write("Error de Parámetros");
 		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
+	}
+	
+	private String testBD() {
+		BusinessDelegate sys;
+		try {
+			sys = BusinessDelegate.getInstancia();
+			return sys.test("hola");
+		} catch (BusinessDelegateException e1) {
+			return "Error RMI";
+		}			
+
 	}
 
 }
