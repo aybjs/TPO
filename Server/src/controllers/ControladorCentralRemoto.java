@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Date;
 import java.util.List;
+import java.util.Vector;
 
 import controllers.*;
 import dto.*;
@@ -29,14 +30,6 @@ public class ControladorCentralRemoto extends UnicastRemoteObject implements TDA
 	
 	public void ingresarProducto(String codigo, int cantidad, int lote, Date vencimiento){
 		negocio.ingresarProducto(codigo, cantidad, lote, vencimiento);
-	}
-	
-	public void ingresarTarea(String codigo, String nombre, String categoria, int minutos){
-		negocio.ingresarTarea(codigo, nombre, categoria, minutos);
-	}
-	
-	public void asignarTarea(String codigo, int cantidad, String resto){
-		negocio.asignarTarea(codigo, cantidad, resto);
 	}
 	
 	public void noFacturable(String resto, String nroEmpleado, int cantidad){
@@ -77,5 +70,21 @@ public class ControladorCentralRemoto extends UnicastRemoteObject implements TDA
 	
 	public String test(String aux) {
 		return negocio.test(aux);
+	}
+
+	public Vector<ProductoDTO> buscarProductos() throws RemoteException {
+		return negocio.buscarProductos();
+	}
+
+	public ProductoDTO getProducto(int idProducto) throws RemoteException {
+		return negocio.getProducto(idProducto);
+	}
+
+	public void ingresarTarea(Integer codigo, String nombre, String categoria, int cantidad) throws RemoteException {
+		negocio.ingresarTarea(codigo, nombre, categoria, cantidad);
+	}
+
+	public void asignarTareas() throws RemoteException {
+		negocio.asignarTareas();
 	}
 }

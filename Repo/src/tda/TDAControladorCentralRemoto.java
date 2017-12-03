@@ -15,9 +15,9 @@ public interface TDAControladorCentralRemoto extends Remote {
 	
 	public void ingresarProducto(String codigo, int cantidad, int lote, Date vencimiento) throws RemoteException;
 	
-	public void ingresarTarea(String codigo, String nombre, String categoria, int minutos) throws RemoteException;
+	public void ingresarTarea(Integer codigo, String nombre, String categoria, int cantidad) throws RemoteException;
 	
-	public void asignarTarea(String codigo, int cantidad, String resto) throws RemoteException;
+	public void asignarTareas() throws RemoteException;
 	
 	public void noFacturable(String resto, String nroEmpleado, int cantidad) throws RemoteException;
 	
@@ -38,6 +38,8 @@ public interface TDAControladorCentralRemoto extends Remote {
 	public void generarMovimientoStock() throws RemoteException;
 	
 	public String test(String aux) throws RemoteException;
+	
+	public ProductoDTO getProducto(int idProducto) throws RemoteException; 
 	
 	public Vector<ProductoDTO> buscarProductos() throws RemoteException;
 	
