@@ -7,6 +7,7 @@ import negocio.ProductoSimple;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
 import entities.ProductoEntity;
 import entities.ProductoSimpleEntity;
 import hbt.HibernateUtil;
@@ -100,7 +101,13 @@ public class ProductoDAO {
 	}
 
 	public ProductoEntity toEntity(Producto p) {
-		ProductoEntity pe = new ProductoEntity();
+		ProductoEntity pe;
+		if (p instanceof ProductoSimple){
+			Pro
+		}
+		if (p instanceof ProductoCompuesto){
+		
+		}
 		return pe;
 	}
 	

@@ -4,7 +4,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import entities.MozoEntity;
-import exceptions.SinMozosException;
 import hbt.HibernateUtil;
 import negocio.Mozo;
 
@@ -43,7 +42,7 @@ public class MozoDAO {
 	}
 	
 	// RECUPERAR UN MOZO DE LA BASE DE DATOS
-	public Mozo recuperarMozo(Integer idMozo) throws SinMozosException {
+	public Mozo recuperarMozo(Integer idMozo) throws Exception {
 		Session s = sf.openSession();
 		Mozo c;
 		s.beginTransaction();
@@ -54,7 +53,7 @@ public class MozoDAO {
 			c = this.toNegocio(ce);
 		}
 		else {
-			throw new SinMozosException("No hay mozos");
+			throw new Exception("No hay mozos");
 		}
 		s.flush();
 		s.getTransaction().commit();
