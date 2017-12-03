@@ -176,9 +176,11 @@ public class ControladorCentral {
 		return prod.toProdDTO();
 	}
 	
-	public Vector<ProductoDTO> buscarProductos(){
-		Vector<ProductoDTO> productos = new Vector<ProductoDTO>();
-		return productos;
+	public Vector<ProductoDTO> getTodosLosProducto(int idProducto) { 
+		List<ProductoDTO> listProductos = new ArrayList<ProductoDTO>();
+		for(ProductoCompuesto prod : ProductoCompuestoDAO.getInstance().recuperarProductos() )
+			listProductos.add(prod.toProdDTO())
+		return prod.toProdDTO();
 	}
 	
 	public void ingresarProducto(String codigo, int cantidad, int lote, Date vencimiento){
