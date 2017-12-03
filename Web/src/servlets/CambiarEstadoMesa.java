@@ -9,32 +9,28 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/CambiarEstadoMesa")
 public class CambiarEstadoMesa extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    public CambiarEstadoMesa() {
+
+	private static final long serialVersionUID = -5293141931620377538L;
+
+	public CambiarEstadoMesa() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String mesa = request.getParameter("mesa");
-		if ((mesa != null)) {
-			response.setContentType("text/xml ");
+		String sucursal = request.getParameter("sucursal");
+		if (mesa != null && sucursal != null) {
+			response.setContentType("text/xml");
 			response.setHeader("Cache-Control", "no-cache");
-			response.getWriter().write("AJAX OK");
+			response.getWriter().write("ok");
 		} else {
-			response.setContentType("text/xml ");
+			response.setContentType("text/xml");
 			response.setHeader("Cache-Control", "no-cache");
-			response.getWriter().write("AJ0"
-					+ "AX OK 2");
+			response.getWriter().write("Error");
 		}
-	
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

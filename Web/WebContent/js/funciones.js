@@ -1,21 +1,22 @@
 var request;
 
-function cambiarEstadoMesa(idMesa, numero){
-	var mesa = document.getElementById(idMesa);
-	if(mesa.className == "cajaMesaVacia"){
-		mesa.className = "cajaMesaOcupada";
-		cambiarEstadoMesaAjax(numero);
+function cambiarEstadoMesa(idDiv, idMesa, numero, sucursal){
+	var div = document.getElementById(idDiv);
+	if(div.className == "cajaMesaVacia"){
+		cambiarEstadoMesaAjax(idMesa, numero, sucursal);
+		div.className = "cajaMesaOcupada";
 	}
 	else{
-		mesa.className = "cajaMesaVacia";
+		div.className = "cajaMesaVacia";
+		//Hacer función que Facture y la vuelva a la normalidad
 	}
 }
 
-function cambiarEstadoMesaAjax(numeroMesa) {
+function cambiarEstadoMesaAjax(idMesa, numeroMesa, sucursal) {
 	crearRequest();
-	var url = "CambiarEstadoMesa?mesa=" + numeroMesa;
-	request.onreadystatechange = procesarCambiarEstadoMesa; 
-	request.open("GET", url, true);
+	var url = "CambiarEstadoMesa?mesa=" + numeroMesa + "&sucursal='" + sucursal;
+	request.onreadystatechange = function(){procesarCambiarEstadoMesa(idMesa);}; 
+	request.open("GET", url);
 	request.send(null);
 }
 
@@ -28,11 +29,10 @@ function crearRequest() {
 	}
 }
 
-function procesarCambiarEstadoMesa() {
-	alert (request.readyState + "  --  " + request.status);
+function procesarCambiarEstadoMesa(idMesa) {
 	if (request.readyState == 4) {
 		if (request.status == 200) {
-			document.getElementById("respuesta").innerHTML = request.responseText;
+			document.getElementById(idMesa).innerHTML = request.responseText;
 		}
 	}
 }
