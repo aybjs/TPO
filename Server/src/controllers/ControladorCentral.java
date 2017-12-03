@@ -82,14 +82,19 @@ public class ControladorCentral {
 		Mozo mozo = null;
 		mozo = new Mozo(2017001, "Esteban Quito", 5);
 		mozos.add(mozo);
+		MozoDAO.getInstance().grabarMozo(mozo);
 		mozo = new Mozo(2017002, "Amilcar Cajada", 5);
 		mozos.add(mozo);
+		MozoDAO.getInstance().grabarMozo(mozo);
 		mozo = new Mozo(2017003, "Ana Tomia", 10);
 		mozos.add(mozo);
+		MozoDAO.getInstance().grabarMozo(mozo);
 		mozo = new Mozo(2017004, "Benito Camelo", 5);
 		mozos.add(mozo);
+		MozoDAO.getInstance().grabarMozo(mozo);
 		mozo = new Mozo(2017005, "Ariel C. Pillado", 5);
 		mozos.add(mozo);
+		MozoDAO.getInstance().grabarMozo(mozo);
 		
 		s1.setMesas(mesas);
 		s1.setCarta(carta);
@@ -119,14 +124,19 @@ public class ControladorCentral {
 		Mozo mozo2 = null;
 		mozo2 = new Mozo(2017001, "Aquiles Meo de Latorre", 5);
 		mozos2.add(mozo2);
+		MozoDAO.getInstance().grabarMozo(mozo2);
 		mozo2 = new Mozo(2017002, "Ana Konda", 10);
 		mozos2.add(mozo2);
+		MozoDAO.getInstance().grabarMozo(mozo2);
 		mozo2 = new Mozo(2017003, "Cindy Entes", 10);
 		mozos2.add(mozo2);
+		MozoDAO.getInstance().grabarMozo(mozo2);
 		mozo2 = new Mozo(2017004, "Alma Maria Rico", 5);
 		mozos2.add(mozo2);
+		MozoDAO.getInstance().grabarMozo(mozo2);
 		mozo2 = new Mozo(2017005, "Alex Plosivo", 5);
 		mozos2.add(mozo2);
+		MozoDAO.getInstance().grabarMozo(mozo2);
 		
 		s2.setMesas(mesas2);
 		s2.setCarta(carta);
@@ -156,14 +166,19 @@ public class ControladorCentral {
 				Mozo mozo3 = null;
 				mozo3 = new Mozo(2017001, "Susana Horia", 5);
 				mozos3.add(mozo3);
+				MozoDAO.getInstance().grabarMozo(mozo3);
 				mozo3 = new Mozo(2017002, "Jhony Meacuerdo", 0);
 				mozos3.add(mozo3);
+				MozoDAO.getInstance().grabarMozo(mozo3);
 				mozo3 = new Mozo(2017003, "Andres Tresado", 0);
 				mozos3.add(mozo);
+				MozoDAO.getInstance().grabarMozo(mozo3);
 				mozo3 = new Mozo(2017004, "Coco Drilo", 5);
 				mozos3.add(mozo3);
+				MozoDAO.getInstance().grabarMozo(mozo3);
 				mozo3 = new Mozo(2017005, "Dolores D. Parto", 15);
 				mozos3.add(mozo3);
+				MozoDAO.getInstance().grabarMozo(mozo3);
 				
 				s2.setMesas(mesas3);
 				s2.setCarta(carta);
