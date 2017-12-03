@@ -46,7 +46,7 @@ public class ProductoCompuestoEntity extends ProductoEntity {
 		super(codigo, nombre, sectorEncargado, minimo, comisionExtra,
 				consumoEstimado, precio);
 
-		this.items = null;
+		//this.items = null;
 		//this.cantItem = null;
 		this.tiempoElaboracion = tiempo;
 	}
@@ -54,7 +54,7 @@ public class ProductoCompuestoEntity extends ProductoEntity {
 	public ProductoCompuestoEntity() {
 		// TODO Auto-generated constructor stub
 	}
-
+/*
 	public Vector<ProductoSimpleEntity> getItems() {
 		return items;
 	}
@@ -66,7 +66,7 @@ public class ProductoCompuestoEntity extends ProductoEntity {
 	public void agregarItems(ProductoSimpleEntity item) {
 		this.items.addElement(item);
 	}
-
+*/
 	public int getTiempoElaboracion() {
 		return tiempoElaboracion;
 	}

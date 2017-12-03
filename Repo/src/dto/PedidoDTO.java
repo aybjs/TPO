@@ -22,9 +22,12 @@ public class PedidoDTO implements Serializable{
 		super();
 		this.mesa = mesa;
 		this.items = items;
+		this.items = new Vector<ProductoDTO>();
 	}
 	
-	public PedidoDTO(){};
+	public PedidoDTO(){
+		this.items = new Vector<ProductoDTO>();
+	};
 	
 	public MesaDTO getMesa() {
 		return mesa;
