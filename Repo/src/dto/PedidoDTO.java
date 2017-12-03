@@ -38,4 +38,9 @@ public class PedidoDTO implements Serializable{
 	public void setItems(Vector<ProductoDTO> items) {
 		this.items = items;
 	}
+	
+	public void agregarItem(ProductoDTO p){
+		this.items.addElement(p);
+	}
+	
 }
