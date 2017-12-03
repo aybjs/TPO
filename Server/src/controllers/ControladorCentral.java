@@ -45,28 +45,32 @@ public class ControladorCentral {
 		//Y le agregamos...
 		//deposito.add(new Deposito("responsable"));
 		//sucursal.add(new Sucursal("codigoResto"));
-		Sucursal s1= new Sucursal("1000");
-		Vector<Mesa> mesas = new Vector<Mesa>();
-		for (int i=0; i< 5; i++){
-			Mesa mesa = null;
-			mesa.setId(1);
-			mesa.setCantComen(4);
-			mesa.setSector("Central");
-			mesas.add(mesa);
-		}
-		for (int i=5; i < 10; i++){
-			Mesa mesa = null;
-			mesa.setId(1);
-			mesa.setCantComen(6);
-			mesa.setSector("Lateral Izquierdo");
-			mesas.add(mesa);
-		}
+		
 		Carta carta = new Carta();
 		Producto p = null;
 		for (int idProducto= 0; idProducto<100; idProducto++){ 
 			p = ProductoDAO.getInstance().recuperarProducto(idProducto);
 			carta.agregarProducto(p);
 		}//tenemos que ver como devolvemos algun contador de productos para limitar el for o devolver al cantidad de items de la DB
+		
+		//********Primera Sucursal********//
+		
+		Sucursal s1= new Sucursal("1000");
+		Vector<Mesa> mesas = new Vector<Mesa>();
+		for (int i=0; i< 5; i++){
+			Mesa mesa = null;
+			mesa.setId(i);
+			mesa.setCantComen(4);
+			mesa.setSector("Central");
+			mesas.add(mesa);
+		}
+		for (int i=5; i < 10; i++){
+			Mesa mesa = null;
+			mesa.setId(i);
+			mesa.setCantComen(6);
+			mesa.setSector("Lateral Izquierdo");
+			mesas.add(mesa);
+		}
 		
 		Vector<Mozo> mozos = new Vector<Mozo>();
 		Mozo mozo = null;
@@ -85,6 +89,82 @@ public class ControladorCentral {
 		s1.setCarta(carta);
 		s1.setMozos(mozos);
 		sucursales.add(s1);
+		
+		//********Segunda Sucursal********//
+		
+		Sucursal s2= new Sucursal("1001");
+		Vector<Mesa> mesas2 = new Vector<Mesa>();
+		for (int i=0; i< 5; i++){
+			Mesa mesa = null;
+			mesa.setId(i);
+			mesa.setCantComen(4);
+			mesa.setSector("Sector Rio");
+			mesas2.add(mesa);
+		}
+		for (int i=5; i < 10; i++){
+			Mesa mesa = null;
+			mesa.setId(i);
+			mesa.setCantComen(6);
+			mesa.setSector("Sector Calle");
+			mesas.add(mesa);
+		}
+		
+		Vector<Mozo> mozos2 = new Vector<Mozo>();
+		Mozo mozo2 = null;
+		mozo2 = new Mozo(2017001, "Aquiles Meo de Latorre", 5);
+		mozos2.add(mozo2);
+		mozo2 = new Mozo(2017002, "Ana Konda", 10);
+		mozos2.add(mozo2);
+		mozo2 = new Mozo(2017003, "Cindy Entes", 10);
+		mozos2.add(mozo2);
+		mozo2 = new Mozo(2017004, "Alma Maria Rico", 5);
+		mozos2.add(mozo2);
+		mozo2 = new Mozo(2017005, "Alex Plosivo", 5);
+		mozos2.add(mozo2);
+		
+		s2.setMesas(mesas2);
+		s2.setCarta(carta);
+		s2.setMozos(mozos2);
+		sucursales.add(s2);
+		
+		//********Tercera Sucursal********//
+		
+				Sucursal s3= new Sucursal("1001");
+				Vector<Mesa> mesas3 = new Vector<Mesa>();
+				for (int i=0; i< 5; i++){
+					Mesa mesa = null;
+					mesa.setId(i);
+					mesa.setCantComen(4);
+					mesa.setSector("Sector Rio");
+					mesas.add(mesa);
+				}
+				for (int i=5; i < 10; i++){
+					Mesa mesa = null;
+					mesa.setId(i);
+					mesa.setCantComen(6);
+					mesa.setSector("Sector Calle");
+					mesas.add(mesa);
+				}
+				
+				Vector<Mozo> mozos3 = new Vector<Mozo>();
+				Mozo mozo3 = null;
+				mozo3 = new Mozo(2017001, "Susana Horia", 5);
+				mozos3.add(mozo3);
+				mozo3 = new Mozo(2017002, "Jhony Meacuerdo", 0);
+				mozos3.add(mozo3);
+				mozo3 = new Mozo(2017003, "Andres Tresado", 0);
+				mozos3.add(mozo);
+				mozo3 = new Mozo(2017004, "Coco Drilo", 5);
+				mozos3.add(mozo3);
+				mozo3 = new Mozo(2017005, "Dolores D. Parto", 15);
+				mozos3.add(mozo3);
+				
+				s2.setMesas(mesas3);
+				s2.setCarta(carta);
+				s2.setMozos(mozos3);
+				sucursales.add(s3);
+				
+		
 	}
 	
 	public List<ProductoDTO> getComprasPendiente() throws ComprasPendientesException { 
