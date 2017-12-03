@@ -86,9 +86,9 @@ public class ProductoCompuestoDAO {
 		ps.setNombre(pe.getNombre());
 		ps.setSectorEncargado(pe.getSectorEncargado());
 		ps.setPrecio(pe.getPrecio());
-		for(ProductoSimpleEntity arreglo : pe.getItems()){
+		/*for(ProductoSimpleEntity arreglo : pe.getItems()){
 			ps.agregarItem(ProductoSimpleDAO.getInstance().toNegocio(arreglo));
-		}
+		}*/
 		ps.setTiempoElaboracion(pe.getTiempoElaboracion());
 		return ps;	
 		}
@@ -100,18 +100,18 @@ public class ProductoCompuestoDAO {
 		pse.setCodigo(p.getCodigo());
 		pse.setComisionExtra(p.getComisionExtra());
 		pse.setConsumoEstimado(p.getConsumoEstimado());
-		for(Lote lotes : p.getLotes()){
+		/*for(Lote lotes : p.getLotes()){
 			pse.addLote( LoteDAO.getInstance().toEntity(lotes));			
-		}
+		}*/
 		pse.setMinimo(p.getMinimo());
 		pse.setNombre(p.getNombre());
 		pse.setPrecio(p.getPrecio());
 		pse.setSectorEncargado(p.getSectorEncargado());
 		pse.setTiempoElaboracion(p.getTiempoElaboracion());
 		pse.setSectorEncargado(p.getSectorEncargado());
-		for(ProductoSimple arreglo : p.getItems()){
+		/*for(ProductoSimple arreglo : p.getItems()){
 			pse.agregarItems(ProductoSimpleDAO.getInstance().toEntity(arreglo));
-		}
+		}*/
 		return pse;
 		 
 	}

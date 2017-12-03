@@ -48,9 +48,9 @@ public class ProductoCompuesto extends Producto {
 
 	public float getPrecio() {
 		float precio = 0;
-		for (ProductoSimple p : items) {
+		/*for (ProductoSimple p : items) {
 			precio = precio + p.getPrecio();
-		}
+		}*/
 		return precio;
 
 	}
