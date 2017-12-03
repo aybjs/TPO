@@ -48,6 +48,7 @@ public class ControladorCentral {
 		
 		Carta carta = new Carta();
 		Producto p = null;
+		
 		for (int idProducto= 0; idProducto<100; idProducto++){ 
 			p = ProductoDAO.getInstance().recuperarProducto(idProducto);
 			carta.agregarProducto(p);

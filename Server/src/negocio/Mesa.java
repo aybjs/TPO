@@ -15,7 +15,7 @@ public abstract class Mesa {
 	protected Date apertura;
 	protected Date cierre; // no se manejar tiempos, esto es lo mejor que
 							// encontre
-	protected EstadosMesa estado;
+	protected String estado;
 	protected Mozo mozo;
 
 	public Mesa(int id, String sector) {
@@ -27,6 +27,7 @@ public abstract class Mesa {
 		this.apertura = null;
 		this.cierre = null;
 		this.mozo = null;
+		this.estado = "libre";
 	}
 
 	public abstract void AbrirMesa(int personas, Mozo mozo);
@@ -109,6 +110,12 @@ public abstract class Mesa {
 		mesa.setMozo(mozo.toDTO());
 		mesa.setSector(sector);
 		return mesa;
+		
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+		// TODO Auto-generated method stub
 		
 	}
 

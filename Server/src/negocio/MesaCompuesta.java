@@ -13,8 +13,8 @@ public class MesaCompuesta extends Mesa {
 		this.mesas = mesas;
 		super.mozo = mozo;
 		super.cantComen = personas;
-		setEstadoIndividuales(EstadosMesa.combinada);
-		super.estado = EstadosMesa.ocupada;
+		setEstadoIndividuales("combinada");
+		super.estado = "ocupada";
 	}
 
 	@Override
@@ -41,18 +41,23 @@ public class MesaCompuesta extends Mesa {
 
 	}
 
-	public void setEstadoIndividuales(EstadosMesa estado) {
+	public void setEstadoIndividuales(String estado) {
 		// TODO Auto-generated method stub
 		for (Mesa m : mesas)
 			m.setEstado(estado);
+	}
+
+	@Override
+	public void setEstado(String estado) {
+		// TODO Auto-generated method stub
+		super.estado = estado;
 
 	}
 
 	@Override
 	public void setEstado(EstadosMesa estado) {
 		// TODO Auto-generated method stub
-		super.estado = estado;
-
+		
 	}
 
 }

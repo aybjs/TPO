@@ -7,14 +7,14 @@ public class Factura {
 	private static double nroFactura = 0;
 	private String cliente;
 	private Pedido pedido;
-	private FormaPago formaPago;
+	private String formaPago;
 
 	public Factura() {
 		nroFactura++;
 		pedido = null;
 	}
 
-	public Factura(String cliente, Pedido pedido, FormaPago formaPago) {
+	public Factura(String cliente, Pedido pedido, String formaPago) {
 		nroFactura++;
 		this.pedido = pedido;
 		this.cliente = cliente;
@@ -51,11 +51,11 @@ public class Factura {
 		this.pedido = pedido;
 	}
 
-	public FormaPago getFormaPago() {
+	public String getFormaPago() {
 		return formaPago;
 	}
 
-	public void setFormaPago(FormaPago formaPago) {
+	public void setFormaPago(String formaPago) {
 		this.formaPago = formaPago;
 	}
 }
