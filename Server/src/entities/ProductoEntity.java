@@ -10,7 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -19,8 +21,8 @@ import org.hibernate.annotations.Entity;
 import enumerators.SectorEncargado;
 import negocio.Lote;
 
-@Entity
-@Table(name="productos")  // tabla unica
+@MappedSuperclass
+//@Table(name="productos")  // tabla unica
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public abstract class ProductoEntity implements Serializable {
 
@@ -32,6 +34,7 @@ public abstract class ProductoEntity implements Serializable {
 	
 	@Id
 	@GeneratedValue
+	@Column(name="IdProductoCompuesto")
 	private int codigo;
 	@Column(name="nombre")
 	private String nombre;
@@ -42,7 +45,8 @@ public abstract class ProductoEntity implements Serializable {
 	@Column(name="comisionExtra")
 	private float comisionExtra;
 	@OneToMany
-	private Vector<Lote> lotes;
+	@JoinColumn(name="nroLote1")
+	private Vector<LoteEntity> lotes = new Vector<LoteEntity>();
 	@Column(name="consumoEstimado")
 	private float consumoEstimado;
 	@Column(name="precio")
@@ -53,7 +57,7 @@ public abstract class ProductoEntity implements Serializable {
 	}
 	
 	public ProductoEntity(int codigo, String nombre, String sectorEncargado, float minimo, float comisionExtra,
-			Vector<Lote> lotes, float consumoEstimado, float precio) {
+			Vector<LoteEntity> lotes, float consumoEstimado, float precio) {
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.sectorEncargado = sectorEncargado;
@@ -117,10 +121,10 @@ public abstract class ProductoEntity implements Serializable {
 	public void setComisionExtra(float comisionExtra) {
 		this.comisionExtra = comisionExtra;
 	}
-	public Vector<Lote> getLotes() {
+	public Vector<LoteEntity> getLotes() {
 		return lotes;
 	}
-	public void setLotes(Vector<Lote> lotes) {
+	public void setLotes(Vector<LoteEntity> lotes) {
 		this.lotes = lotes;
 	}
 	public float getConsumoEstimado() {

@@ -47,12 +47,11 @@ public class ProductoSimpleEntity extends ProductoEntity {
 
 	public float getStockActual() {
 		float stock = 0;
-		for (Lote lotes : this.getLotes()) {
+		/*for (Lote lotes : this.getLotes()) {
 			stock = stock + lotes.getCantidad();
-		}
+		}*/
 		return stock;
 	}
-
 
 	public int getTiempoElaboracion() {
 		// TODO Auto-generated method stub

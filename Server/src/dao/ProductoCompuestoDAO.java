@@ -80,7 +80,7 @@ public class ProductoCompuestoDAO {
 		ps.setCodigo(pe.getCodigo());
 		ps.setComisionExtra(pe.getComisionExtra());
 		ps.setConsumoEstimado(pe.getConsumoEstimado());
-		ps.setLotes(pe.getLotes());
+		//ps.setLotes(pe.getLotes());
 		ps.setMinimo(pe.getMinimo());
 		ps.setNombre(pe.getNombre());
 		ps.setSectorEncargado(pe.getSectorEncargado());
@@ -99,7 +99,7 @@ public class ProductoCompuestoDAO {
 		pse.setCodigo(p.getCodigo());
 		pse.setComisionExtra(p.getComisionExtra());
 		pse.setConsumoEstimado(p.getConsumoEstimado());
-		pse.setLotes(p.getLotes());
+		//pse.setLotes(p.getLotes());
 		pse.setMinimo(p.getMinimo());
 		pse.setNombre(p.getNombre());
 		pse.setPrecio(p.getPrecio());

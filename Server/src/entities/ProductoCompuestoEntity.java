@@ -18,6 +18,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 @Table(name="ProductoCompuesto")
+
 public class ProductoCompuestoEntity extends ProductoEntity {
 
 	/**

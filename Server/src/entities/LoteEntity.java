@@ -11,6 +11,7 @@ public class LoteEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	
 	@Column(name="nroLote",nullable=false)
 	private Integer nroLote;
 	@Column(name="cantidad")

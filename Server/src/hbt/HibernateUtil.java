@@ -35,17 +35,17 @@ public class HibernateUtil
         {
         	 AnnotationConfiguration config = new AnnotationConfiguration();
         	 config.addAnnotatedClass(AreaProduccionEntity.class);
-        	 config.addAnnotatedClass(CajaEntity.class);
+        	 //config.addAnnotatedClass(CajaEntity.class);
         	 config.addAnnotatedClass(CartaEntity.class);
-        	 config.addAnnotatedClass(DepositoEntity.class);
-        	 config.addAnnotatedClass(FacturaEntity.class);
+        	// config.addAnnotatedClass(DepositoEntity.class);
+        	// config.addAnnotatedClass(FacturaEntity.class);
         	 config.addAnnotatedClass(ItemOCEntity.class);
         	 config.addAnnotatedClass(ItemRemitoEntity.class);
         	 config.addAnnotatedClass(MozoEntity.class);
         	 config.addAnnotatedClass(LoteEntity.class);
         	 config.addAnnotatedClass(MovStockEntity.class);
         	 config.addAnnotatedClass(NotaDevEntity.class);
-        	 config.addAnnotatedClass(OrdenCompraEntity.class);
+        	 //config.addAnnotatedClass(OrdenCompraEntity.class);
         	 config.addAnnotatedClass(ProductoCompuestoEntity.class);
         	 config.addAnnotatedClass(ProductoEntity.class);
         	 config.addAnnotatedClass(ProductoSimpleEntity.class);
