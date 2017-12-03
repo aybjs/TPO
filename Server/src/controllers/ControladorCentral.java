@@ -54,17 +54,36 @@ public class ControladorCentral {
 			mesa.setSector("Central");
 			mesas.add(mesa);
 		}
-		for (int i=0; i< 5; i++){
+		for (int i=5; i < 10; i++){
 			Mesa mesa = null;
 			mesa.setId(1);
 			mesa.setCantComen(6);
 			mesa.setSector("Lateral Izquierdo");
 			mesas.add(mesa);
 		}
-		s1.setMesas(mesas);
 		Carta carta = new Carta();
-		carta.
-		s1.setCarta();
+		Producto p = null;
+		for (int idProducto= 0; idProducto<100; idProducto++){ 
+			p = ProductoDAO.getInstance().recuperarProducto(idProducto);
+			carta.agregarProducto(p);
+		}//tenemos que ver como devolvemos algun contador de productos para limitar el for o devolver al cantidad de items de la DB
+		
+		Vector<Mozo> mozos = new Vector<Mozo>();
+		Mozo mozo = null;
+		mozo = new Mozo(2017001, "Esteban Quito", 5);
+		mozos.add(mozo);
+		mozo = new Mozo(2017002, "Amilcar Cajada", 5);
+		mozos.add(mozo);
+		mozo = new Mozo(2017003, "Ana Tomia", 10);
+		mozos.add(mozo);
+		mozo = new Mozo(2017004, "Benito Camelo", 5);
+		mozos.add(mozo);
+		mozo = new Mozo(2017005, "Ariel C. Pillado", 5);
+		mozos.add(mozo);
+		
+		s1.setMesas(mesas);
+		s1.setCarta(carta);
+		s1.setMozos(mozos);
 		sucursales.add(s1);
 	}
 	
