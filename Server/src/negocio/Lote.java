@@ -19,6 +19,10 @@ public class Lote {
 		this.cantidad = cantidad;
 	}
 
+	public Lote() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getNro() {
 		return nro;
 	}

@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import negocio.Lote;
+
 
 
 @Entity
@@ -68,5 +70,6 @@ public class ProductoCompuestoEntity extends ProductoEntity {
 	public void setTiempoElaboracion(int tiempoElaboracion) {
 		this.tiempoElaboracion = tiempoElaboracion;
 	}	
+	
 
 }
