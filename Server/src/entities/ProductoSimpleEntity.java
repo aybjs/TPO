@@ -22,9 +22,11 @@ public class ProductoSimpleEntity extends ProductoEntity {
 	private static final long serialVersionUID = -1802406766174218765L;
 	//@Column(name="medida")
 	private String medida;
+	/*
 	@OneToMany
 	@JoinColumn(name="nroLote1")
 	private Vector<LoteEntity> lote;
+	*/
 
 	public ProductoSimpleEntity(int codigo, String nombre, String sectorEncargado,
 			float minimo, float comisionExtra, float consumoEstimado,

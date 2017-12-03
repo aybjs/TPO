@@ -2,6 +2,9 @@ package negocio;
 
 import java.util.Vector;
 
+import dto.PedidoDTO;
+import dto.ProductoDTO;
+
 public class Pedido {
 
 	private static double id = 0;
@@ -10,8 +13,21 @@ public class Pedido {
 
 	public Pedido(Mesa mesa) {
 		this.mesa = mesa;
-		this.id++;
+		Pedido.id++;
 		this.items = new Vector<ProductoCompuesto>();
+	}
+	
+	public Pedido(PedidoDTO p){
+		this.mesa = new Mesa(p.getMesa());
+		Pedido.id = p.getId();
+		for(ProductoDTO ped: p.getItems()){
+			
+			ProductoCompuesto pc = new ProductoCompuesto(ped);
+			this.items.addElement(pc);
+			
+			
+		}
+		
 	}
 
 	public float subTotal() {

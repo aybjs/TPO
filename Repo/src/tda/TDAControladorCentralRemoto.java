@@ -43,4 +43,6 @@ public interface TDAControladorCentralRemoto extends Remote {
 	
 	public Vector<ProductoDTO> getTodosLosProductos() throws RemoteException;
 	
+	public double GenerarPedido(PedidoDTO p) throws RemoteException;
+	
 }

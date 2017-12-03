@@ -10,18 +10,20 @@ import negocio.Pedido;
 
 public class PruebaPedido {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		PedidoDTO pedidodto = new PedidoDTO();
 		for(ProductoDTO productos : ControladorCentral.getInstancia().getTodosLosProductos()){
-			System.out.println(productos.getNombre() + productos.getStock());
+			System.out.println(productos.getNombre() + " " + productos.getPrecio());
 			pedidodto.agregarItem(productos);
 		}
 		MesaDTO m = new MesaDTO();
 		m.setId(2);
 		pedidodto.setMesa(m);
-		m.setMozo(new MozoDTO(1,"Ger",1));
+		m.setMozo(MozoDAO.getInstance().recuperarMozo(7).toDTO());
+		double id = ControladorCentral.getInstancia().GenerarPedido(pedidodto);
+		Pedido ped = ControladorCentral.getInstancia().getPedido(id);
+		System.out.println("Valor: " + ped.subTotal());
 		
-		System.out.println(ControladorCentral.getInstancia().GenerarPedido(pedidodto));
 		
 		
 		

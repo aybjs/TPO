@@ -51,9 +51,10 @@ public abstract class ProductoEntity implements Serializable {
 	*/
 	@Column(name="consumoEstimado")
 	private float consumoEstimado;
+	/*
 	@Column(name="precio")
 	private float precio;
-	
+	*/
 	public ProductoEntity(){
 		
 	}
@@ -67,7 +68,7 @@ public abstract class ProductoEntity implements Serializable {
 		this.comisionExtra = comisionExtra;
 		//this.lotes = lotes;
 		this.consumoEstimado = consumoEstimado;
-		this.precio = precio;
+		//this.precio = precio;
 	}
 	
 	
@@ -84,7 +85,7 @@ public abstract class ProductoEntity implements Serializable {
 		this.minimo = minimo2;
 		this.comisionExtra = comisionExtra2;
 		this.consumoEstimado = consumoEstimado2;
-		this.precio = precio;
+		//this.precio = precio;
 	}
 
 
@@ -137,7 +138,7 @@ public abstract class ProductoEntity implements Serializable {
 	public void setConsumoEstimado(float consumoEstimado) {
 		this.consumoEstimado = consumoEstimado;
 	}
-
+/*
 	public float getPrecio() {
 		return precio;
 	}
@@ -145,7 +146,7 @@ public abstract class ProductoEntity implements Serializable {
 	public void setPrecio(float precio) {
 		this.precio = precio;
 	}
-	
+	*/
 	/*
 	public void addLote(LoteEntity l){
 		this.lotes.addElement(l);

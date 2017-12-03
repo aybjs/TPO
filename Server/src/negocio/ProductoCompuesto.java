@@ -10,6 +10,7 @@ public class ProductoCompuesto extends Producto {
 	//private Vector<Integer> cantItem;
 	private int tiempoElaboracion; // siempre en minutos
 	private float stock;
+	private float precio;
 
 
 	public ProductoCompuesto(int codigo, String nombre, String sectorEncargado,
@@ -47,11 +48,7 @@ public class ProductoCompuesto extends Producto {
 	}
 
 	public float getPrecio() {
-		float precio = 0;
-		/*for (ProductoSimple p : items) {
-			precio = precio + p.getPrecio();
-		}*/
-		return precio;
+		return this.precio;
 
 	}
 
@@ -86,9 +83,10 @@ public class ProductoCompuesto extends Producto {
 		this.items = items;
 	}
 
-	public void setPrecio(float precio) {
-		this.precio = precio;
+	public void setPrecio(float d) {
+		this.precio = d;
 	}
+
 
 	public Vector<ProductoSimple> getItems() {
 		return items;

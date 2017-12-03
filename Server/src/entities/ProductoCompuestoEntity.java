@@ -38,6 +38,8 @@ public class ProductoCompuestoEntity extends ProductoEntity {
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="nroLote1")
 	private List<LoteEntity> lotes;
+	@Column(name="precio")
+	private float precio;
 	
 	
 	public ProductoCompuestoEntity(int codigo, String nombre, String sectorEncargado,
@@ -84,6 +86,13 @@ public class ProductoCompuestoEntity extends ProductoEntity {
 	}
 	public void setLotes(Vector<LoteEntity> lotes) {
 		this.lotes = lotes;
+	}
+	public float getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(float precio) {
+		this.precio = precio;
 	}
 	
 

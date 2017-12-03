@@ -22,6 +22,7 @@ public class ControladorCentral {
 	private List<Deposito> deposito;
 	private List<Sucursal> sucursales;
 	private List<OrdenCompra> ordenCompra;
+	private List<Pedido> pedidos = new Vector<Pedido>();
 	private String codigoResto; // hay que hacer algo con esto, ingresarlo en algún lugar a mano.
 	
 	private ControladorCentral (){
@@ -189,13 +190,16 @@ public class ControladorCentral {
 				ProductoCompuesto prodComp = new ProductoCompuesto();
 				prodComp.setCodigo(1001);
 				prodComp.setNombre("Milanesa Napolitana con Papas Fritas");
+				prodComp.setPrecio(28);
 				ProductoCompuestoDAO.getInstance().grabarProducto(prodComp);
 				ProductoCompuesto prodComp2 = new ProductoCompuesto();
 				prodComp2.setCodigo(1002);
 				prodComp2.setNombre("Fideos al Pesto");
+				prodComp2.setPrecio(57);
 				ProductoCompuestoDAO.getInstance().grabarProducto(prodComp2);
 				ProductoCompuesto prodComp3 = new ProductoCompuesto();
 				prodComp3.setCodigo(1001);
+				prodComp3.setPrecio(34);
 				prodComp3.setNombre("Ravioles con Salsa Bolognesa");
 				ProductoCompuestoDAO.getInstance().grabarProducto(prodComp3);
 				
@@ -295,9 +299,76 @@ public class ControladorCentral {
 			ProductoCompuesto pc = new ProductoCompuesto(prod);
 			ped.agregarItem(pc);
 		}
+		this.pedidos.add(ped);
 		return ped.getId();
 		
 	}
 
+	public List<Tarea> getPlanProduccion() {
+		return planProduccion;
+	}
+
+	public void setPlanProduccion(List<Tarea> planProduccion) {
+		this.planProduccion = planProduccion;
+	}
+
+	public List<Proveedor> getProveedor() {
+		return proveedor;
+	}
+
+	public void setProveedor(List<Proveedor> proveedor) {
+		this.proveedor = proveedor;
+	}
+
+	public List<Deposito> getDeposito() {
+		return deposito;
+	}
+
+	public void setDeposito(List<Deposito> deposito) {
+		this.deposito = deposito;
+	}
+
+	public List<Sucursal> getSucursales() {
+		return sucursales;
+	}
+
+	public void setSucursales(List<Sucursal> sucursales) {
+		this.sucursales = sucursales;
+	}
+
+	public List<OrdenCompra> getOrdenCompra() {
+		return ordenCompra;
+	}
+
+	public void setOrdenCompra(List<OrdenCompra> ordenCompra) {
+		this.ordenCompra = ordenCompra;
+	}
+
+	public Pedido getPedido(double id) {
+		Pedido aux = null;
+		for(Pedido p: this.pedidos){
+			if(p.getId()==id)
+				aux = p;
+		}
+		return aux;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+
+	public String getCodigoResto() {
+		return codigoResto;
+	}
+
+	public void setCodigoResto(String codigoResto) {
+		this.codigoResto = codigoResto;
+	}
+	
+	public PedidoDTO facturar(double idPedido){
+		Pedido p = this.getPedido(idPedido);
+		//falta pasar pedido a pedido dto para que pueda facturar
+		return null;
+	}
 	
 }

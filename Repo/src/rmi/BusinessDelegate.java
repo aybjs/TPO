@@ -137,4 +137,11 @@ public class BusinessDelegate{
     	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
 	}
 	
+	public double GenerarPedido(PedidoDTO p) throws BusinessDelegateException{
+		try {
+			return ControladorCentralRemoto.GenerarPedido(p);
+		}
+    	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
+	}
+	
 }
