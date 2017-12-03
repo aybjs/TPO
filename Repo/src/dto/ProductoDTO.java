@@ -11,12 +11,15 @@ public class ProductoDTO  implements Serializable {
 	private int codigo;
 	private float precio;
 	private String nombre;
+	private float stock;
+	private float comisionExtra;
+	/*
 	private String sectorEncargado;
 	private float minimo;
-	private float comisionExtra;
 	private Vector<LoteDTO> lotes;
 	private float consumoEstimado;
-	private float stock;
+	
+	*/
 	
 	public ProductoDTO(){
 		
@@ -26,12 +29,16 @@ public class ProductoDTO  implements Serializable {
 		this.codigo = codigo;
 		this.precio = precio;
 		this.nombre = nombre;
-		this.minimo = minimo;
+		this.stock = stock;
 		this.comisionExtra = comisionExtra;
+		/*
+		this.minimo = minimo;
 		this.lotes = lotes;
 		this.consumoEstimado = consumoEstimado;
 		this.sectorEncargado = sectorEncargado;
-		this.stock = stock;
+		*/
+		
+		
 	}
 	
 	public float getStock() {
@@ -49,7 +56,11 @@ public class ProductoDTO  implements Serializable {
 	public String getNombre() {
 		return nombre;
 	}
-
+	
+	public float getComisionExtra() {
+		return comisionExtra;
+	}
+	/*
 	public String getSectorEncargado() {
 		return sectorEncargado;
 	}
@@ -59,9 +70,7 @@ public class ProductoDTO  implements Serializable {
 	}
 
 	
-	public float getComisionExtra() {
-		return comisionExtra;
-	}
+	
 
 	public List<LoteDTO> getLotes() {
 		return lotes;
@@ -70,7 +79,8 @@ public class ProductoDTO  implements Serializable {
 	public float getConsumoEstimado() {
 		return consumoEstimado;
 	}
-
+	*/
+	
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
@@ -82,7 +92,11 @@ public class ProductoDTO  implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
+	
+	public void setComisionExtra(float comisionExtra) {
+		this.comisionExtra = comisionExtra;
+	}
+	/*
 	public void setSectorEncargado(String sectorEncargado) {
 		this.sectorEncargado = sectorEncargado;
 	}
@@ -91,9 +105,7 @@ public class ProductoDTO  implements Serializable {
 		this.minimo = minimo;
 	}
 
-	public void setComisionExtra(float comisionExtra) {
-		this.comisionExtra = comisionExtra;
-	}
+	
 
 	public void setLotes(Vector<LoteDTO> vector) {
 		this.lotes = vector;
@@ -102,7 +114,7 @@ public class ProductoDTO  implements Serializable {
 	public void setConsumoEstimado(float consumoEstimado) {
 		this.consumoEstimado = consumoEstimado;
 	}
-
+	*/
 	public void setStock(float stock) {
 		this.stock = stock;
 	}
