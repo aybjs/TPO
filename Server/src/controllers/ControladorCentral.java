@@ -391,6 +391,8 @@ public class ControladorCentral {
 		
 		return flo;
 	}
+
+	
 	
 	public String agregarPlato(ProductoDTO p){
 		ProductoCompuesto prod = new ProductoCompuesto(p);
