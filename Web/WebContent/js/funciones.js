@@ -104,11 +104,32 @@ function CrearPlatoAJAX(){
 	if (request.readyState == 4) {
 		if (request.status == 200) {
 			document.getElementById("platoCreadoResultado").innerHTML = request.responseText;
-			document.getElementById("precio").value = "";
-			document.getElementById("nombre").value = "";
-			document.getElementById("stock").value = "";
-			document.getElementById("comisionExtra").value = "";
-			document.getElementById("areaProd").value ="";
+		}
+	}
+}
+
+function agregarIngredientes(){
+	var ing = document.querySelectorAll(".ing");
+	var nombre = document.getElementById("nombre").innerHTML;
+	for (i = 0; i < ing.length; i++){		
+		var ingrediente = ing[i].innerHTML;
+		var cantidad = document.getElementById("cant."+ing[i].innerHTML).value;
+		agregarIngredienteSolo(nombre, ingrediente, cantidad);
+	}
+}
+
+function agregarIngredienteSolo(nombre, ingrediente, cantidad){
+	crearRequest();
+	var url = "AgregarIngrediente?nombre=" + nombre + "&ingrediente=" + ingrediente + "&cantidad=" + cantidad;
+	request.onreadystatechange = function(){agregarIngredienteSoloAJAX(ingrediente);};
+	request.open("GET", url);
+	request.send(null);
+}
+
+function agregarIngredienteSoloAJAX(ingrediente){
+	if (request.readyState == 4) {
+		if (request.status == 200) {
+			alert(ingrediente + " agregado");
 		}
 	}
 }

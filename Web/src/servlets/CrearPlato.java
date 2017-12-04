@@ -49,7 +49,7 @@ public class CrearPlato extends HttpServlet {
 	}
 
 	private String crearPlato(float precio, String nombre, float stock, float comisionExtra) {
-		String resp = null;
+		String resp = "";
 		
 		BusinessDelegate sys = null;
 		ProductoDTO prod = new ProductoDTO();
@@ -64,11 +64,13 @@ public class CrearPlato extends HttpServlet {
 			resp = resp + "<table><tr><th>Ingrediente</th><th>cantidad</th></tr>";
 			for (int i = 0; i < ingredientes.size(); i++) {
 				resp = resp + "<tr>";
-				resp = resp + "<td>" + ingredientes.elementAt(i) + "</td>";
-				resp = resp + "<td><input type=\"text\" class=\"ingre\" id=\"" + ingredientes.elementAt(i) + "\" ></td>";
+				resp = resp + "<td><span class=\"ing\" id=\"ing." + ingredientes.elementAt(i) + "\"> " + ingredientes.elementAt(i) + "</td>";
+				resp = resp + "<td><input type=\"text\" class=\"cant\" id=\"cant. " + ingredientes.elementAt(i) + "\" ></td>";
 				resp = resp + "</tr>";
 			}
 			resp = resp + "</table>";
+			
+			resp = resp + "<button class=\"pedir\" type=\"button\" id=\"agregarIngredientes\" onclick=\"agregarIngredientes()\" >Agregar Ingredientes</button>";
 			
 		} catch (BusinessDelegateException e) {
 			resp = "Error RMI en CrearPlato";
