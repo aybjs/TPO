@@ -28,8 +28,9 @@ public class MesaDTO  implements Serializable {
 			this.fecha = null;
 			this.apertura = null;
 			this.cierre = null;
-			this.mozo = null;
+			//this.mozo = null;
 			this.estado = "libre";  
+			this.mozo = new MozoDTO(53, "Roberto", 3);
 		}
 
 		public MesaDTO() {

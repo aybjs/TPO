@@ -58,6 +58,17 @@ li a:hover {
     font-size: 16px;
 }
 
+.pedir {
+	background-color: #6495ED; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
 .cajaMesaVacia {
     margin:20px;
     border:5px solid green;
@@ -81,4 +92,17 @@ li a:hover {
     float:left;
     margin-left:30px;
     margin-top: 30px;
+}
+
+.pedidos {
+	width: 800px;
+	border: 1px solid black;
+	overflow: hidden;
+	float:left;
+	margin-left:30px;
+	margin-top:30px;
+}
+
+table, th, td {
+   border: 1px solid black;
 }
