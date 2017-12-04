@@ -1,11 +1,16 @@
 package dao;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
+import entities.ProductoCompuestoEntity;
 import entities.ProductoEntity;
 import entities.ProductoSimpleEntity;
 import hbt.HibernateUtil;
+import negocio.ProductoCompuesto;
 import negocio.ProductoSimple;
 
 public class ProductoSimpleDAO {
@@ -85,6 +90,18 @@ public class ProductoSimpleDAO {
 		pse.setSectorEncargado(p.getSectorEncargado());
 		return pse;
 		 
+	}
+	
+	public java.util.Vector<ProductoSimple> recuperarProductos() {
+		Session s = sf.openSession();
+		s.beginTransaction();
+		Query q = s.createQuery("FROM ProductoSimpleEntity ");
+		@SuppressWarnings("unchecked")
+		List<ProductoSimpleEntity> list = q.list();
+		java.util.Vector<ProductoSimple> aux = new java.util.Vector<ProductoSimple>();
+		for(ProductoSimpleEntity p : list)
+			aux.addElement(this.toNegocio(p));
+		return aux;
 	}
 	
 }
