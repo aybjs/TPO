@@ -1,11 +1,13 @@
 package controllers;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
 //import com.sun.scenario.effect.impl.prism.PrDrawable;
+
 
 import dao.*;
 import enumerators.EstadosMesa;
@@ -304,6 +306,11 @@ public class ControladorCentral {
 		
 	}
 
+	public float cerrarMesa(Pedido pedCierra){
+		return 0;
+
+		
+	}
 	public List<Tarea> getPlanProduccion() {
 		return planProduccion;
 	}
@@ -371,6 +378,10 @@ public class ControladorCentral {
 		for(ProductoCompuesto prod : p.getItems()){
 			flo = flo + prod.getPrecio();
 		}
+		Mesa mesaCierra = new Mesa();
+		mesaCierra.setId((int) idPedido);
+		mesaCierra.setCierre(LocalDateTime.now());
+		
 		return flo;
 	}
 	

@@ -1,5 +1,6 @@
 package negocio;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Timer;
 
@@ -13,7 +14,7 @@ public class Mesa {
 	protected String sector;
 	protected Date fecha;
 	protected Date apertura;
-	protected Date cierre; 
+	protected LocalDateTime cierre; 
 	protected String estado;
 	protected Mozo mozo;
 
@@ -42,6 +43,10 @@ public class Mesa {
 				
 	}
 
+	public Mesa() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void AbrirMesa(int personas, Mozo mozo) {
 	}
 
@@ -49,6 +54,8 @@ public class Mesa {
 	}
 
 	public void CerrarMesa() {
+		
+		
 	}
 
 	public void HabilitarMesa() {
@@ -97,11 +104,11 @@ public class Mesa {
 		this.apertura = apertura;
 	}
 
-	public Date getCierre() {
+	public LocalDateTime getCierre() {
 		return cierre;
 	}
 
-	public void setCierre(Date cierre) {
+	public void setCierre(LocalDateTime cierre) {
 		this.cierre = cierre;
 	}
 

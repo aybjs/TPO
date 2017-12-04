@@ -30,6 +30,10 @@ public class Pedido {
 		
 	}
 
+	public Pedido() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public float subTotal() {
 		float st = 0;
 		for (ProductoCompuesto p : items)

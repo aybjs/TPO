@@ -1,6 +1,7 @@
 package dto;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import enumerators.EstadosMesa;
@@ -14,7 +15,7 @@ public class MesaDTO  implements Serializable {
 		protected String sector;
 		protected Date fecha;
 		protected Date apertura;
-		protected Date cierre; // no se manejar tiempos, esto es lo mejor que
+		protected LocalDateTime cierre; // no se manejar tiempos, esto es lo mejor que
 								// encontre
 		//protected EstadosMesa estado;
 		protected String estado; 
@@ -77,11 +78,11 @@ public class MesaDTO  implements Serializable {
 			this.apertura = apertura;
 		}
 
-		public Date getCierre() {
+		public LocalDateTime getCierre() {
 			return cierre;
 		}
 
-		public void setCierre(Date cierre) {
+		public void setCierre(LocalDateTime cierre) {
 			this.cierre = cierre;
 		}
 
