@@ -28,14 +28,15 @@ public class GenerarPedido extends HttpServlet {
 		response.setHeader("Cache-Control", "no-cache");
 		String lista = request.getParameter("array");
 		String mesa = request.getParameter("mesa");
-		response.getWriter().write(responder(lista, Integer.parseInt(mesa)));
+		String cant = request.getParameter("cant");
+		response.getWriter().write(responder(lista, Integer.parseInt(mesa), Integer.parseInt(cant)));
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 	
-	private String responder(String lista, Integer mesa) {
+	private String responder(String lista, Integer mesa, Integer cantidad) {
 		String resp;
 		String[] array = lista.split(",");
 		BusinessDelegate sys;
@@ -43,6 +44,7 @@ public class GenerarPedido extends HttpServlet {
 			sys = BusinessDelegate.getInstancia();
 			Vector<ProductoDTO> productos = sys.getTodosLosProductos();			
 			MesaDTO lamesa = new MesaDTO(mesa,"Resto");
+			lamesa.setCantComen(cantidad);
 			Vector<ProductoDTO> losPedidos = new Vector<ProductoDTO>();
 			
 			for(int i = 0; i < array.length; i++) {

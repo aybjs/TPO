@@ -66,6 +66,9 @@
 			<span id="mesaPedidoLabel">Mesa: </span>
 			<span id="mesaPedidoValue"></span>
 			<br />
+			<span id="cantPersonasLabel">Personas: </span>
+			<input type="text" id="cantidadComensales" name="cantidadComensales" value="2">
+			<br />
 			<br />
 			<div id="detallePedido"></div>
 		</div>

@@ -17,7 +17,7 @@
 		<ul>
 			<li><a href="MenuMesero.jsp">Mesero</a></li>
 			<li><a href="">Caja</a></li>
-			<li><a href="">Almacen</a></li>
+			<li><a href="CrearPlato.jsp">Almacen</a></li>
 		</ul>
 	</body>
 </html>

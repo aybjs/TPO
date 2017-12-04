@@ -42,6 +42,7 @@ function pedir(){
 	var checks = document.querySelectorAll('input[type=checkbox]');
 	var suc = document.getElementById("sucursalPedidoValue").innerHTML;
 	var mesa = document.getElementById("mesaPedidoValue").innerHTML;
+	var cantidad = document.getElementById("cantidadComensales").value;
 	var idDiv = "div" + suc + mesa
 	var idMesa = "mesa" + suc + mesa
 	var i;
@@ -53,13 +54,13 @@ function pedir(){
 			j++;
 		}
 	}
-	pedirAjax(array, idMesa, mesa);
+	pedirAjax(array, idMesa, mesa, cantidad);
 	cambiarEstadoMesa(idDiv, idMesa, mesa, suc);
 }
 
-function pedirAjax(array, idMesa, mesa){
+function pedirAjax(array, idMesa, mesa, cantidad){
 	crearRequest();
-	var url = "GenerarPedido?array=" + array + "&mesa=" + mesa;
+	var url = "GenerarPedido?array=" + array + "&mesa=" + mesa + "&cant=" + cantidad;
 	request.onreadystatechange = function(){cargarPedidosEnMesa(idMesa);};
 	request.open("GET", url);
 	request.send(null);
@@ -82,5 +83,32 @@ function cambiarEstadoMesa(idDiv, idMesa, numero, sucursal){
 	else{
 		div.className = "cajaMesaVacia";
 		document.getElementById(idMesa).innerHTML = "Mesa " + sucursal + numero;
+	}
+}
+
+function crearAlgo(){
+	var precio = document.getElementById("precio").value;
+	var nombre = document.getElementById("nombre").value;
+	var stock = document.getElementById("stock").value;
+	var comisionExtra = document.getElementById("comisionExtra").value;
+	var areaProd = document.getElementById("areaProd").value;
+	
+	crearRequest();
+	var url = "CrearPlato?precio=" + precio + "&nombre=" + nombre + "&stock=" + stock + "&comisionExtra=" + comisionExtra + "&areaProd=" + areaProd;
+	request.onreadystatechange = function(){CrearPlatoAJAX();};
+	request.open("GET", url);
+	request.send(null);
+}
+
+function CrearPlatoAJAX(){
+	if (request.readyState == 4) {
+		if (request.status == 200) {
+			document.getElementById("platoCreadoResultado").innerHTML = request.responseText;
+			document.getElementById("precio").value = "";
+			document.getElementById("nombre").value = "";
+			document.getElementById("stock").value = "";
+			document.getElementById("comisionExtra").value = "";
+			document.getElementById("areaProd").value ="";
+		}
 	}
 }
