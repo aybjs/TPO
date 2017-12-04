@@ -151,5 +151,12 @@ public class BusinessDelegate{
     	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
 	}
 	
+	public void agregarIngredientes(String nombre, String ingrediente, Integer cantidad) throws BusinessDelegateException{
+		try {
+			ControladorCentralRemoto.agregarIngredientes(nombre, ingrediente, cantidad);
+		}
+    	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
+	}
+	
 	
 }

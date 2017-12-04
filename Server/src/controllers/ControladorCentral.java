@@ -438,15 +438,14 @@ public class ControladorCentral {
 		
 	}
 	
-	public void agregarIngredientes(Vector<String> ingredientes, Vector<String> cantidad, String nombre){
-		//System.out.println("Ingredientes para el plato: " + nombre);
-		for(String ingrediente:ingredientes){
+	public void agregarIngredientes(String nombre, String ingrediente, Integer cantidad ){
+			
 			ProductoSimpleEntity pse = new ProductoSimpleEntity();
 			pse.setProdCompuesto(nombre);
 			pse.setMedida(cantidad.toString());
 			pse.setNombre(ingrediente);
 			ProductoSimpleDAO.getInstance().grabarProducto(pse);
-		}
+		
 		
 	}
 	

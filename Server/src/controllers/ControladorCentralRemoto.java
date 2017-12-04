@@ -104,4 +104,10 @@ public class ControladorCentralRemoto extends UnicastRemoteObject implements TDA
 		return negocio.agregarPlato(p);
 		
 	}
+
+	@Override
+	public void agregarIngredientes(String nombre, String ingrediente, Integer cantidad) throws RemoteException {
+		negocio.agregarIngredientes(nombre, ingrediente, cantidad);
+		
+	}
 }
