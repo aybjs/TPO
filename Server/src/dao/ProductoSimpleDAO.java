@@ -103,5 +103,15 @@ public class ProductoSimpleDAO {
 			aux.addElement(this.toNegocio(p));
 		return aux;
 	}
+
+
+	public void grabarProducto(ProductoSimpleEntity pse) {
+		Session s = sf.openSession();
+		s.beginTransaction();
+		s.save(pse);
+		s.flush();
+		s.getTransaction().commit();
+		s.close();		
+	}
 	
 }

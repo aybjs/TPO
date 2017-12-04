@@ -20,7 +20,7 @@ public class ProductoSimpleEntity extends ProductoEntity {
 	 * 
 	 */
 	private static final long serialVersionUID = -1802406766174218765L;
-	//@Column(name="medida")
+	@Column(name="medida")
 	private String medida;
 	/*
 	@OneToMany

@@ -35,7 +35,7 @@ public abstract class ProductoEntity implements Serializable {
 	
 	@Id
 	@GeneratedValue
-	@Column(name="IdProductoCompuesto")
+	@Column(name="Id")
 	private int codigo;
 	@Column(name="nombre")
 	private String nombre;
@@ -45,6 +45,16 @@ public abstract class ProductoEntity implements Serializable {
 	private float minimo;
 	@Column(name="comisionExtra")
 	private float comisionExtra;
+	@Column(name="ProductoCompuesto")
+	private String prodCompuesto;
+	
+	public String getProdCompuesto() {
+		return prodCompuesto;
+	}
+
+	public void setProdCompuesto(String prodCompuesto) {
+		this.prodCompuesto = prodCompuesto;
+	}
 	/*@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="nroLote1")
 	private Vector<LoteEntity> lotes;
