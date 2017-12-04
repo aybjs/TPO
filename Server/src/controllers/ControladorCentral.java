@@ -233,6 +233,14 @@ public class ControladorCentral {
 		return todo;
 	}
 	
+	public Vector<ComisionesDTO> getComisiones(){
+		Vector<ComisionesDTO> rta = new Vector<ComisionesDTO>();
+		for (Sucursal s : sucursales)
+			for (ComisionesDTO c : s.getComisiones())
+				rta.add(c);
+		return rta;		
+	}
+	
 	public List<ProductoDTO> getComprasPendiente() throws ComprasPendientesException { 
 		return null;
 	}

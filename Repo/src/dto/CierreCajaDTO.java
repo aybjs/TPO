@@ -1,6 +1,8 @@
 package dto;
 
-public class CierreCajaDTO {
+import java.io.Serializable;
+
+public class CierreCajaDTO implements Serializable{
 	
 	String nroSucursal;
 	float totalTarjeta;

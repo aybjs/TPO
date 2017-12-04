@@ -1,8 +1,12 @@
 package negocio;
 
 import java.util.Date;
+
+import exceptions.*;
+
 import java.util.Vector;
 
+import dto.ComisionesDTO;
 import enumerators.FormaPago;
 
 public class Caja {
@@ -14,26 +18,27 @@ public class Caja {
 	private boolean estado;
 	private Date cierre;
 	private Vector<Factura> facturas;
-	private Vector<Float> comisiones;
+	private Vector<ComisionesDTO> comisiones;
 
 	public Caja() {
 		montoDiarioEfectivo = 0;
 		montoDiarioInicial = 0;
 		montoDiarioTarjeta = 0;
 		cantVentasTarjeta = 0;
+		comisiones = new Vector<ComisionesDTO>();
 		estado = true; // TRUE es abierta
 		cierre = null;
 		facturas = new Vector<Factura>();
-		comisiones = new Vector<Float>();
 	}
 
-	public void CerrarCaja() throws Exception {
+	public void CerrarCaja(String codResto) throws CierreException {
 		if (estado) {
 			calcularTotales();
+			calcularComisiones(codResto);
 			cierre = new Date();
 			estado = false;
 		} else {
-			throw new Exception("la caja ya estaba cerrada");
+			throw new CierreException("la caja ya estaba cerrada");
 		}
 	}
 
@@ -46,10 +51,6 @@ public class Caja {
 				cantVentasTarjeta++;
 			}
 		}
-	}
-
-	private void calcularComisiones() {
-
 	}
 
 	public float getMontoDiarioEfectivo() {
@@ -83,13 +84,28 @@ public class Caja {
 	public Date getCierre() {
 		return cierre;
 	}
-
-	public Vector<Float> getComisiones() {
-		return comisiones;
+	
+	public Vector<ComisionesDTO> getComisiones() throws CierreException{
+		if(!estado)
+			return comisiones;
+		else throw new CierreException("la caja todavia esta abierta");
 	}
 
-	public void setComisiones(Vector<Float> comisiones) {
-		this.comisiones = comisiones;
+	
+	private Vector<ComisionesDTO> calcularComisiones(String codigoResto){
+		Vector<ComisionesDTO> rta = new Vector<ComisionesDTO>();
+		for(Factura f : facturas){
+			String mozo = f.getPedido().getMesa().getMozo().getNombre();
+			float extra = f.getPedido().getMesa().getMozo().getComision();
+			float base = 0;
+			for (ProductoCompuesto p : f.getPedido().getItems()){
+				float complato = p.getComisionExtra();
+				float cometa = complato + extra; 
+				base = base  + p.getPrecio() * cometa;
+			}
+			rta.add(new ComisionesDTO(mozo, base, codigoResto));
+		}
+		return rta;
 	}
 
 }

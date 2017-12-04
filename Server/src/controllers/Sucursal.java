@@ -3,6 +3,7 @@ package controllers;
 import java.util.Vector;
 
 import dto.*;
+import exceptions.CierreException;
 import negocio.*;
 
 public class Sucursal {
@@ -62,7 +63,7 @@ public class Sucursal {
 		
 		public CierreCajaDTO cierreCaja(){
 			try{
-				this.caja.CerrarCaja();
+				this.caja.CerrarCaja(this.codigoResto);
 				CierreCajaDTO cierre = new CierreCajaDTO(codigoResto);
 				cierre.setTotalEfectivo(caja.getMontoDiarioEfectivo());
 				cierre.setTotalTarjeta(caja.getMontoDiarioTarjeta());
@@ -70,8 +71,17 @@ public class Sucursal {
 			} catch (Exception e){
 				e.getMessage();
 			}
-			return null;
-			
+			return null;	
+		}
+		
+		public Vector<ComisionesDTO> getComisiones(){
+				try {
+					return caja.getComisiones();
+				} catch (CierreException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				return null;
 		}
 		
 
