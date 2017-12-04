@@ -91,4 +91,9 @@ public class ControladorCentralRemoto extends UnicastRemoteObject implements TDA
 	public double GenerarPedido(PedidoDTO p) {
 		return negocio.GenerarPedido(p);
 	}
+
+	public void agregarPlato(ProductoDTO p) throws RemoteException {
+		negocio.agregarPlato(p);
+		
+	}
 }

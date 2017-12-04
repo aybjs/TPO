@@ -143,5 +143,13 @@ public class BusinessDelegate{
 		}
     	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
 	}
+
+	public void agregarPlato(ProductoDTO p) throws BusinessDelegateException{
+		try {
+			ControladorCentralRemoto.agregarPlato(p);
+		}
+    	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
+	}
+	
 	
 }

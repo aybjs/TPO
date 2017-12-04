@@ -371,4 +371,10 @@ public class ControladorCentral {
 		return null;
 	}
 	
+	public void agregarPlato(ProductoDTO p){
+		ProductoCompuesto prod = new ProductoCompuesto(p);
+		ProductoCompuestoDAO.getInstance().grabarProducto(prod);
+		
+	}
+	
 }
