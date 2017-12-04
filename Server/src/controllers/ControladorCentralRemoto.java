@@ -24,6 +24,10 @@ public class ControladorCentralRemoto extends UnicastRemoteObject implements TDA
 		negocio = ControladorCentral.getInstancia();
 	}
 	
+	public Vector<CierreCajaDTO> cerrarSucursales(){
+		return negocio.cerrarCajas();
+	}
+	
 	public List<ProductoDTO> getComprasPendiente() throws ComprasPendientesException{
 		return negocio.getComprasPendiente();		
 	}

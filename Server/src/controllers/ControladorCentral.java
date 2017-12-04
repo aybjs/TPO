@@ -208,6 +208,13 @@ public class ControladorCentral {
 		
 	}
 	
+	public Vector<CierreCajaDTO> cerrarCajas(){
+		Vector<CierreCajaDTO> todo = new Vector<CierreCajaDTO>();
+		for (Sucursal s : sucursales)
+			todo.add(s.cierreCaja());
+		return todo;
+	}
+	
 	public List<ProductoDTO> getComprasPendiente() throws ComprasPendientesException { 
 		return null;
 	}

@@ -2,7 +2,7 @@ package controllers;
 
 import java.util.Vector;
 
-import dto.TareaDTO;
+import dto.*;
 import negocio.*;
 
 public class Sucursal {
@@ -59,6 +59,21 @@ public class Sucursal {
 				rta.add(t.toDTO());			
 			return rta;
 		}
+		
+		public CierreCajaDTO cierreCaja(){
+			try{
+				this.caja.CerrarCaja();
+				CierreCajaDTO cierre = new CierreCajaDTO(codigoResto);
+				cierre.setTotalEfectivo(caja.getMontoDiarioEfectivo());
+				cierre.setTotalTarjeta(caja.getMontoDiarioTarjeta());
+				return cierre;
+			} catch (Exception e){
+				e.getMessage();
+			}
+			return null;
+			
+		}
+		
 
 		
 

@@ -30,7 +30,6 @@ public class Caja {
 	public void CerrarCaja() throws Exception {
 		if (estado) {
 			calcularTotales();
-			calcularComisiones();
 			cierre = new Date();
 			estado = false;
 		} else {
