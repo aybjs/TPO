@@ -205,7 +205,23 @@ public class ControladorCentral {
 				prodComp3.setNombre("Ravioles con Salsa Bolognesa");
 				ProductoCompuestoDAO.getInstance().grabarProducto(prodComp3);
 				
-				
+				ProductoSimple ps1 = new ProductoSimple();
+				ps1.setNombre("salsa");
+				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
+				ps1.setNombre("queso");
+				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
+				ps1.setNombre("mayonesa");
+				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
+				ps1.setNombre("huevo");
+				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
+				ps1.setNombre("jamon");
+				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
+				ps1.setNombre("carne");
+				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
+				ps1.setNombre("leche");
+				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
+				ps1.setNombre("atun");
+				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
 				
 		
 	}
@@ -400,13 +416,14 @@ public class ControladorCentral {
 		//Vector<ProductoSimple> productosSimples = new Vector<ProductoSimple>();
 		Vector<String> vectorNombre = new Vector<String>();
 		ProductoCompuestoDAO.getInstance().grabarProducto(prod);
-		/*
+		
 		for (ProductoSimple ps : ProductoSimpleDAO.getInstance().recuperarProductos()){
 			vectorNombre.add(ps.getNombre());
 		}
-		*/
+		/*
 		vectorNombre.addElement("salsa");
 		vectorNombre.addElement("queso");
+		*/
 		return vectorNombre;
 		
 	}
