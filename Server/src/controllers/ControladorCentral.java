@@ -365,10 +365,13 @@ public class ControladorCentral {
 		this.codigoResto = codigoResto;
 	}
 	
-	public PedidoDTO facturar(double idPedido){
+	public float facturar(double idPedido){
+		float flo = 0;
 		Pedido p = this.getPedido(idPedido);
-		//falta pasar pedido a pedido dto para que pueda facturar
-		return null;
+		for(ProductoCompuesto prod : p.getItems()){
+			flo = flo + prod.getPrecio();
+		}
+		return flo;
 	}
 	
 	public void agregarPlato(ProductoDTO p){
