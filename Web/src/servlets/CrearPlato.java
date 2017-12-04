@@ -61,7 +61,6 @@ public class CrearPlato extends HttpServlet {
 		try {
 			sys = BusinessDelegate.getInstancia();
 			Vector<String> ingredientes = sys.agregarPlato(prod);
-			
 			resp = resp + "<table><tr><th>Ingrediente</th><th>cantidad</th></tr>";
 			for (int i = 0; i < ingredientes.size(); i++) {
 				resp = resp + "<tr>";
@@ -70,8 +69,10 @@ public class CrearPlato extends HttpServlet {
 				resp = resp + "</tr>";
 			}
 			resp = resp + "</table>";
+			
 		} catch (BusinessDelegateException e) {
-			resp = "Error RMI";
+			resp = "Error RMI en CrearPlato";
+			e.printStackTrace();
 		}
 		
 		return resp;		

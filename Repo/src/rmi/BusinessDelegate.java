@@ -144,7 +144,7 @@ public class BusinessDelegate{
     	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
 	}
 
-	public String agregarPlato(ProductoDTO p) throws BusinessDelegateException{
+	public Vector<String> agregarPlato(ProductoDTO p) throws BusinessDelegateException{
 		try {
 			return ControladorCentralRemoto.agregarPlato(p);
 		}
