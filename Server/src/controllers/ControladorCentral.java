@@ -374,10 +374,10 @@ public class ControladorCentral {
 		return flo;
 	}
 	
-	public void agregarPlato(ProductoDTO p){
+	public String agregarPlato(ProductoDTO p){
 		ProductoCompuesto prod = new ProductoCompuesto(p);
 		ProductoCompuestoDAO.getInstance().grabarProducto(prod);
-		
+		return "ok";
 	}
 	
 }
