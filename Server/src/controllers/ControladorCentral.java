@@ -376,8 +376,10 @@ public class ControladorCentral {
 	
 	public String agregarPlato(ProductoDTO p){
 		ProductoCompuesto prod = new ProductoCompuesto(p);
-		ProductoCompuestoDAO.getInstance().grabarProducto(prod);
-		return "ok";
+		//ProductoCompuestoDAO.getInstance().grabarProducto(prod);
+		String s = "Producto " + prod.getNombre() + " creado!";
+		System.out.println(s);
+		return s;
 	}
 	
 }
