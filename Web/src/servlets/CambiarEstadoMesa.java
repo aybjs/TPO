@@ -1,12 +1,15 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.Vector;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dto.ProductoDTO;
 import exceptions.BusinessDelegateException;
 import rmi.BusinessDelegate;
 
@@ -41,7 +44,9 @@ public class CambiarEstadoMesa extends HttpServlet {
 		BusinessDelegate sys;
 		try {
 			sys = BusinessDelegate.getInstancia();
-			return sys.test("hola");
+			Vector<ProductoDTO> productos = sys.getTodosLosProductos();
+			return productos.size()+"";
+			
 		} catch (BusinessDelegateException e1) {
 			return "Error RMI";
 		}			
