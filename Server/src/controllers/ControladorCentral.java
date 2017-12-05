@@ -9,6 +9,8 @@ import java.util.Vector;
 //import com.sun.scenario.effect.impl.prism.PrDrawable;
 
 
+
+
 import dao.*;
 import enumerators.EstadosMesa;
 import exceptions.*;
@@ -228,14 +230,14 @@ public class ControladorCentral {
 		
 	}
 	
-	public Vector<CierreCajaDTO> cerrarCajas(){
+	public Vector<CierreCajaDTO> cerrarCajas() throws CierreException{
 		Vector<CierreCajaDTO> todo = new Vector<CierreCajaDTO>();
 		for (Sucursal s : sucursales)
 			todo.add(s.cierreCaja());
 		return todo;
 	}
 	
-	public Vector<ComisionesDTO> getComisiones(){
+	public Vector<ComisionesDTO> getComisiones() throws CierreException{
 		Vector<ComisionesDTO> rta = new Vector<ComisionesDTO>();
 		for (Sucursal s : sucursales)
 			for (ComisionesDTO c : s.getComisiones())

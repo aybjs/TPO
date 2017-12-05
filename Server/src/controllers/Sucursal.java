@@ -61,27 +61,16 @@ public class Sucursal {
 			return rta;
 		}
 		
-		public CierreCajaDTO cierreCaja(){
-			try{
-				this.caja.CerrarCaja(this.codigoResto);
-				CierreCajaDTO cierre = new CierreCajaDTO(codigoResto);
-				cierre.setTotalEfectivo(caja.getMontoDiarioEfectivo());
-				cierre.setTotalTarjeta(caja.getMontoDiarioTarjeta());
-				return cierre;
-			} catch (Exception e){
-				e.getMessage();
-			}
-			return null;	
+		public CierreCajaDTO cierreCaja() throws CierreException{
+			this.caja.CerrarCaja(this.codigoResto);
+			CierreCajaDTO cierre = new CierreCajaDTO(codigoResto);
+			cierre.setTotalEfectivo(caja.getMontoDiarioEfectivo());
+			cierre.setTotalTarjeta(caja.getMontoDiarioTarjeta());
+			return cierre;	
 		}
 		
-		public Vector<ComisionesDTO> getComisiones(){
-				try {
-					return caja.getComisiones();
-				} catch (CierreException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				return null;
+		public Vector<ComisionesDTO> getComisiones() throws CierreException{
+			return caja.getComisiones();
 		}
 		
 
