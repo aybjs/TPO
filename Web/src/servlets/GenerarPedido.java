@@ -49,13 +49,17 @@ public class GenerarPedido extends HttpServlet {
 			
 			for(int i = 0; i < array.length; i++) {
 				for (int j = 0; j < productos.size(); j++) {
-					if (productos.elementAt(j).getCodigo() + "" == array[i]) {
-						losPedidos.addElement(productos.elementAt(j));
+					//String uno = Integer.parseInt(productos.elementAt(j).getCodigo());
+					//String dos = array[i];
+					//VER ESTO
+					if (true) {
+						losPedidos.add(productos.elementAt(j));
 					}
 				}
 			}
 			
 			resp = sys.GenerarPedido(new PedidoDTO(lamesa, losPedidos)) + "";
+			
 		} catch (BusinessDelegateException e1) {
 			resp = "Error RMI";
 		}

@@ -18,7 +18,25 @@ function buscarPedido(idDiv, idMesa, numero, sucursal){
 	}
 	else{
 		div.className = "cajaMesaVacia";
+		var pedido = document.getElementById(idMesa).innerHTML;
+		facturarPedido(pedido);		
 		document.getElementById(idMesa).innerHTML = "Mesa " + sucursal + numero;
+	}
+}
+
+function facturarPedido(pedido){
+	crearRequest();
+	var url = "FacturarPedido?pedido=" + pedido;
+	request.onreadystatechange = function(){facturarPedidoAJAX();};
+	request.open("GET", url);
+	request.send(null);
+}
+
+function facturarPedidoAJAX(){
+	if (request.readyState == 4) {
+		if (request.status == 200) {
+			alert("Cobrar: " + request.responseText);
+		}
 	}
 }
 
