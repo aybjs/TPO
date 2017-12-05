@@ -414,14 +414,17 @@ public class ControladorCentral {
 	
 	public float facturar(double idPedido){
 		float flo = 0;
+		System.out.println(idPedido);
+		
 		Pedido p = this.getPedido(idPedido);
 		for(ProductoCompuesto prod : p.getItems()){
 			flo = flo + prod.getPrecio();
 		}
+		
 		Mesa mesaCierra = new Mesa();
 		mesaCierra.setId((int) idPedido);
 		mesaCierra.setCierre(LocalDateTime.now());
-		
+		System.out.println(flo);
 		return flo;
 	}
 
