@@ -174,8 +174,14 @@ public class Sucursal {
 		caja.setEstado(true);
 	}
 
-	public void agregarPedido(Pedido p){
+	/*public void agregarPedido(Pedido p){
 		this.pedidos.add(p);
+	}*/
+	
+	public double agregarPedido(PedidoDTO pedido){
+		Pedido p = new Pedido(pedido);
+		this.pedidos.add(p);
+		return p.getId();		
 	}
 	
 

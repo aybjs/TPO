@@ -332,7 +332,7 @@ public class ControladorCentral {
 		return "Llego al controlador";
 	}
 	
-	public double GenerarPedido(PedidoDTO p){
+	/**public double GenerarPedido(PedidoDTO p, int suc){
 		Mesa mesa = new Mesa(p.getMesa());
 		Pedido ped = new Pedido(mesa);
 		for(ProductoDTO prod : p.getItems()){
@@ -340,10 +340,12 @@ public class ControladorCentral {
 			ped.agregarItem(pc);
 		}
 		this.pedidos.add(ped);
-		this.sucursales.get(0).agregarPedido(ped);
-		return ped.getId();
-		
-		
+		this.sucursales.get(suc).agregarPedido(p);
+		return ped.getId();		
+	}**/
+	
+	public double GenerarPedido (PedidoDTO p, int suc){
+		return sucursales.get(suc).agregarPedido(p);
 	}
 
 	public float cerrarMesa(Pedido pedCierra){
