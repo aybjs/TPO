@@ -105,9 +105,15 @@ public class ControladorCentralRemoto extends UnicastRemoteObject implements TDA
 		
 	}
 
-	@Override
 	public void agregarIngredientes(String nombre, String ingrediente, Integer cantidad) throws RemoteException {
 		negocio.agregarIngredientes(nombre, ingrediente, cantidad);
 		
+	}
+
+	public float facturar(double idPedido) throws RemoteException {
+		// TODO Auto-generated method stub
+		float facturar=0;
+		facturar = ControladorCentral.getInstancia().facturar(idPedido);
+		return facturar;
 	}
 }

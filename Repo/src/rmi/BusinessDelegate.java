@@ -32,6 +32,20 @@ public class BusinessDelegate{
     	catch (MalformedURLException | RemoteException | NotBoundException e) { throw new BusinessDelegateException("Problemas con RMI"); }
     }
     
+    public Vector<ComisionesDTO> getComisiones() throws BusinessDelegateException, CierreException{
+    	try{
+    		return ControladorCentralRemoto.getComisiones();
+    	}
+    	catch (RemoteException e) { throw new BusinessDelegateException("Problemas con RMI"); }
+    }
+    
+    public Vector<CierreCajaDTO> CerrarSucursales() throws BusinessDelegateException, CierreException{
+    	try{
+    		return ControladorCentralRemoto.cerrarSucursales();
+    	}
+    	catch (RemoteException e) { throw new BusinessDelegateException("Problemas con RMI"); }
+    }
+    
 	public List<ProductoDTO> getComprasPendiente() throws ComprasPendientesException, BusinessDelegateException{
 		try{
 			return ControladorCentralRemoto.getComprasPendiente();
@@ -157,6 +171,17 @@ public class BusinessDelegate{
 		}
     	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
 	}
-	
+	public float facturar(double idPedido){
+		float facturar=0;
+		try {
+			facturar = ControladorCentralRemoto.facturar(idPedido);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return facturar;
+		
+	}
 	
 }
