@@ -157,6 +157,17 @@ public class BusinessDelegate{
 		}
     	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
 	}
-	
+	public float facturar(double idPedido){
+		float facturar=0;
+		try {
+			facturar = ControladorCentralRemoto.facturar(idPedido);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return facturar;
+		
+	}
 	
 }
