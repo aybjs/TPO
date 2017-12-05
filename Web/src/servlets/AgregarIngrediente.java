@@ -33,9 +33,9 @@ public class AgregarIngrediente extends HttpServlet {
 
 	private String agregarIngrediente(String nombre, String ingrediente, Float cantidad) {
 		String resp = "";
-		BusinessDelegate sys;
+		BusinessDelegate sys = null;
 		try {
-			System.out.println(sys.test("hola"));
+			sys = BusinessDelegate.getInstancia();
 		} catch (BusinessDelegateException e) {
 			resp = "Error RMI en agregarIngrediente";
 		}

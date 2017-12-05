@@ -65,7 +65,7 @@ public class CrearPlato extends HttpServlet {
 			for (int i = 0; i < ingredientes.size(); i++) {
 				resp = resp + "<tr>";
 				resp = resp + "<td><span class=\"ing\" id=\"ing." + ingredientes.elementAt(i) + "\"> " + ingredientes.elementAt(i) + "</td>";
-				resp = resp + "<td><input type=\"text\" class=\"cant\" id=\"cant. " + ingredientes.elementAt(i) + "\" ></td>";
+				resp = resp + "<td><input type=\"text\" class=\"cant\" id=\"cant. " + ingredientes.elementAt(i) + "\" value=\"0\" ></td>";
 				resp = resp + "</tr>";
 			}
 			resp = resp + "</table>";

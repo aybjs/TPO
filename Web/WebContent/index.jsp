@@ -16,7 +16,7 @@
 		<h3>Seleccione el perfil deseado:</h3>
 		<ul>
 			<li><a href="MenuMesero.jsp">Mesero</a></li>
-			<li><a href="">Caja</a></li>
+			<li><a href="Caja.jsp">Caja</a></li>
 			<li><a href="CrearPlato.jsp">Almacen</a></li>
 		</ul>
 	</body>

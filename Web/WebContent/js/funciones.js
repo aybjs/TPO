@@ -114,7 +114,9 @@ function agregarIngredientes(){
 	for (i = 0; i < ing.length; i++){		
 		var ingrediente = ing[i].innerHTML;
 		var cantidad = document.getElementById("cant."+ing[i].innerHTML).value;
-		agregarIngredienteSolo(nombre, ingrediente, cantidad);
+		if (cantidad > 0){
+			agregarIngredienteSolo(nombre, ingrediente, cantidad);
+		}
 	}
 }
 
@@ -130,6 +132,22 @@ function agregarIngredienteSoloAJAX(ingrediente){
 	if (request.readyState == 4) {
 		if (request.status == 200) {
 			alert(ingrediente + " agregado");
+		}
+	}
+}
+
+function cerrarLaCaja(){
+	crearRequest();
+	var url = "CerrarCajas";
+	request.onreadystatechange = function(){cerrarCajaAjax();};
+	request.open("GET", url);
+	request.send(null);
+}
+
+function cerrarCajaAjax(){
+	if (request.readyState == 4) {
+		if (request.status == 200) {
+			document.getElementById("cerrarCajaResultado").innerHTML = request.responseText;
 		}
 	}
 }
