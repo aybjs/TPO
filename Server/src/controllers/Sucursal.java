@@ -169,6 +169,10 @@ public class Sucursal {
 	public void setPedidos(Vector<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
+	
+	public void abrirCaja(){
+		caja.setEstado(true);
+	}
 
 
 

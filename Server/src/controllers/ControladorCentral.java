@@ -452,6 +452,11 @@ public class ControladorCentral {
 		
 	}
 	
+	public void abrirCajas(){
+		for (Sucursal s : sucursales)
+			s.abrirCaja();
+	}
+	
 	
 	
 }
