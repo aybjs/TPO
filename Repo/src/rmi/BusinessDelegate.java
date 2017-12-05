@@ -176,12 +176,12 @@ public class BusinessDelegate{
 		try {
 			facturar = ControladorCentralRemoto.facturar(idPedido);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		return facturar;
 		
 	}
+	
 	
 }

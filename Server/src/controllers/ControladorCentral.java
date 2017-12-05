@@ -225,6 +225,7 @@ public class ControladorCentral {
 				ps1.setNombre("leche");
 				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
 				ps1.setNombre("atun");
+				ps1.setProdCompuesto("milanesa de atun");
 				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
 				
 		
