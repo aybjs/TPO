@@ -49,10 +49,7 @@ public class GenerarPedido extends HttpServlet {
 			
 			for(int i = 0; i < array.length; i++) {
 				for (int j = 0; j < productos.size(); j++) {
-					//String uno = Integer.parseInt(productos.elementAt(j).getCodigo());
-					//String dos = array[i];
-					//VER ESTO
-					if (true) {
+					if (array[i].equals(productos.elementAt(j).getCodigo() + "")) {
 						losPedidos.add(productos.elementAt(j));
 					}
 				}
@@ -63,6 +60,7 @@ public class GenerarPedido extends HttpServlet {
 		} catch (BusinessDelegateException e1) {
 			resp = "Error RMI";
 		}
+		
 		return resp;
 	}
 
