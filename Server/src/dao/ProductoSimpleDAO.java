@@ -87,6 +87,7 @@ public class ProductoSimpleDAO {
 		pse.setMinimo(p.getMinimo());
 		pse.setNombre(p.getNombre());
 		//pse.setPrecio(p.getPrecio());
+		pse.setProdCompuesto(p.getProdCompuesto());
 		pse.setSectorEncargado(p.getSectorEncargado());
 		return pse;
 		 
@@ -95,7 +96,7 @@ public class ProductoSimpleDAO {
 	public java.util.Vector<ProductoSimple> recuperarProductos() {
 		Session s = sf.openSession();
 		s.beginTransaction();
-		Query q = s.createQuery("FROM ProductoSimpleEntity ");
+		Query q = s.createQuery("FROM ProductoSimpleEntity where ProductoCompuesto is null");
 		@SuppressWarnings("unchecked")
 		List<ProductoSimpleEntity> list = q.list();
 		java.util.Vector<ProductoSimple> aux = new java.util.Vector<ProductoSimple>();

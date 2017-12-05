@@ -13,6 +13,8 @@ public class ProductoCompuesto extends Producto {
 	private float precio;
 
 
+	
+
 	public ProductoCompuesto(int codigo, String nombre, String sectorEncargado,
 			float minimo, float comisionExtra, float consumoEstimado, int tiempo,float precio)
 			throws Exception {
@@ -92,7 +94,6 @@ public class ProductoCompuesto extends Producto {
 		return items;
 	}
 
-	
-	
+
 
 }

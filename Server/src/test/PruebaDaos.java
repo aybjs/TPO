@@ -5,10 +5,12 @@ import java.util.Date;
 import controllers.ControladorCentral;
 import dao.LoteDAO;
 import dao.MozoDAO;
+import dao.ProductoSimpleDAO;
 import dto.ProductoDTO;
 import exceptions.SinMozosException;
 import negocio.Lote;
 import negocio.Mozo;
+import negocio.ProductoSimple;
 
 public class PruebaDaos {
 	public static void main(String[] args) throws SinMozosException {
@@ -27,7 +29,7 @@ public class PruebaDaos {
 		Mozo m1 = MozoDAO.getInstance().recuperarMozo(1);
 		System.out.println("id: " + m1.getNroEmpleado() + " nombre: " +m1.getNombre()+" comision: " + m1.getComision() );		
 	}
-	*/
+	
 		ProductoDTO pdto = new ProductoDTO();
 		pdto.setComisionExtra(23);
 		pdto.setNombre("plato 1");
@@ -35,5 +37,11 @@ public class PruebaDaos {
 		pdto.setStock(23);
 		
 		ControladorCentral.getInstancia().agregarPlato(pdto);
+		
+		*/
+		ControladorCentral.getInstancia();
+		for(ProductoSimple ps : ProductoSimpleDAO.getInstance().recuperarProductos()){
+			System.out.println(ps.getNombre());
+		}
 }
 }
