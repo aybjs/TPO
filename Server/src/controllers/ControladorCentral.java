@@ -340,7 +340,9 @@ public class ControladorCentral {
 			ped.agregarItem(pc);
 		}
 		this.pedidos.add(ped);
+		this.sucursales.get(0).agregarPedido(ped);
 		return ped.getId();
+		
 		
 	}
 
