@@ -7,11 +7,21 @@ public class Mozo {
 	private int nroEmpleado;
 	private String nombre;
 	private float comision;
+	private int sucursal;
 
-	public Mozo(int nroEmpleado, String nombre, float comision) {
+	public int getSucursal() {
+		return sucursal;
+	}
+
+	public void setSucursal(int sucursal) {
+		this.sucursal = sucursal;
+	}
+
+	public Mozo(int nroEmpleado, String nombre, float comision, int sucursal) {
 		this.nroEmpleado = nroEmpleado;
 		this.nombre = nombre;
 		this.comision = comision;
+		this.sucursal=sucursal;
 	}
 	
 	public Mozo(MozoDTO m){
