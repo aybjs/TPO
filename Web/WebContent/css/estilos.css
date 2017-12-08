@@ -106,3 +106,28 @@ li a:hover {
 table, th, td {
    border: 1px solid black;
 }
+
+table#tablacajas{
+	width:100%;
+}
+
+table#tablacajas table, th, td{
+	border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table#tablacajas th, td{
+	   padding: 5px;
+    text-align: left;
+}
+
+table#tablacajas tr:nth-child(even) {
+    background-color: #eee;
+}
+table#tablacajas tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#tablacajas th {
+    background-color: black;
+    color: white;
+}

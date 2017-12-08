@@ -152,82 +152,82 @@ public class ControladorCentral {
 		
 		//********Tercera Sucursal********//
 		
-				Sucursal s3= new Sucursal("1001");
-				Vector<Mesa> mesas3 = new Vector<Mesa>();
-				for (int i=0; i< 5; i++){
-					Mesa mesa = new Mesa(i, "Sector Rio");
-					mesa.setId(i);
-					mesa.setCantComen(4);
-					mesa.setSector("Sector Rio");
-					mesas.add(mesa);
-				}
-				for (int i=5; i < 10; i++){
-					Mesa mesa = new Mesa(i, "Sector calle");
-					mesa.setId(i);
-					mesa.setCantComen(6);
-					mesa.setSector("Sector Calle");
-					mesas.add(mesa);
-				}
-				
-				Vector<Mozo> mozos3 = new Vector<Mozo>();
-				Mozo mozo3 = null;
-				mozo3 = new Mozo(2017001, "Susana Horia", 5);
-				mozos3.add(mozo3);
-				MozoDAO.getInstance().grabarMozo(mozo3);
-				mozo3 = new Mozo(2017002, "Jhony Meacuerdo", 0);
-				mozos3.add(mozo3);
-				MozoDAO.getInstance().grabarMozo(mozo3);
-				mozo3 = new Mozo(2017003, "Andres Tresado", 0);
-				mozos3.add(mozo);
-				MozoDAO.getInstance().grabarMozo(mozo3);
-				mozo3 = new Mozo(2017004, "Coco Drilo", 5);
-				mozos3.add(mozo3);
-				MozoDAO.getInstance().grabarMozo(mozo3);
-				mozo3 = new Mozo(2017005, "Dolores D. Parto", 15);
-				mozos3.add(mozo3);
-				MozoDAO.getInstance().grabarMozo(mozo3);
-				
-				s2.setMesas(mesas3);
-				s2.setCarta(carta);
-				s2.setMozos(mozos3);
-				sucursales.add(s3);
-				
-				
-				ProductoCompuesto prodComp = new ProductoCompuesto();
-				prodComp.setCodigo(1001);
-				prodComp.setNombre("Milanesa Napolitana con Papas Fritas");
-				prodComp.setPrecio(28);
-				ProductoCompuestoDAO.getInstance().grabarProducto(prodComp);
-				ProductoCompuesto prodComp2 = new ProductoCompuesto();
-				prodComp2.setCodigo(1002);
-				prodComp2.setNombre("Fideos al Pesto");
-				prodComp2.setPrecio(57);
-				ProductoCompuestoDAO.getInstance().grabarProducto(prodComp2);
-				ProductoCompuesto prodComp3 = new ProductoCompuesto();
-				prodComp3.setCodigo(1001);
-				prodComp3.setPrecio(34);
-				prodComp3.setNombre("Ravioles con Salsa Bolognesa");
-				ProductoCompuestoDAO.getInstance().grabarProducto(prodComp3);
-				
-				ProductoSimple ps1 = new ProductoSimple();
-				ps1.setNombre("salsa");
-				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
-				ps1.setNombre("queso");
-				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
-				ps1.setNombre("mayonesa");
-				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
-				ps1.setNombre("huevo");
-				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
-				ps1.setNombre("jamon");
-				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
-				ps1.setNombre("carne");
-				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
-				ps1.setNombre("leche");
-				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
-				ps1.setNombre("atun");
-				ps1.setProdCompuesto("milanesa de atun");
-				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
-				
+		Sucursal s3= new Sucursal("1002");
+		Vector<Mesa> mesas3 = new Vector<Mesa>();
+		for (int i=0; i< 5; i++){
+			Mesa mesa = new Mesa(i, "Sector Rio");
+			mesa.setId(i);
+			mesa.setCantComen(4);
+			mesa.setSector("Sector Rio");
+			mesas.add(mesa);
+		}
+		for (int i=5; i < 10; i++){
+			Mesa mesa = new Mesa(i, "Sector calle");
+			mesa.setId(i);
+			mesa.setCantComen(6);
+			mesa.setSector("Sector Calle");
+			mesas.add(mesa);
+		}
+		
+		Vector<Mozo> mozos3 = new Vector<Mozo>();
+		Mozo mozo3 = null;
+		mozo3 = new Mozo(2017001, "Susana Horia", 5);
+		mozos3.add(mozo3);
+		MozoDAO.getInstance().grabarMozo(mozo3);
+		mozo3 = new Mozo(2017002, "Jhony Meacuerdo", 0);
+		mozos3.add(mozo3);
+		MozoDAO.getInstance().grabarMozo(mozo3);
+		mozo3 = new Mozo(2017003, "Andres Tresado", 0);
+		mozos3.add(mozo);
+		MozoDAO.getInstance().grabarMozo(mozo3);
+		mozo3 = new Mozo(2017004, "Coco Drilo", 5);
+		mozos3.add(mozo3);
+		MozoDAO.getInstance().grabarMozo(mozo3);
+		mozo3 = new Mozo(2017005, "Dolores D. Parto", 15);
+		mozos3.add(mozo3);
+		MozoDAO.getInstance().grabarMozo(mozo3);
+		
+		s2.setMesas(mesas3);
+		s2.setCarta(carta);
+		s2.setMozos(mozos3);
+		sucursales.add(s3);
+		
+		
+		ProductoCompuesto prodComp = new ProductoCompuesto();
+		prodComp.setCodigo(1001);
+		prodComp.setNombre("Milanesa Napolitana con Papas Fritas");
+		prodComp.setPrecio(28);
+		ProductoCompuestoDAO.getInstance().grabarProducto(prodComp);
+		ProductoCompuesto prodComp2 = new ProductoCompuesto();
+		prodComp2.setCodigo(1002);
+		prodComp2.setNombre("Fideos al Pesto");
+		prodComp2.setPrecio(57);
+		ProductoCompuestoDAO.getInstance().grabarProducto(prodComp2);
+		ProductoCompuesto prodComp3 = new ProductoCompuesto();
+		prodComp3.setCodigo(1001);
+		prodComp3.setPrecio(34);
+		prodComp3.setNombre("Ravioles con Salsa Bolognesa");
+		ProductoCompuestoDAO.getInstance().grabarProducto(prodComp3);
+		
+		ProductoSimple ps1 = new ProductoSimple();
+		ps1.setNombre("salsa");
+		ProductoSimpleDAO.getInstance().grabarProducto(ps1);
+		ps1.setNombre("queso");
+		ProductoSimpleDAO.getInstance().grabarProducto(ps1);
+		ps1.setNombre("mayonesa");
+		ProductoSimpleDAO.getInstance().grabarProducto(ps1);
+		ps1.setNombre("huevo");
+		ProductoSimpleDAO.getInstance().grabarProducto(ps1);
+		ps1.setNombre("jamon");
+		ProductoSimpleDAO.getInstance().grabarProducto(ps1);
+		ps1.setNombre("carne");
+		ProductoSimpleDAO.getInstance().grabarProducto(ps1);
+		ps1.setNombre("leche");
+		ProductoSimpleDAO.getInstance().grabarProducto(ps1);
+		ps1.setNombre("atun");
+		ps1.setProdCompuesto("milanesa de atun");
+		ProductoSimpleDAO.getInstance().grabarProducto(ps1);
+			
 		
 	}
 	
