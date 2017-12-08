@@ -2,7 +2,6 @@ package controllers;
 
 import java.util.Vector;
 
-import dao.MozoDAO;
 import dto.*;
 import exceptions.CierreException;
 import negocio.*;
@@ -85,8 +84,13 @@ public class Sucursal {
 			return rta;
 		}
 		
-		public CierreCajaDTO cierreCaja() throws CierreException{
-			this.caja.CerrarCaja(this.codigoResto);
+		public CierreCajaDTO cierreCaja(){
+			try{
+				this.caja.CerrarCaja(this.codigoResto);
+			}
+			catch (CierreException e){
+				System.out.println("Las cajas ya estaban cerradas pero se muestra igual");
+			}
 			CierreCajaDTO cierre = new CierreCajaDTO(codigoResto);
 			cierre.setTotalEfectivo(caja.getMontoDiarioEfectivo());
 			cierre.setTotalTarjeta(caja.getMontoDiarioTarjeta());

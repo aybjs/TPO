@@ -39,7 +39,7 @@ public class BusinessDelegate{
     	catch (RemoteException e) { throw new BusinessDelegateException("Problemas con RMI"); }
     }
     
-    public Vector<CierreCajaDTO> CerrarSucursales() throws BusinessDelegateException, CierreException{
+    public Vector<CierreCajaDTO> CerrarSucursales() throws BusinessDelegateException{
     	try{
     		return ControladorCentralRemoto.cerrarSucursales();
     	}

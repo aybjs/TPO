@@ -24,59 +24,59 @@ public class ControladorCentralRemoto extends UnicastRemoteObject implements TDA
 		negocio = ControladorCentral.getInstancia();
 	}
 	
-	public Vector<ComisionesDTO> getComisiones() throws CierreException{
+	public Vector<ComisionesDTO> getComisiones() throws CierreException, RemoteException{
 		return negocio.getComisiones();
 	}
 	
-	public Vector<CierreCajaDTO> cerrarSucursales() throws CierreException{
+	public Vector<CierreCajaDTO> cerrarSucursales() throws RemoteException{
 		return negocio.cerrarCajas();
 	}
 	
-	public List<ProductoDTO> getComprasPendiente() throws ComprasPendientesException{
+	public List<ProductoDTO> getComprasPendiente() throws ComprasPendientesException, RemoteException{
 		return negocio.getComprasPendiente();		
 	}
 	
-	public void ingresarProducto(String codigo, int cantidad, int lote, Date vencimiento){
+	public void ingresarProducto(String codigo, int cantidad, int lote, Date vencimiento) throws RemoteException{
 		negocio.ingresarProducto(codigo, cantidad, lote, vencimiento);
 	}
 	
-	public void noFacturable(String resto, String nroEmpleado, int cantidad){
+	public void noFacturable(String resto, String nroEmpleado, int cantidad) throws RemoteException{
 		negocio.noFacturable(resto, nroEmpleado, cantidad);
 	}
 	
-	public void tomarOrden(String resto, String nroEmpleado, int itemCarta, int cantidad, boolean facturable){
+	public void tomarOrden(String resto, String nroEmpleado, int itemCarta, int cantidad, boolean facturable) throws RemoteException{
 		negocio.tomarOrden(resto, nroEmpleado, itemCarta, cantidad, facturable);
 	}
 	
-	public void solicitarMovimiento(String resto, String producto, int cantidad, String destino){
+	public void solicitarMovimiento(String resto, String producto, int cantidad, String destino) throws RemoteException{
 		negocio.solicitarMovimiento(resto, producto, cantidad, destino);
 	}
 	
-	public void solicitarMovimientoCentral(String resto, String producto, int cantidad){
+	public void solicitarMovimientoCentral(String resto, String producto, int cantidad) throws RemoteException{
 		negocio.solicitarMovimientoCentral(resto, producto, cantidad);
 	}
 	
-	public List<ReposicionDTO> recibirListaReposicion(List<ReposicionDTO> lista){
+	public List<ReposicionDTO> recibirListaReposicion(List<ReposicionDTO> lista) throws RemoteException{
 		return negocio.recibirListaReposicion(lista);
 	}
 	
-	public void crearOC(){
+	public void crearOC() throws RemoteException{
 		negocio.crearOC();
 	}
 	
-	public void solicitarInsumosNormal(String codResto){
+	public void solicitarInsumosNormal(String codResto) throws RemoteException{
 		negocio.solicitarInsumosNormal(codResto);
 	}
 	
-	public void solicitarInsumosExtra(String codResto, String producto, int cantidad, String solicitante){
+	public void solicitarInsumosExtra(String codResto, String producto, int cantidad, String solicitante) throws RemoteException{
 		negocio.solicitarInsumosExtra(codResto, producto, cantidad, solicitante);
 	}
 	
-	public void generarMovimientoStock(){
+	public void generarMovimientoStock() throws RemoteException{
 		negocio.generarMovimientoStock();
 	}
 	
-	public String test(String aux) {
+	public String test(String aux)  throws RemoteException{
 		return negocio.test(aux);
 	}
 
