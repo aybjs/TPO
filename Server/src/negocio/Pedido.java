@@ -7,7 +7,7 @@ import dto.ProductoDTO;
 
 public class Pedido {
 
-	private static double id = 0;
+	private static double id = 1053;
 	private Mesa mesa;
 	private Vector<ProductoCompuesto> items;
 
@@ -19,13 +19,14 @@ public class Pedido {
 	
 	public Pedido(PedidoDTO p){
 		this.mesa = new Mesa(p.getMesa());
-		Pedido.id = p.getId();
+		this.items = new Vector<ProductoCompuesto>();
+		Pedido.id++;
+
 		for(ProductoDTO ped: p.getItems()){
 			
 			ProductoCompuesto pc = new ProductoCompuesto(ped);
 			this.items.addElement(pc);
-			
-			
+		
 		}
 		
 	}

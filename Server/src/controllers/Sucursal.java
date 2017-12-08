@@ -184,5 +184,4 @@ public class Sucursal {
 		return p.getId();		
 	}
 	
-
 }
