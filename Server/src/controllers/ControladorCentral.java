@@ -18,7 +18,7 @@ import dto.*;
 import entities.ProductoCompuestoEntity;
 import entities.ProductoSimpleEntity;
 import negocio.*;
-
+//cambio de pruebas
 @SuppressWarnings("unused")
 public class ControladorCentral {
 	
