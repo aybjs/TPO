@@ -68,19 +68,19 @@ public class ControladorCentral {
 		
 		//********Primera Sucursal********//
 		
-		Sucursal s1= new Sucursal("1");
+		Sucursal s1= new Sucursal("Suc 1");
 		s1.setCarta(carta);
 		sucursales.add(s1);
 		
 		//********Segunda Sucursal********//
 		
-		Sucursal s2= new Sucursal("1001");
+		Sucursal s2= new Sucursal("Suc 2");
 		s2.setCarta(carta);
 		sucursales.add(s2);
 		
 		//********Tercera Sucursal********//
 		
-		Sucursal s3= new Sucursal("1001");
+		Sucursal s3= new Sucursal("Suc 3");
 		s2.setCarta(carta);
 		sucursales.add(s3);
 		
@@ -125,7 +125,7 @@ public class ControladorCentral {
 		
 	}
 	
-	public Vector<CierreCajaDTO> cerrarCajas() throws CierreException{
+	public Vector<CierreCajaDTO> cerrarCajas(){
 		Vector<CierreCajaDTO> todo = new Vector<CierreCajaDTO>();
 		for (Sucursal s : sucursales)
 			todo.add(s.cierreCaja());
