@@ -20,7 +20,6 @@ public class PedidoDTO implements Serializable{
 	private float precio;
 	
 	public PedidoDTO(MesaDTO mesa, Vector<ProductoDTO> items) {
-		super();
 		this.mesa = mesa;
 		this.items = items;
 		//this.items = new Vector<ProductoDTO>();

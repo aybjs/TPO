@@ -11,6 +11,8 @@ import negocio.Pedido;
 public class PruebaPedido {
 
 	public static void main(String[] args) throws Exception {
+		ControladorCentral negocio = ControladorCentral.getInstancia();
+		System.out.println("armo el pedido");
 		PedidoDTO pedidodto = new PedidoDTO();
 		for(ProductoDTO productos : ControladorCentral.getInstancia().getTodosLosProductos()){
 			System.out.println(productos.getNombre() + " " + productos.getPrecio());
