@@ -22,7 +22,7 @@ public class PruebaPedido {
 		m.setId(2);
 		pedidodto.setMesa(m);
 		m.setMozo(MozoDAO.getInstance().recuperarMozo(7).toDTO());
-		double id = ControladorCentral.getInstancia().GenerarPedido(pedidodto);
+		double id = ControladorCentral.getInstancia().GenerarPedido(pedidodto, 0);
 		Pedido ped = ControladorCentral.getInstancia().getPedido(id);
 		System.out.println("Valor: " + ped.subTotal());
 		
