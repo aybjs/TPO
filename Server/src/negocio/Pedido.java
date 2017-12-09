@@ -19,7 +19,8 @@ public class Pedido {
 	
 	public Pedido(PedidoDTO p){
 		this.mesa = new Mesa(p.getMesa());
-		Pedido.id = p.getId();
+		Pedido.id++;
+		this.items = new Vector<ProductoCompuesto>();
 		for(ProductoDTO ped: p.getItems()){
 			
 			ProductoCompuesto pc = new ProductoCompuesto(ped);
