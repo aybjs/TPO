@@ -60,6 +60,19 @@ public class ProductoSimpleDAO {
 		s.close();
 		return toNegocio(aux);
 	}
+	
+	// RECUPERAR POR NOMBRE
+	public ProductoSimple recuperarProductoNombre(String nombre){
+		Session s = sf.openSession();
+		Query q = s.createQuery("FROM ProductoSimpleEntity WHERE codigo=? ");
+		q.setParameter(0, nombre);
+		ProductoSimpleEntity aux =(ProductoSimpleEntity) q.uniqueResult();
+		s.flush();
+		s.getTransaction().commit();
+		s.close();
+		return toNegocio(aux);    
+	}
+
 
 	public ProductoSimple toNegocio(ProductoSimpleEntity pe) {
 		ProductoSimple ps = new ProductoSimple();
@@ -87,7 +100,7 @@ public class ProductoSimpleDAO {
 		pse.setMinimo(p.getMinimo());
 		pse.setNombre(p.getNombre());
 		//pse.setPrecio(p.getPrecio());
-		pse.setProdCompuesto(p.getProdCompuesto());
+		//pse.setProdCompuesto(p.getProdCompuesto());
 		pse.setSectorEncargado(p.getSectorEncargado());
 		return pse;
 		 
@@ -96,7 +109,7 @@ public class ProductoSimpleDAO {
 	public java.util.Vector<ProductoSimple> recuperarProductos() {
 		Session s = sf.openSession();
 		s.beginTransaction();
-		Query q = s.createQuery("FROM ProductoSimpleEntity where ProductoCompuesto is null");
+		Query q = s.createQuery("FROM ProductoSimpleEntity");
 		@SuppressWarnings("unchecked")
 		List<ProductoSimpleEntity> list = q.list();
 		java.util.Vector<ProductoSimple> aux = new java.util.Vector<ProductoSimple>();

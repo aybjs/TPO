@@ -76,9 +76,9 @@ function pedir(){
 	cambiarEstadoMesa(idDiv, idMesa, mesa, suc);
 }
 
-function pedirAjax(array, idMesa, mesa, cantidad, sucursal){
+function pedirAjax(array, idMesa, mesa, cantidad, suc){
 	crearRequest();
-	var url = "GenerarPedido?array=" + array + "&mesa=" + mesa + "&cant=" + cantidad + "&sucursal=" + sucursal;
+	var url = "GenerarPedido?array=" + array + "&mesa=" + mesa + "&cant=" + cantidad + "&suc=" + suc;
 	request.onreadystatechange = function(){cargarPedidosEnMesa(idMesa);};
 	request.open("GET", url);
 	request.send(null);

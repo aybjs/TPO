@@ -30,26 +30,26 @@ public class GenerarPedido extends HttpServlet {
 		String mesa = request.getParameter("mesa");
 		String sucursal = request.getParameter("sucursal");
 		String cant = request.getParameter("cant");
-		response.getWriter().write(responder(sucursal, lista, Integer.parseInt(mesa), Integer.parseInt(cant)));
+		String suc = request.getParameter("suc");
+		response.getWriter().write(responder(suc, lista, Integer.parseInt(mesa), Integer.parseInt(cant)));
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 	
-	private String responder(String sucursal, String lista, Integer mesa, Integer cantidad) {
+	private String responder(String suc, String lista, Integer mesa, Integer cantidad) {
 		String resp;
 		String[] array = lista.split(",");
-		Integer suc = 0;
-		if(sucursal.equals("A")) {
-			suc = 0;
+		Integer sucursal = 0;
+		if (suc.equals("A")) {
+			sucursal = 0;
 		}
-		else if (sucursal.equals("B")) {
-			suc = 1;
-
+		else if (suc.equals("B")) {
+			sucursal = 1;
 		}
-		else if (sucursal.equals("C")) {
-			suc = 2;
+		else if (suc.equals("C")) {
+			sucursal = 2;
 		}
 		BusinessDelegate sys;
 		try {
@@ -67,7 +67,7 @@ public class GenerarPedido extends HttpServlet {
 				}
 			}
 			
-			resp = sys.GenerarPedido(new PedidoDTO(lamesa, losPedidos), suc) + "";
+			resp = sys.GenerarPedido(new PedidoDTO(lamesa, losPedidos), sucursal) + "";
 			
 		} catch (BusinessDelegateException e1) {
 			resp = "Error RMI";
