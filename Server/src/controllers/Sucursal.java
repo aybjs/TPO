@@ -187,11 +187,13 @@ public class Sucursal {
 		
 	}
 	
-	public float facturar(double idPedido){
+	public float facturar(double idPedido, String medioPago){
 		float flo = 0;
 		
 		Pedido p = this.getPedido(idPedido);
 		if (p != null) {
+			p.getMesa().CerrarMesa();
+			caja.agregarFactura(new Factura("Consumidor Final", p, medioPago));
 			for(ProductoCompuesto prod : p.getItems()){
 				flo = flo + prod.getPrecio();
 			}

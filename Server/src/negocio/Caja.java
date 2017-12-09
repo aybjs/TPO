@@ -111,5 +111,9 @@ public class Caja {
 		}
 		return rta;
 	}
+	
+	public void agregarFactura (Factura factura){
+		this.facturas.add(factura);
+	}
 
 }

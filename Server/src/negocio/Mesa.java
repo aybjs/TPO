@@ -53,6 +53,7 @@ public class Mesa {
 	}
 
 	public void CerrarMesa() {
+		estado = "abierta";
 		
 		
 	}
