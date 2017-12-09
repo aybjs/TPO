@@ -7,7 +7,7 @@ import dto.ProductoDTO;
 
 public class Pedido {
 
-	private static double id = 0;
+	private static double id = 1503;
 	private Mesa mesa;
 	private Vector<ProductoCompuesto> items;
 

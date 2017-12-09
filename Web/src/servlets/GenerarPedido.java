@@ -29,16 +29,24 @@ public class GenerarPedido extends HttpServlet {
 		String lista = request.getParameter("array");
 		String mesa = request.getParameter("mesa");
 		String cant = request.getParameter("cant");
-		response.getWriter().write(responder(lista, Integer.parseInt(mesa), Integer.parseInt(cant)));
+		String suc = request.getParameter("sucursal");
+		response.getWriter().write(responder(lista, Integer.parseInt(mesa), Integer.parseInt(cant), suc));
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 	
-	private String responder(String lista, Integer mesa, Integer cantidad) {
+	private String responder(String lista, Integer mesa, Integer cantidad, String suc) {
 		String resp;
 		String[] array = lista.split(",");
+		Integer sucursal = 0;
+		if(suc == "A")
+			sucursal = 0;
+		if(suc == "B")
+			sucursal = 1;
+		if(suc == "C")
+			sucursal = 2;
 		BusinessDelegate sys;
 		try {
 			sys = BusinessDelegate.getInstancia();
@@ -55,7 +63,7 @@ public class GenerarPedido extends HttpServlet {
 				}
 			}
 			
-			resp = sys.GenerarPedido(new PedidoDTO(lamesa, losPedidos)) + "";
+			resp = sys.GenerarPedido(new PedidoDTO(lamesa, losPedidos), sucursal) + "";
 			
 		} catch (BusinessDelegateException e1) {
 			resp = "Error RMI";
