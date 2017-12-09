@@ -68,8 +68,10 @@
 			<br />
 			<span id="cantPersonasLabel">Personas: </span>
 			<input type="text" id="cantidadComensales" name="cantidadComensales" value="2">
-			<span>Pago:</span>
-			<input type="radio" name="pago" value="Efectivo" checked="checked">Efectivo<br>
+			<br />
+			<br />
+			<p>Pago:</p>
+			<br />			<input type="radio" name="pago" value="Efectivo" checked="checked">Efectivo<br>
 			<input type="radio" name="pago" value="Tarjeta">Tarjeta<br>
 			<br />
 			<br />
