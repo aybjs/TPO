@@ -4,6 +4,7 @@ import java.util.Vector;
 
 import dto.*;
 import exceptions.CierreException;
+import exceptions.MesaException;
 import negocio.*;
 
 public class Sucursal {
@@ -182,6 +183,14 @@ public class Sucursal {
 		Pedido p = new Pedido(pedido);
 		this.pedidos.add(p);
 		return p.getId();		
+	}
+
+	public MesaDTO getMesa(int nroMesa) throws MesaException{
+		// TODO Auto-generated method stub
+		if (nroMesa > mesas.size() || nroMesa < 0)
+			throw new MesaException("la mesa no existe");
+		return mesas.elementAt(nroMesa).toDTO();
+		
 	}
 	
 

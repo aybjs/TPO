@@ -183,5 +183,12 @@ public class BusinessDelegate{
 		
 	}
 	
+	public MesaDTO getMesa(int suc, int nroMesa) throws MesaException, BusinessDelegateException{
+		try{
+			return ControladorCentralRemoto.getMesa(suc, nroMesa);
+		}
+		catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI");}
+		
+	}
 	
 }

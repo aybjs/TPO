@@ -462,6 +462,10 @@ public class ControladorCentral {
 			s.abrirCaja();
 	}
 	
+	public MesaDTO getMesa(int suc, int nroMesa) throws MesaException{
+		return sucursales.get(suc).getMesa(nroMesa);
+	}
+	
 	
 	
 }

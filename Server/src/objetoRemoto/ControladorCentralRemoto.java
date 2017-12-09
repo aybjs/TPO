@@ -116,4 +116,10 @@ public class ControladorCentralRemoto extends UnicastRemoteObject implements TDA
 		facturar = ControladorCentral.getInstancia().facturar(idPedido);
 		return facturar;
 	}
+
+	public MesaDTO getMesa(int suc, int nroMesa) throws MesaException,
+			RemoteException {
+		// TODO Auto-generated method stub
+		return negocio.getMesa(suc, nroMesa);
+	}
 }

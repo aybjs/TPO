@@ -19,7 +19,6 @@ public class Mesa {
 	protected Mozo mozo;
 
 	public Mesa(int id, String sector) {
-		super();
 		this.id = id;
 		this.cantComen = 0;
 		this.sector = sector;

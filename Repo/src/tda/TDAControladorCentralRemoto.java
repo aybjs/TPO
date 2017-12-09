@@ -55,4 +55,6 @@ public interface TDAControladorCentralRemoto extends Remote {
 
 	public float facturar(double idPedido) throws RemoteException;
 	
+	public MesaDTO getMesa(int suc, int nroMesa) throws MesaException, RemoteException;
+	
 }
