@@ -22,9 +22,8 @@ import org.hibernate.annotations.Entity;
 import enumerators.SectorEncargado;
 import negocio.Lote;
 
-@Entity
 @MappedSuperclass
-@Table(name="productos")  // tabla unica
+//@Table(name="productos")  // tabla unica
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public abstract class ProductoEntity implements Serializable {
 
@@ -43,10 +42,19 @@ public abstract class ProductoEntity implements Serializable {
 	@Column(name="Sector")
 	private String sectorEncargado;
 	@Column(name="minimo")
-	private Float minimo;
+	private float minimo;
 	@Column(name="comisionExtra")
-	private Float comisionExtra;
+	private float comisionExtra;
+	@Column(name="ProductoCompuesto")
+	private String prodCompuesto;
+	
+	public String getProdCompuesto() {
+		return prodCompuesto;
+	}
 
+	public void setProdCompuesto(String prodCompuesto) {
+		this.prodCompuesto = prodCompuesto;
+	}
 	/*@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="nroLote1")
 	private Vector<LoteEntity> lotes;

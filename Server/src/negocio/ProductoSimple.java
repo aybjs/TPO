@@ -32,11 +32,11 @@ public class ProductoSimple extends Producto {
 
 	@Override
 	public float getStockActual() {
-		/*float stock = 0;
+		float stock = 0;
 		for (Lote lote : lotes) {
 			stock = stock + lote.getCantidad();
-		}*/
-		return super.getStock();
+		}
+		return stock;
 	}
 
 	@Override

@@ -2,15 +2,15 @@ package negocio;
 
 import java.util.Vector;
 
-import dao.ProductoCompuestoDAO;
-import dao.ProductoSimpleDAO;
 import dto.ProductoDTO;
 
 public class ProductoCompuesto extends Producto {
 
-	private Vector<ItemReceta> receta;
+	private Vector<ProductoSimple> items;
+	//private Vector<Integer> cantItem;
+	private int tiempoElaboracion; // siempre en minutos
+	private float stock;
 	private float precio;
-	private int tiempoElaboracion;
 
 
 	
@@ -21,13 +21,13 @@ public class ProductoCompuesto extends Producto {
 		super(codigo, nombre, sectorEncargado, minimo, comisionExtra,
 				consumoEstimado,precio);
 
-		this.receta = new Vector<ItemReceta>();
+		this.items = null;
+		//this.cantItem = null;
 		this.tiempoElaboracion = tiempo;
 	}
 
 	public ProductoCompuesto() {
 		// TODO Auto-generated constructor stub
-		receta = new Vector<ItemReceta>();
 	}
 
 	public ProductoCompuesto(ProductoDTO prod) {
@@ -35,12 +35,18 @@ public class ProductoCompuesto extends Producto {
 		this.comisionExtra = prod.getComisionExtra();
 		this.precio = prod.getPrecio();
 		this.nombre = prod.getNombre();
-		for (int i=0 ; i < prod.getIngredientes().size(); i++){
-			ItemReceta aux = new ItemReceta(
-					ProductoSimpleDAO.getInstance().recuperarProductoNombre(prod.getIngredientes().elementAt(i)),
-					prod.getCantidades().elementAt(i));
-		}
-		ProductoCompuestoDAO.getInstance().grabarProducto(this);		
+		this.stock = prod.getStock();
+	}
+
+	@Override
+	public float getStockActual() {
+	/*
+		// TODO Auto-generated method stub
+		float stock = 0;
+		for (Producto item : items)
+			stock = stock + item.getStockActual();
+			*/
+		return this.stock;
 	}
 
 	public float getPrecio() {
@@ -56,14 +62,36 @@ public class ProductoCompuesto extends Producto {
 		this.tiempoElaboracion = tiempoElaboracion;
 	}
 
+	public void agregarItem(ProductoSimple p) {
+		items.add(p);
+	}
+/*
+	public String getItems() {
+		String rta = null;
+		for (Producto item : items)
+			rta = rta + item.getNombre() + ", ";
+		return rta;
+	}
+
+	public Vector<Integer> getCantItem() {
+		return cantItem;
+	}
+
+	public void setCantItem(Vector<Integer> cantItem) {
+		this.cantItem = cantItem;
+	}
+*/
+	public void setItems(Vector<ProductoSimple> items) {
+		this.items = items;
+	}
+
 	public void setPrecio(float d) {
 		this.precio = d;
 	}
 
-	@Override
-	public float getStockActual() {
-		// TODO Auto-generated method stub
-		return super.getStock();
+
+	public Vector<ProductoSimple> getItems() {
+		return items;
 	}
 
 

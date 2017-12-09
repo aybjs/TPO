@@ -1,6 +1,5 @@
 package entities;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -22,6 +21,7 @@ import negocio.Lote;
 
 @Entity
 @Table(name="ProductoCompuesto")
+
 public class ProductoCompuestoEntity extends ProductoEntity {
 
 	
@@ -33,14 +33,12 @@ public class ProductoCompuestoEntity extends ProductoEntity {
 	*/
 	//@OneToMany(cascade=CascadeType.ALL)
 	//private Vector<Integer> cantItem;
-	
-	@OneToMany
-	private List<ItemRecetaEntity> receta;
 	@Column(name="tiempoElaboracion")
-	private int tiempoElaboracion;
-	//@OneToMany(cascade=CascadeType.ALL)
-	//@JoinColumn(name="nroLote1")
-	//private List<LoteEntity> lotes;
+	private int tiempoElaboracion; 
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="nroLote1")
+	private List<LoteEntity> lotes;
+	@Column(name="precio")
 	private float precio;
 	
 	
@@ -57,7 +55,6 @@ public class ProductoCompuestoEntity extends ProductoEntity {
 
 	public ProductoCompuestoEntity() {
 		// TODO Auto-generated constructor stub
-		receta = new ArrayList<ItemRecetaEntity>();
 	}
 /*
 	public Vector<ProductoSimpleEntity> getItems() {
@@ -80,7 +77,16 @@ public class ProductoCompuestoEntity extends ProductoEntity {
 		this.tiempoElaboracion = tiempoElaboracion;
 	}
 	
-
+	public void addLote(LoteEntity l){
+		this.lotes.add(l);
+	}
+	
+	public List<LoteEntity> getLotes() {
+		return lotes;
+	}
+	public void setLotes(Vector<LoteEntity> lotes) {
+		this.lotes = lotes;
+	}
 	public float getPrecio() {
 		return precio;
 	}

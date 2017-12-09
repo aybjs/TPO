@@ -2,7 +2,6 @@ package dto;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Calendar;
 import java.util.Date;
 
 import enumerators.EstadosMesa;
@@ -24,13 +23,11 @@ public class MesaDTO  implements Serializable {
 
 		public MesaDTO(int id, String sector) {
 			super();
-			Calendar today = Calendar.getInstance();
-			today.set(Calendar.HOUR_OF_DAY, 0);
 			this.id = id;
 			this.cantComen = 0;
 			this.sector = sector;
-			this.fecha = today.getTime();
-			this.apertura = today.getTime();
+			this.fecha = null;
+			this.apertura = null;
 			this.cierre = null;
 			//this.mozo = null;
 			this.estado = "libre";  

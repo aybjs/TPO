@@ -13,7 +13,7 @@ public interface TDAControladorCentralRemoto extends Remote {
 	
 	public Vector<ComisionesDTO> getComisiones() throws RemoteException, CierreException;
 	
-	public Vector<CierreCajaDTO> cerrarSucursales() throws RemoteException;
+	public Vector<CierreCajaDTO> cerrarSucursales() throws RemoteException, CierreException;
 		 	
 	public List<ProductoDTO> getComprasPendiente() throws RemoteException, ComprasPendientesException;
 	
@@ -49,7 +49,7 @@ public interface TDAControladorCentralRemoto extends Remote {
 	
 	public double GenerarPedido(PedidoDTO p, int suc) throws RemoteException;
 	
-	public void agregarPlato(ProductoDTO p) throws RemoteException, ProductoException;
+	public Vector<String> agregarPlato(ProductoDTO p) throws RemoteException;
 	
 	public void agregarIngredientes(String nombre, String ingrediente, Integer cantidad ) throws RemoteException;
 

@@ -31,29 +31,6 @@ public class Sucursal {
 		pedidos = new Vector<Pedido>();
 		init();
 	}	
-	
-	private void init() {
-		// metodo que hace todo lo necesario al iniciar la aplicacion
-		//crear las mesas
-		for (int i=0; i< 5; i++){
-			Mesa mesa = new Mesa(i, "central");
-			mesa.setId(i);
-			mesa.setCantComen(4);
-			mesa.setSector("Central");
-			this.mesas.add(mesa);
-		}
-		for (int i=5; i < 10; i++){
-			Mesa mesa = new Mesa(i, "Lateral Izquierdo");
-			mesa.setId(i);
-			mesa.setCantComen(6);
-			mesa.setSector("Lateral Izquierdo");
-			this.mesas.add(mesa);
-		}
-		
-		//Levanto los mozos de la DB (si los necesito crear, hacerlos desde el test)
-		
-		
-	}
 
 	public void AbrirMesa(int nroEmpleado, Vector<Integer> mesas, int cantPersonas){
 		Mozo mozo = getMozo(nroEmpleado);
@@ -84,13 +61,8 @@ public class Sucursal {
 			return rta;
 		}
 		
-		public CierreCajaDTO cierreCaja(){
-			try{
-				this.caja.CerrarCaja(this.codigoResto);
-			}
-			catch (CierreException e){
-				System.out.println("Las cajas ya estaban cerradas pero se muestra igual");
-			}
+		public CierreCajaDTO cierreCaja() throws CierreException{
+			this.caja.CerrarCaja(this.codigoResto);
 			CierreCajaDTO cierre = new CierreCajaDTO(codigoResto);
 			cierre.setTotalEfectivo(caja.getMontoDiarioEfectivo());
 			cierre.setTotalTarjeta(caja.getMontoDiarioTarjeta());
@@ -116,7 +88,10 @@ public class Sucursal {
 
 
 	
-
+	private void init() {
+		// metodo que hace todo lo necesario al iniciar la aplicacion
+		
+	}
 	private Mozo getMozo(int nroEmpleado) {
 		return null;
 	}
@@ -209,4 +184,5 @@ public class Sucursal {
 		return p.getId();		
 	}
 	
+
 }

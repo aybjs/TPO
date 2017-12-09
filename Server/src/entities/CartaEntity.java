@@ -1,10 +1,8 @@
 package entities;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Vector;
 
 import javax.persistence.Column;
@@ -24,7 +22,7 @@ public class CartaEntity {
 	@GeneratedValue
 	@OneToMany
 	@JoinColumn(name="codigo")
-	private List<ProductoEntity> productos;
+	private Vector<ProductoEntity> productos;
 	@Column(name="idCarta")
 	private static int idCarta = 0;
 	@Column(name="desde")
@@ -33,17 +31,15 @@ public class CartaEntity {
 	private LocalDate hasta;
 
 	public CartaEntity(){
-		productos = new ArrayList<ProductoEntity>();
 		
 	}
 
-	public List<ProductoEntity> getProductos() {
+	public Vector<ProductoEntity> getProductos() {
 		return productos;
 	}
 
 	public void setProductos(Vector<ProductoEntity> productos) {
-		for (ProductoEntity producto : productos)
-			this.productos.add(producto);
+		this.productos = productos;
 	}
 
 	public static int getIdCarta() {

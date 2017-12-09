@@ -13,8 +13,6 @@ public class ProductoDTO  implements Serializable {
 	private String nombre;
 	private float stock;
 	private float comisionExtra;
-	private Vector<String> ingredientes;
-	private Vector<Integer> cantidades;
 	/*
 	private String sectorEncargado;
 	private float minimo;
@@ -23,22 +21,6 @@ public class ProductoDTO  implements Serializable {
 	
 	*/
 	
-	public Vector<String> getIngredientes() {
-		return ingredientes;
-	}
-
-	public void setIngredientes(Vector<String> ingredientes) {
-		this.ingredientes = ingredientes;
-	}
-
-	public Vector<Integer> getCantidades() {
-		return cantidades;
-	}
-
-	public void setCantidades(Vector<Integer> cantidades) {
-		this.cantidades = cantidades;
-	}
-
 	public ProductoDTO(){
 		
 	}

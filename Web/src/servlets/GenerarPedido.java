@@ -28,29 +28,17 @@ public class GenerarPedido extends HttpServlet {
 		response.setHeader("Cache-Control", "no-cache");
 		String lista = request.getParameter("array");
 		String mesa = request.getParameter("mesa");
-		String sucursal = request.getParameter("sucursal");
 		String cant = request.getParameter("cant");
-		String suc = request.getParameter("suc");
-		response.getWriter().write(responder(suc, lista, Integer.parseInt(mesa), Integer.parseInt(cant)));
+		response.getWriter().write(responder(lista, Integer.parseInt(mesa), Integer.parseInt(cant)));
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 	
-	private String responder(String suc, String lista, Integer mesa, Integer cantidad) {
+	private String responder(String lista, Integer mesa, Integer cantidad) {
 		String resp;
 		String[] array = lista.split(",");
-		Integer sucursal = 0;
-		if (suc.equals("A")) {
-			sucursal = 0;
-		}
-		else if (suc.equals("B")) {
-			sucursal = 1;
-		}
-		else if (suc.equals("C")) {
-			sucursal = 2;
-		}
 		BusinessDelegate sys;
 		try {
 			sys = BusinessDelegate.getInstancia();
@@ -67,7 +55,7 @@ public class GenerarPedido extends HttpServlet {
 				}
 			}
 			
-			resp = sys.GenerarPedido(new PedidoDTO(lamesa, losPedidos), sucursal) + "";
+			resp = sys.GenerarPedido(new PedidoDTO(lamesa, losPedidos)) + "";
 			
 		} catch (BusinessDelegateException e1) {
 			resp = "Error RMI";

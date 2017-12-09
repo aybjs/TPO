@@ -9,15 +9,13 @@ public class MozoEntity implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	@Id
-	//@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "nroEmpleado", nullable = false)
 	private Integer nroEmpleado;
 	@Column(name = "nombre")
 	private String nombre;
 	@Column(name = "comision")
 	private Float comision;
-	@Column (name = "sucursal")
-	private int sucursal;
 
 	public MozoEntity() {
 	}
@@ -44,14 +42,6 @@ public class MozoEntity implements Serializable {
 
 	public void setComision(Float comision) {
 		this.comision = comision;
-	}
-	
-	public void setSucursal(int sucursal){
-		this.sucursal=sucursal;
-	}
-	
-	public int getSucursal(){
-		return this.sucursal;
 	}
 
 

@@ -72,13 +72,13 @@ function pedir(){
 			j++;
 		}
 	}
-	pedirAjax(array, idMesa, mesa, cantidad, suc);
+	pedirAjax(array, idMesa, mesa, cantidad);
 	cambiarEstadoMesa(idDiv, idMesa, mesa, suc);
 }
 
-function pedirAjax(array, idMesa, mesa, cantidad, suc){
+function pedirAjax(array, idMesa, mesa, cantidad){
 	crearRequest();
-	var url = "GenerarPedido?array=" + array + "&mesa=" + mesa + "&cant=" + cantidad + "&suc=" + suc;
+	var url = "GenerarPedido?array=" + array + "&mesa=" + mesa + "&cant=" + cantidad;
 	request.onreadystatechange = function(){cargarPedidosEnMesa(idMesa);};
 	request.open("GET", url);
 	request.send(null);
@@ -87,7 +87,7 @@ function pedirAjax(array, idMesa, mesa, cantidad, suc){
 function cargarPedidosEnMesa(idMesa){
 	if (request.readyState == 4) {
 		if (request.status == 200) {
-			document.getElementById(idMesa).innerHTML = request.responseText.replace(".0","");
+			document.getElementById(idMesa).innerHTML = request.responseText;
 			document.getElementById("detallePedido").innerHTML = "";
 		}
 	}

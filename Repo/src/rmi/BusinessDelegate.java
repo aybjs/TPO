@@ -39,7 +39,7 @@ public class BusinessDelegate{
     	catch (RemoteException e) { throw new BusinessDelegateException("Problemas con RMI"); }
     }
     
-    public Vector<CierreCajaDTO> CerrarSucursales() throws BusinessDelegateException{
+    public Vector<CierreCajaDTO> CerrarSucursales() throws BusinessDelegateException, CierreException{
     	try{
     		return ControladorCentralRemoto.cerrarSucursales();
     	}
@@ -158,9 +158,9 @@ public class BusinessDelegate{
     	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
 	}
 
-	public void agregarPlato(ProductoDTO p) throws BusinessDelegateException, ProductoException{
+	public Vector<String> agregarPlato(ProductoDTO p) throws BusinessDelegateException{
 		try {
-			ControladorCentralRemoto.agregarPlato(p);
+			return ControladorCentralRemoto.agregarPlato(p);
 		}
     	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
 	}

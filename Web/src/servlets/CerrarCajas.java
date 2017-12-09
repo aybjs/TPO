@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dto.CierreCajaDTO;
+import dto.ProductoDTO;
 import exceptions.BusinessDelegateException;
 import exceptions.CierreException;
 import rmi.BusinessDelegate;
@@ -39,7 +40,7 @@ public class CerrarCajas extends HttpServlet {
 		try {
 			sys = BusinessDelegate.getInstancia();
 			Vector<CierreCajaDTO> cajas = sys.CerrarSucursales();
-			resp = resp + "<table id=\"t01\"><tr><th>Sucursal</th><th>Tarjeta</th><th>Efectivo</th><tr>";
+			resp = resp + "<table><tr><th>Sucursal</th><th>Tarjeta</th><th>Efectivo</th><tr>";
 			for (int i = 0; i < cajas.size(); i++) {
 				resp = resp + "<tr>";
 				resp = resp + "<td>" + cajas.elementAt(i).getNroSucursal() + "</td>";
@@ -50,7 +51,9 @@ public class CerrarCajas extends HttpServlet {
 			resp = resp + "</table>";
 		} catch (BusinessDelegateException e1) {
 			return "Error RMI en CerrarCaja";
-		}	
+		} catch (CierreException e) {
+			return "Error por Excepciónd de Cierre Caja";
+		}			
 		return resp;
 	}
 

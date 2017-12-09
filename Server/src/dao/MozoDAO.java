@@ -77,7 +77,7 @@ public class MozoDAO {
 	}
 	
 	private Mozo toNegocio(MozoEntity ce) {
-		Mozo m = new Mozo(ce.getNroEmpleado(), ce.getNombre(), ce.getComision(), ce.getSucursal());
+		Mozo m = new Mozo(ce.getNroEmpleado(), ce.getNombre(), ce.getComision());
 		return m;
 	}
 
@@ -86,7 +86,6 @@ public class MozoDAO {
 		me.setNroEmpleado(c.getNroEmpleado());
 		me.setNombre(c.getNombre());
 		me.setComision(c.getComision());
-		me.setSucursal(c.getSucursal());
 		return me;
 	}
 }
