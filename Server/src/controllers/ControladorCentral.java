@@ -418,10 +418,10 @@ public class ControladorCentral {
 		this.codigoResto = codigoResto;
 	}
 	
-	public float facturar(double idPedido){
+	public float facturar(double idPedido, String pagoEfectivoOTarjeta){
 		float resp = 0;
 		for (Sucursal s : sucursales) {
-			resp = resp + s.facturar(idPedido);
+			resp = resp + s.facturar(idPedido, pagoEfectivoOTarjeta);
 		}
 		return resp;
 	}

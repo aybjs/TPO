@@ -110,7 +110,7 @@ public class ControladorCentralRemoto extends UnicastRemoteObject implements TDA
 		
 	}
 
-	public float facturar(double idPedido) throws RemoteException {
+	public float facturar(double idPedido, String pagoEfectivoOTarjeta) throws RemoteException {
 		// TODO Auto-generated method stub
 		float facturar=0;
 		facturar = ControladorCentral.getInstancia().facturar(idPedido);

@@ -23,19 +23,20 @@ public class FacturarPedido extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pedido = request.getParameter("pedido");
+		String pagoEfectivoOTarjeta = request.getParameter("pagoEfectivoOTarjeta");
 		response.setContentType("text/xml");
 		response.setHeader("Cache-Control", "no-cache");
-		response.getWriter().write(Fact(Double.parseDouble(pedido)));
+		response.getWriter().write(Fact(Double.parseDouble(pedido), pagoEfectivoOTarjeta));
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 	
-	private String Fact(Double pedido) {
+	private String Fact(Double pedido, String pagoEfectivoOTarjeta) {
 		BusinessDelegate sys;
 		try {
 			sys = BusinessDelegate.getInstancia();
-			return sys.facturar(pedido) + "";
+			return sys.facturar(pedido, pagoEfectivoOTarjeta) + "";
 			
 		} catch (BusinessDelegateException e1) {
 			return "Error RMI";

@@ -53,7 +53,7 @@ public interface TDAControladorCentralRemoto extends Remote {
 	
 	public void agregarIngredientes(String nombre, String ingrediente, Integer cantidad ) throws RemoteException;
 
-	public float facturar(double idPedido) throws RemoteException;
+	public float facturar(double idPedido, String pagoEfectivoOTarjeta) throws RemoteException;
 	
 	public MesaDTO getMesa(int suc, int nroMesa) throws MesaException, RemoteException;
 	

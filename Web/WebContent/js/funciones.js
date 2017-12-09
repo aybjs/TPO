@@ -19,14 +19,22 @@ function buscarPedido(idDiv, idMesa, numero, sucursal){
 	else{
 		div.className = "cajaMesaVacia";
 		var pedido = document.getElementById(idMesa).innerHTML;
-		facturarPedido(pedido);		
+		var pagoEfectivoOTarjeta = null;
+		var radios = document.getElementsByName('pago');
+		for (var i = 0, length = radios.length; i < length; i++){
+			if (radios[i].checked){
+				 pagoEfectivoOTarjeta = radios[i].value;
+			}
+			break;	
+		}
+		facturarPedido(pedido, pagoEfectivoOTarjeta);		
 		document.getElementById(idMesa).innerHTML = "Mesa " + sucursal + numero;
 	}
 }
 
-function facturarPedido(pedido){
+function facturarPedido(pedido, pagoEfectivoOTarjeta){
 	crearRequest();
-	var url = "FacturarPedido?pedido=" + pedido;
+	var url = "FacturarPedido?pedido=" + pedido + "&pagoEfectivoOTarjeta=" + pagoEfectivoOTarjeta;
 	request.onreadystatechange = function(){facturarPedidoAJAX();};
 	request.open("GET", url);
 	request.send(null);
