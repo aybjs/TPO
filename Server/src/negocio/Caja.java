@@ -38,7 +38,13 @@ public class Caja {
 			cierre = new Date();
 			estado = false;
 		} else {
-			throw new CierreException("la caja ya estaba cerrada");
+			//throw new CierreException("la caja ya estaba cerrada");
+			//Se omite la excepción para que se pueda visualizar el cierre siempre (sirve para desarrollo)
+			//Una vez puesto en producción habrá que eliminar las siguientes lineas y DEScomentar la primera del "else"
+			calcularTotales();
+			calcularComisiones(codResto);
+			cierre = new Date();
+			estado = false;
 		}
 	}
 

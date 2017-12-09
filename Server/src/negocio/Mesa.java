@@ -29,6 +29,17 @@ public class Mesa {
 		this.estado = "libre";
 	}
 	
+	public Mesa(int id, String sector, Mozo mozo) {
+		this.id = id;
+		this.cantComen = 0;
+		this.sector = sector;
+		this.fecha = null;
+		this.apertura = null;
+		this.cierre = null;
+		this.mozo = mozo;
+		this.estado = "libre";
+	}
+	
 	public Mesa(MesaDTO m){
 		this.id = m.getId();
 		this.cantComen = m.getCantComen();

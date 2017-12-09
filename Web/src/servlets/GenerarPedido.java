@@ -13,6 +13,7 @@ import dto.MesaDTO;
 import dto.PedidoDTO;
 import dto.ProductoDTO;
 import exceptions.BusinessDelegateException;
+import exceptions.MesaException;
 import rmi.BusinessDelegate;
 
 @WebServlet("/GenerarPedido")
@@ -51,8 +52,10 @@ public class GenerarPedido extends HttpServlet {
 		try {
 			sys = BusinessDelegate.getInstancia();
 			Vector<ProductoDTO> productos = sys.getTodosLosProductos();			
-			MesaDTO lamesa = new MesaDTO(mesa,"Resto");
+			//MesaDTO lamesa = new MesaDTO(mesa,"Resto");
+			MesaDTO lamesa = sys.getMesa(sucursal, mesa-1);
 			lamesa.setCantComen(cantidad);
+			lamesa.setEstado("ocupada");
 			Vector<ProductoDTO> losPedidos = new Vector<ProductoDTO>();
 			
 			for(int i = 0; i < array.length; i++) {
@@ -65,9 +68,9 @@ public class GenerarPedido extends HttpServlet {
 			
 			resp = sys.GenerarPedido(new PedidoDTO(lamesa, losPedidos), sucursal) + "";
 			
-		} catch (BusinessDelegateException e1) {
-			resp = "Error RMI";
-		}
+		} 
+		catch (BusinessDelegateException e1) { resp = "Error RMI"; }
+		catch (MesaException e2) { resp = "No existe mesa"; }
 		
 		return resp;
 	}
