@@ -1,5 +1,6 @@
 package controllers;
 
+import java.time.LocalDateTime;
 import java.util.Vector;
 
 import dto.*;
@@ -40,9 +41,6 @@ public class Sucursal {
 		else
 			AbrirMesaCompuesta(mesas, mozo, cantPersonas);		
 	}
-	 public void GenerarPedido (int nroMesa, Vector<Pedido> pedidos ){
-		 //FALTA
-	 }
 	 
 	 public int getTiempoTareas(String area) {
 		 // TODO Auto-generated method stub
@@ -174,10 +172,6 @@ public class Sucursal {
 	public void abrirCaja(){
 		caja.setEstado(true);
 	}
-
-	/*public void agregarPedido(Pedido p){
-		this.pedidos.add(p);
-	}*/
 	
 	public double agregarPedido(PedidoDTO pedido){
 		Pedido p = new Pedido(pedido);
@@ -191,6 +185,33 @@ public class Sucursal {
 			throw new MesaException("la mesa no existe");
 		return mesas.elementAt(nroMesa).toDTO();
 		
+	}
+	
+	public float facturar(double idPedido){
+		float flo = 0;
+		
+		Pedido p = this.getPedido(idPedido);
+		if (p != null) {
+			for(ProductoCompuesto prod : p.getItems()){
+				flo = flo + prod.getPrecio();
+			}
+		}
+		
+		/*
+		Mesa mesaCierra = new Mesa();
+		mesaCierra.setId((int) idPedido);
+		mesaCierra.setCierre(LocalDateTime.now());
+		*/
+		return flo;
+	}
+	
+	private Pedido getPedido(double id) {
+		Pedido aux = null;
+		for(Pedido p: this.pedidos){
+			if(p.getId()==id)
+				aux = p;
+		}
+		return aux;
 	}
 	
 

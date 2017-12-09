@@ -241,8 +241,7 @@ public class ControladorCentral {
 		ps1.setNombre("atun");
 		ps1.setProdCompuesto("milanesa de atun");
 		ProductoSimpleDAO.getInstance().grabarProducto(ps1);
-		
-
+	
 	}
 	
 	public Vector<CierreCajaDTO> cerrarCajas() throws CierreException{
@@ -407,15 +406,6 @@ public class ControladorCentral {
 		this.ordenCompra = ordenCompra;
 	}
 
-	public Pedido getPedido(double id) {
-		Pedido aux = null;
-		for(Pedido p: this.pedidos){
-			if(p.getId()==id)
-				aux = p;
-		}
-		return aux;
-	}
-
 	public void setPedidos(List<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
@@ -429,17 +419,11 @@ public class ControladorCentral {
 	}
 	
 	public float facturar(double idPedido){
-		float flo = 0;
-		
-		Pedido p = this.getPedido(idPedido);
-		for(ProductoCompuesto prod : p.getItems()){
-			flo = flo + prod.getPrecio();
+		float resp = 0;
+		for (Sucursal s : sucursales) {
+			resp = resp + s.facturar(idPedido);
 		}
-		
-		Mesa mesaCierra = new Mesa();
-		mesaCierra.setId((int) idPedido);
-		mesaCierra.setCierre(LocalDateTime.now());
-		return flo;
+		return resp;
 	}
 
 	
