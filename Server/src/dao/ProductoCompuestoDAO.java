@@ -63,6 +63,20 @@ public class ProductoCompuestoDAO {
 		return toNegocio(aux);
 	}
 	
+	// RECUPERAR POR NOMBRE
+	public ProductoCompuesto recuperarProductoNombre(String nombre) {
+		Session s = sf.openSession();
+		Query q = s.createQuery("FROM ProductoSimpleEntity WHERE codigo=? ");
+		q.setParameter(0, nombre);
+		ProductoCompuestoEntity aux = (ProductoCompuestoEntity) q.uniqueResult();
+		s.flush();
+		s.getTransaction().commit();
+		s.close();
+		return toNegocio(aux);
+
+	}
+	 
+	
 	public java.util.Vector<ProductoCompuesto> recuperarProductos() {
 		Session s = sf.openSession();
 		s.beginTransaction();

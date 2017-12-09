@@ -49,7 +49,7 @@ public interface TDAControladorCentralRemoto extends Remote {
 	
 	public double GenerarPedido(PedidoDTO p, int suc) throws RemoteException;
 	
-	public Vector<String> agregarPlato(ProductoDTO p) throws RemoteException;
+	public void agregarPlato(ProductoDTO p) throws RemoteException, ProductoException;
 	
 	public void agregarIngredientes(String nombre, String ingrediente, Integer cantidad ) throws RemoteException;
 

@@ -11,6 +11,8 @@ import java.util.Vector;
 
 
 
+
+
 import dao.*;
 import enumerators.EstadosMesa;
 import exceptions.*;
@@ -85,7 +87,7 @@ public class ControladorCentral {
 		sucursales.add(s3);
 		
 		//********Productos**************//
-				
+				/**
 				
 				ProductoCompuesto prodComp = new ProductoCompuesto();
 				prodComp.setCodigo(1001);
@@ -119,10 +121,10 @@ public class ControladorCentral {
 				ps1.setNombre("leche");
 				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
 				ps1.setNombre("atun");
-				ps1.setProdCompuesto("milanesa de atun");
+				//ps1.setProdCompuesto("milanesa de atun");
 				ProductoSimpleDAO.getInstance().grabarProducto(ps1);
 				
-		
+	**/
 	}
 	
 	public Vector<CierreCajaDTO> cerrarCajas(){
@@ -325,31 +327,23 @@ public class ControladorCentral {
 	}
 
 	
-	public Vector<String> agregarPlato(ProductoDTO p){
-		ProductoCompuesto prod = new ProductoCompuesto(p);
-		//Vector<ProductoSimple> productosSimples = new Vector<ProductoSimple>();
-		Vector<String> vectorNombre = new Vector<String>();
-		ProductoCompuestoDAO.getInstance().grabarProducto(prod);
-		
-		for (ProductoSimple ps : ProductoSimpleDAO.getInstance().recuperarProductos()){
-			vectorNombre.add(ps.getNombre());
+	public void agregarPlato(ProductoDTO p) throws ProductoException{
+		if (ProductoCompuestoDAO.getInstance().recuperarProductoNombre(p.getNombre()) == null){
+			ProductoCompuesto prod = new ProductoCompuesto(p);
 		}
-		/*
-		vectorNombre.addElement("salsa");
-		vectorNombre.addElement("queso");
-		*/
-		return vectorNombre;
+		else throw new ProductoException("El producto ya existe");
 		
 	}
 	
-	public void agregarIngredientes(String nombre, String ingrediente, Integer cantidad ){
-			
+	public void agregarIngredientes(String nombre, String sector, float minimo, float comision, float consumo, String medida ){
 			ProductoSimpleEntity pse = new ProductoSimpleEntity();
-			pse.setProdCompuesto(nombre);
-			pse.setMedida(cantidad.toString());
-			pse.setNombre(ingrediente);
+			pse.setNombre(nombre);
+			pse.setSectorEncargado(sector);
+			pse.setMinimo(minimo);
+			pse.setComisionExtra(comision);
+			pse.setConsumoEstimado(consumo);
+			pse.setSectorEncargado(sector);
 			ProductoSimpleDAO.getInstance().grabarProducto(pse);
-		
 		
 	}
 	

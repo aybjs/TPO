@@ -14,9 +14,10 @@ public abstract class Producto {
 	protected float minimo;
 	protected float comisionExtra;
 	protected Vector<Lote> lotes;
+	protected int stock;
 	protected float consumoEstimado;
 	protected float precio;
-	protected String prodCompuesto;
+
 
 	public Producto(int codigo, String nombre, String sectorEncargado,
 			float minimo, float comisionExtra, float consumoEstimado,float precio)
@@ -28,6 +29,7 @@ public abstract class Producto {
 		this.lotes = null;
 		this.consumoEstimado = consumoEstimado;
 		this.precio = precio;
+		this.stock=0;
 		/*
 		switch (sectorEncargado) {
 		case 1:
@@ -142,13 +144,12 @@ public abstract class Producto {
 		p.setPrecio(this.getPrecio());
 		return p;		
 	}
-	
-	public String getProdCompuesto() {
-		return prodCompuesto;
+	public int getStock(){
+		return stock;
 	}
-
-	public void setProdCompuesto(String prodCompuesto) {
-		this.prodCompuesto = prodCompuesto;
+	
+	public void setStock(int stock){
+		this.stock = stock;
 	}
 	
 

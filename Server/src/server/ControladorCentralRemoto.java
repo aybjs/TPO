@@ -44,11 +44,13 @@ public class ControladorCentralRemoto extends UnicastRemoteObject implements TDA
 		negocio.noFacturable(resto, nroEmpleado, cantidad);
 	}
 	
-	public void tomarOrden(String resto, String nroEmpleado, int itemCarta, int cantidad, boolean facturable) throws RemoteException{
+	public void tomarOrden(String resto, String nroEmpleado, int itemCarta, int cantidad, boolean facturable) 
+			throws RemoteException{
 		negocio.tomarOrden(resto, nroEmpleado, itemCarta, cantidad, facturable);
 	}
 	
-	public void solicitarMovimiento(String resto, String producto, int cantidad, String destino) throws RemoteException{
+	public void solicitarMovimiento(String resto, String producto, int cantidad, String destino) 
+			throws RemoteException{
 		negocio.solicitarMovimiento(resto, producto, cantidad, destino);
 	}
 	
@@ -100,13 +102,14 @@ public class ControladorCentralRemoto extends UnicastRemoteObject implements TDA
 		return negocio.GenerarPedido(p, suc);
 	}
 
-	public Vector<String> agregarPlato(ProductoDTO p) throws RemoteException {
-		return negocio.agregarPlato(p);
+	public void agregarPlato(ProductoDTO p) throws RemoteException, ProductoException {
+		negocio.agregarPlato(p);
 		
 	}
 
-	public void agregarIngredientes(String nombre, String ingrediente, Integer cantidad) throws RemoteException {
-		negocio.agregarIngredientes(nombre, ingrediente, cantidad);
+	public void agregarIngredientes(String nombre, String sector, Float minimo, 
+			Float comision, Float consumo, String medida) throws RemoteException {
+		negocio.agregarIngredientes(nombre, sector, minimo,comision, consumo, medida);
 		
 	}
 
