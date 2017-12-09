@@ -42,11 +42,11 @@ public class GenerarPedido extends HttpServlet {
 		String resp;
 		String[] array = lista.split(",");
 		Integer sucursal = 0;
-		if(suc == "A")
+		if(suc.compareToIgnoreCase("A") == 0)
 			sucursal = 0;
-		if(suc == "B")
+		if(suc.compareToIgnoreCase("B") == 0)
 			sucursal = 1;
-		if(suc == "C")
+		if(suc.compareToIgnoreCase("C") == 0)
 			sucursal = 2;
 		BusinessDelegate sys;
 		try {
@@ -66,6 +66,7 @@ public class GenerarPedido extends HttpServlet {
 				}
 			}
 			
+			System.out.println(sucursal);
 			resp = sys.GenerarPedido(new PedidoDTO(lamesa, losPedidos), sucursal) + "";
 			
 		} 
