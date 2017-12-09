@@ -22,8 +22,7 @@ public class Factura {
 	}
 
 	public float calcularTotal() {
-		return pedido.subTotal() * (float) 1.21; // le sumo el iva (como para
-													// hacer algo)
+		return pedido.subTotal();
 
 	}
 
