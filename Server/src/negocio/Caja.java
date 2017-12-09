@@ -91,10 +91,8 @@ public class Caja {
 		return cierre;
 	}
 	
-	public Vector<ComisionesDTO> getComisiones() throws CierreException{
-		if(!estado)
-			return comisiones;
-		else throw new CierreException("la caja todavia esta abierta");
+	public Vector<ComisionesDTO> getComisiones(){
+		return comisiones;
 	}
 
 	

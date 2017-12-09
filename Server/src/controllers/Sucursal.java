@@ -70,7 +70,7 @@ public class Sucursal {
 			return cierre;	
 		}
 		
-		public Vector<ComisionesDTO> getComisiones() throws CierreException{
+		public Vector<ComisionesDTO> getComisiones(){
 			return caja.getComisiones();
 		}
 		

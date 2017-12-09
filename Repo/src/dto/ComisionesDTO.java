@@ -3,9 +3,11 @@ package dto;
 import java.io.Serializable;
 
 public class ComisionesDTO implements Serializable{
+	private static final long serialVersionUID = 4288074826289301213L;
 	String sucursal;
 	String mozo;
 	float comision;
+	
 	public ComisionesDTO() {
 	}
 	public ComisionesDTO(String mozo, float comision, String nroSucursal) {

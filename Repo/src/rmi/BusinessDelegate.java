@@ -32,7 +32,7 @@ public class BusinessDelegate{
     	catch (MalformedURLException | RemoteException | NotBoundException e) { throw new BusinessDelegateException("Problemas con RMI"); }
     }
     
-    public Vector<ComisionesDTO> getComisiones() throws BusinessDelegateException, CierreException{
+    public Vector<ComisionesDTO> getComisiones() throws BusinessDelegateException{
     	try{
     		return ControladorCentralRemoto.getComisiones();
     	}

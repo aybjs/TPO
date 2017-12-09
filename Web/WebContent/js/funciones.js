@@ -169,3 +169,19 @@ function cerrarCajaAjax(){
 		}
 	}
 }
+
+function comisiones(){
+	crearRequest();
+	var url = "CalcularComisiones";
+	request.onreadystatechange = function(){calcularComisiones();};
+	request.open("GET", url);
+	request.send(null);
+}
+
+function calcularComisiones(){
+	if (request.readyState == 4) {
+		if (request.status == 200) {
+			document.getElementById("calcularComisionesResultado").innerHTML = request.responseText;
+		}
+	}
+}

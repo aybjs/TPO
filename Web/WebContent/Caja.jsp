@@ -20,7 +20,6 @@
 		</div>
 		
 		<div id="calcularComisiones">
-			<p>No ejecutar hasta no tener cerradas las cajas</p>
 			<button class="mesa" type="button" id="calcularComisionesButton" onclick="comisiones()">Calcular Comisiones</button>			
 		</div>
 

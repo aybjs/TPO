@@ -24,7 +24,7 @@ public class ControladorCentralRemoto extends UnicastRemoteObject implements TDA
 		negocio = ControladorCentral.getInstancia();
 	}
 	
-	public Vector<ComisionesDTO> getComisiones() throws CierreException{
+	public Vector<ComisionesDTO> getComisiones(){
 		return negocio.getComisiones();
 	}
 	

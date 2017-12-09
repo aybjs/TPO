@@ -71,7 +71,7 @@ public class ControladorCentral {
 		
 		//********Primera Sucursal********//
 		
-		Sucursal s1= new Sucursal("1000");
+		Sucursal s1= new Sucursal("A");
 		
 		Vector<Mozo> mozos = new Vector<Mozo>();
 		Mozo mozo = null;
@@ -117,7 +117,7 @@ public class ControladorCentral {
 		
 		//********Segunda Sucursal********//
 		
-		Sucursal s2= new Sucursal("1001");
+		Sucursal s2= new Sucursal("B");
 		Vector<Mesa> mesas2 = new Vector<Mesa>();
 		
 		Vector<Mozo> mozos2 = new Vector<Mozo>();
@@ -162,7 +162,7 @@ public class ControladorCentral {
 		
 		//********Tercera Sucursal********//
 		
-		Sucursal s3= new Sucursal("1002");
+		Sucursal s3= new Sucursal("C");
 		Vector<Mesa> mesas3 = new Vector<Mesa>();
 		
 		Vector<Mozo> mozos3 = new Vector<Mozo>();
@@ -252,7 +252,7 @@ public class ControladorCentral {
 		return todo;
 	}
 	
-	public Vector<ComisionesDTO> getComisiones() throws CierreException{
+	public Vector<ComisionesDTO> getComisiones(){
 		Vector<ComisionesDTO> rta = new Vector<ComisionesDTO>();
 		for (Sucursal s : sucursales)
 			for (ComisionesDTO c : s.getComisiones())

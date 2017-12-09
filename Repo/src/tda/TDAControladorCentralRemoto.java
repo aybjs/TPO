@@ -11,7 +11,7 @@ import exceptions.*;
 
 public interface TDAControladorCentralRemoto extends Remote {
 	
-	public Vector<ComisionesDTO> getComisiones() throws RemoteException, CierreException;
+	public Vector<ComisionesDTO> getComisiones() throws RemoteException;
 	
 	public Vector<CierreCajaDTO> cerrarSucursales() throws RemoteException, CierreException;
 		 	
