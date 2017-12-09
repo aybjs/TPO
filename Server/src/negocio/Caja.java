@@ -50,9 +50,9 @@ public class Caja {
 
 	private void calcularTotales() {
 		for (Factura f : facturas) {
-			if (f.getFormaPago().equals("Efectivo") )
+			if (f.getFormaPago().compareToIgnoreCase("Efectivo")==0 )
 				montoDiarioEfectivo = montoDiarioEfectivo + f.calcularTotal();
-			if (f.getFormaPago().equals("Tarjeta")) {
+			if (f.getFormaPago().compareToIgnoreCase("tarjeta") == 0) {
 				montoDiarioTarjeta = montoDiarioTarjeta + f.calcularTotal();
 				cantVentasTarjeta++;
 			}
