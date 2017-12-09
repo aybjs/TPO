@@ -11,21 +11,23 @@
 	</head>
 	<body>
 		
+		<br />
 		<div id="cerrarCaja">
 			<button class="mesa" type="button" id="cerrarCajaButton" onclick="cerrarLaCaja()">Cerrar Cajas</button>			
 		</div>
 
-		<div id="cerrarCajaResultado">
-			
-		</div>
+		<br />
+		<div id="cerrarCajaResultado"></div>
 		
+		<br />
+		<br />
+		<br />
 		<div id="calcularComisiones">
 			<button class="mesa" type="button" id="calcularComisionesButton" onclick="comisiones()">Calcular Comisiones</button>			
 		</div>
 
-		<div id="calcularComisionesResultado">
-			
-		</div>
+		<br />
+		<div id="calcularComisionesResultado"></div>
 			
 	</body>
 </html>
