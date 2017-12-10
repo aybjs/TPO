@@ -96,7 +96,7 @@ public class Caja {
 	}
 
 	
-	private Vector<ComisionesDTO> calcularComisiones(String codigoResto){
+	private void calcularComisiones(String codigoResto){
 		Vector<ComisionesDTO> rta = new Vector<ComisionesDTO>();
 		for(Factura f : facturas){
 			String mozo = f.getPedido().getMesa().getMozo().getNombre();
@@ -109,7 +109,7 @@ public class Caja {
 			}
 			rta.add(new ComisionesDTO(mozo, base, codigoResto));
 		}
-		return rta;
+		this.comisiones = rta;
 	}
 	
 	public void agregarFactura (Factura factura){
