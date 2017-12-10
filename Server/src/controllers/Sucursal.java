@@ -192,9 +192,6 @@ public class Sucursal {
 		Pedido p = this.getPedido(idPedido);
 		if (p != null) {
 			p.getMesa().CerrarMesa();
-			
-			System.out.println("---------- Clase Sucursal, Método facturar, parámetro medioPago: " + medioPago);
-
 			caja.agregarFactura(new Factura("Consumidor Final", p, medioPago));
 			for(ProductoCompuesto prod : p.getItems()){
 				flo = flo + prod.getPrecio();

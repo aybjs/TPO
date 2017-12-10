@@ -421,9 +421,6 @@ public class ControladorCentral {
 	public float facturar(double idPedido, String pagoEfectivoOTarjeta){
 		float resp = 0;
 		for (Sucursal s : sucursales) {
-			
-			System.out.println("---------- Clase ControladorCentral, Método facturar, parámetro pagoEfectivoOTarjeta: " + pagoEfectivoOTarjeta);
-			
 			resp = resp + s.facturar(idPedido, pagoEfectivoOTarjeta);
 		}
 		return resp;

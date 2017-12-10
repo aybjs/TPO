@@ -21,11 +21,11 @@ function buscarPedido(idDiv, idMesa, numero, sucursal){
 		var pedido = document.getElementById(idMesa).innerHTML;
 		var pagoEfectivoOTarjeta = null;
 		var radios = document.getElementsByName('pago');
-		for (var i = 0, length = radios.length; i <= length; i++){
+		for (var i = 0; i <= radios.length; i++){
 			if (radios[i].checked){
 				 pagoEfectivoOTarjeta = radios[i].value;
+				 break;
 			}
-			break;	
 		}
 		facturarPedido(pedido, pagoEfectivoOTarjeta);		
 		document.getElementById(idMesa).innerHTML = "Mesa " + sucursal + numero;

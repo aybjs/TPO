@@ -73,7 +73,7 @@
 			<p>Pago:</p>
 			<br />			
 			<input type="radio" name="pago" value="Efectivo" checked="checked">Efectivo<br>
-			<input type="radio" name="pago" value="Tarjeta">Tarjeta<br>
+			<input type="radio" name="pago" value="Tarjeta">Tarjeta
 			<br />
 			<br />
 			<div id="detallePedido"></div>
