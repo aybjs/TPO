@@ -66,7 +66,6 @@ public class GenerarPedido extends HttpServlet {
 				}
 			}
 			
-			System.out.println(sucursal);
 			resp = sys.GenerarPedido(new PedidoDTO(lamesa, losPedidos), sucursal) + "";
 			
 		} 

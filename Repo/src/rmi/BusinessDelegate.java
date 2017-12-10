@@ -171,16 +171,13 @@ public class BusinessDelegate{
 		}
     	catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
 	}
-	public float facturar(double idPedido, String pagoEfectivoOTarjeta){
+	public float facturar(double idPedido, String pagoEfectivoOTarjeta) throws BusinessDelegateException{
 		float facturar=0;
 		try {
 			facturar = ControladorCentralRemoto.facturar(idPedido, pagoEfectivoOTarjeta);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		
+		}     	
+		catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI"); }
 		return facturar;
-		
 	}
 	
 	public MesaDTO getMesa(int suc, int nroMesa) throws MesaException, BusinessDelegateException{

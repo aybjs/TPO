@@ -52,7 +52,7 @@ public class Caja {
 		for (Factura f : facturas) {
 			if (f.getFormaPago().compareToIgnoreCase("Efectivo")==0 )
 				montoDiarioEfectivo = montoDiarioEfectivo + f.calcularTotal();
-			if (f.getFormaPago().compareToIgnoreCase("tarjeta") == 0) {
+			if (f.getFormaPago().compareToIgnoreCase("Tarjeta") == 0) {
 				montoDiarioTarjeta = montoDiarioTarjeta + f.calcularTotal();
 				cantVentasTarjeta++;
 			}

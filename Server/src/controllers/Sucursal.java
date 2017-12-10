@@ -180,7 +180,6 @@ public class Sucursal {
 	}
 
 	public MesaDTO getMesa(int nroMesa) throws MesaException{
-		// TODO Auto-generated method stub
 		if (nroMesa > mesas.size() || nroMesa < 0)
 			throw new MesaException("la mesa no existe");
 		return mesas.elementAt(nroMesa).toDTO();
@@ -193,6 +192,9 @@ public class Sucursal {
 		Pedido p = this.getPedido(idPedido);
 		if (p != null) {
 			p.getMesa().CerrarMesa();
+			
+			System.out.println("---------- Clase Sucursal, Método facturar, parámetro medioPago: " + medioPago);
+
 			caja.agregarFactura(new Factura("Consumidor Final", p, medioPago));
 			for(ProductoCompuesto prod : p.getItems()){
 				flo = flo + prod.getPrecio();

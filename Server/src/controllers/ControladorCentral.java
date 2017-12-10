@@ -152,7 +152,7 @@ public class ControladorCentral {
 			mesa.setCantComen(6);
 			mesa.setSector("Sector Calle");
 			mesa.setMozo(mozos2.elementAt(r.nextInt(4-1) + 1));						
-			mesas.add(mesa);
+			mesas2.add(mesa);
 		}
 		
 		s2.setMesas(mesas2);
@@ -190,7 +190,7 @@ public class ControladorCentral {
 			mesa.setCantComen(4);
 			mesa.setSector("Sector Rio");
 			mesa.setMozo(mozos3.elementAt(r.nextInt(4-1) + 1));				
-			mesas.add(mesa);
+			mesas3.add(mesa);
 		}
 		for (int i=5; i < 10; i++){
 			Mesa mesa = new Mesa(i, "Sector calle");
@@ -198,12 +198,12 @@ public class ControladorCentral {
 			mesa.setCantComen(6);
 			mesa.setSector("Sector Calle");
 			mesa.setMozo(mozos3.elementAt(r.nextInt(4-1) + 1));			
-			mesas.add(mesa);
+			mesas3.add(mesa);
 		}
 		
-		s2.setMesas(mesas3);
-		s2.setCarta(carta);
-		s2.setMozos(mozos3);
+		s3.setMesas(mesas3);
+		s3.setCarta(carta);
+		s3.setMozos(mozos3);
 		sucursales.add(s3);
 		
 		
@@ -421,6 +421,9 @@ public class ControladorCentral {
 	public float facturar(double idPedido, String pagoEfectivoOTarjeta){
 		float resp = 0;
 		for (Sucursal s : sucursales) {
+			
+			System.out.println("---------- Clase ControladorCentral, Método facturar, parámetro pagoEfectivoOTarjeta: " + pagoEfectivoOTarjeta);
+			
 			resp = resp + s.facturar(idPedido, pagoEfectivoOTarjeta);
 		}
 		return resp;

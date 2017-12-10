@@ -71,7 +71,8 @@
 			<br />
 			<br />
 			<p>Pago:</p>
-			<br />			<input type="radio" name="pago" value="Efectivo" checked="checked">Efectivo<br>
+			<br />			
+			<input type="radio" name="pago" value="Efectivo" checked="checked">Efectivo<br>
 			<input type="radio" name="pago" value="Tarjeta">Tarjeta<br>
 			<br />
 			<br />
