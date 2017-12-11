@@ -42,7 +42,8 @@ public class CargarPedidos extends HttpServlet {
 		try {
 			sys = BusinessDelegate.getInstancia();
 			Vector<ProductoDTO> productos = sys.getTodosLosProductos();
-			resp = "<table><tr><th>codigo</th><th>precio</th><th>nombre</th><th>stock</th><th>comision</th><th>agregar</th></tr>";
+			//resp = "<table><tr><th>codigo</th><th>precio</th><th>nombre</th><th>stock</th><th>comision</th><th>agregar</th></tr>";
+			resp = "<table><tr><th>codigo</th><th>precio</th><th>nombre</th><th>agregar</th></tr>";
 			for (int i = 0; i < productos.size(); i++) {
 				codigo = productos.elementAt(i).getCodigo();
 				precio = productos.elementAt(i).getPrecio();
@@ -53,8 +54,8 @@ public class CargarPedidos extends HttpServlet {
 				resp = resp + "<td>" + codigo + "</td>";
 				resp = resp + "<td>" + precio + "</td>";
 				resp = resp + "<td>" + nombre + "</td>";
-				resp = resp + "<td>" + stock + "</td>";
-				resp = resp + "<td>" + comisionExtra + "</td>";
+				//resp = resp + "<td>" + stock + "</td>";
+				//resp = resp + "<td>" + comisionExtra + "</td>";
 				resp = resp + "<td> <input type=\"checkbox\" value=\"" + codigo + "\" >";
 				resp = resp + "</tr>";
 			}
