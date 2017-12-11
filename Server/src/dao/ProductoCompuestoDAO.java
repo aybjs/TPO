@@ -89,6 +89,9 @@ public class ProductoCompuestoDAO {
 		/*for(ProductoSimpleEntity arreglo : pe.getItems()){
 			ps.agregarItem(ProductoSimpleDAO.getInstance().toNegocio(arreglo));
 		}*/
+		//Agregado LUNES! GC!
+		ps.setStock(pe.getStock());
+		
 		ps.setTiempoElaboracion(pe.getTiempoElaboracion());
 		return ps;	
 		}

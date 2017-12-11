@@ -40,6 +40,22 @@ function buscarPedido(idDiv, idMesa, numero, sucursal){
 	}
 }
 
+function stock(){
+	crearRequest();
+	var url = "Stock";
+	request.onreadystatechange = function(){cargarStock();};
+	request.open("GET", url);
+	request.send(null);
+}
+
+function cargarStock(){
+	if (request.readyState == 4) {
+		if (request.status == 200) {
+			document.getElementById("divStock").innerHTML = request.responseText;
+		}
+	}
+}
+
 function facturarPedido(pedido, pagoEfectivoOTarjeta){
 	crearRequest();
 	var url = "FacturarPedido?pedido=" + pedido + "&pagoEfectivoOTarjeta=" + pagoEfectivoOTarjeta;
