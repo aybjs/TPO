@@ -89,6 +89,7 @@ public class ProductoSimpleDAO {
 		//pse.setPrecio(p.getPrecio());
 		pse.setProdCompuesto(p.getProdCompuesto());
 		pse.setSectorEncargado(p.getSectorEncargado());
+		pse.setStock(p.getStock());
 		return pse;
 		 
 	}

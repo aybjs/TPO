@@ -211,35 +211,47 @@ public class ControladorCentral {
 		prodComp.setCodigo(1001);
 		prodComp.setNombre("Milanesa Napolitana con Papas Fritas");
 		prodComp.setPrecio(28);
+		prodComp.setStock(15);
 		ProductoCompuestoDAO.getInstance().grabarProducto(prodComp);
 		ProductoCompuesto prodComp2 = new ProductoCompuesto();
 		prodComp2.setCodigo(1002);
 		prodComp2.setNombre("Fideos al Pesto");
 		prodComp2.setPrecio(57);
+		prodComp2.setStock(50);
 		ProductoCompuestoDAO.getInstance().grabarProducto(prodComp2);
 		ProductoCompuesto prodComp3 = new ProductoCompuesto();
 		prodComp3.setCodigo(1001);
 		prodComp3.setPrecio(34);
 		prodComp3.setNombre("Ravioles con Salsa Bolognesa");
+		prodComp3.setStock(23);
 		ProductoCompuestoDAO.getInstance().grabarProducto(prodComp3);
 		
 		ProductoSimple ps1 = new ProductoSimple();
 		ps1.setNombre("salsa");
+		ps1.setStock(1000);
 		ProductoSimpleDAO.getInstance().grabarProducto(ps1);
 		ps1.setNombre("queso");
+		ps1.setStock(1233);
 		ProductoSimpleDAO.getInstance().grabarProducto(ps1);
 		ps1.setNombre("mayonesa");
+		ps1.setStock(100);
 		ProductoSimpleDAO.getInstance().grabarProducto(ps1);
 		ps1.setNombre("huevo");
+		ps1.setStock(479);
 		ProductoSimpleDAO.getInstance().grabarProducto(ps1);
 		ps1.setNombre("jamon");
+		ps1.setStock(2368);
 		ProductoSimpleDAO.getInstance().grabarProducto(ps1);
+		ps1.setStock(537);
 		ps1.setNombre("carne");
 		ProductoSimpleDAO.getInstance().grabarProducto(ps1);
 		ps1.setNombre("leche");
+		ps1.setStock(489);
 		ProductoSimpleDAO.getInstance().grabarProducto(ps1);
 		ps1.setNombre("atun");
+		ps1.setStock(10);
 		ps1.setProdCompuesto("milanesa de atun");
+		ps1.setStock(158);
 		ProductoSimpleDAO.getInstance().grabarProducto(ps1);
 	
 	}

@@ -35,9 +35,9 @@ public class ProductoCompuestoEntity extends ProductoEntity {
 	//private Vector<Integer> cantItem;
 	@Column(name="tiempoElaboracion")
 	private int tiempoElaboracion; 
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="nroLote1")
-	private List<LoteEntity> lotes;
+	//@OneToMany(cascade=CascadeType.ALL)
+	//@JoinColumn(name="nroLote1")
+	//private List<LoteEntity> lotes;
 	@Column(name="precio")
 	private float precio;
 	
@@ -77,7 +77,7 @@ public class ProductoCompuestoEntity extends ProductoEntity {
 		this.tiempoElaboracion = tiempoElaboracion;
 	}
 	
-	public void addLote(LoteEntity l){
+	/**public void addLote(LoteEntity l){
 		this.lotes.add(l);
 	}
 	
@@ -86,7 +86,7 @@ public class ProductoCompuestoEntity extends ProductoEntity {
 	}
 	public void setLotes(Vector<LoteEntity> lotes) {
 		this.lotes = lotes;
-	}
+	}**/
 	public float getPrecio() {
 		return precio;
 	}

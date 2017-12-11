@@ -14,6 +14,7 @@ public abstract class Producto {
 	protected float minimo;
 	protected float comisionExtra;
 	protected Vector<Lote> lotes;
+	protected float stock;
 	protected float consumoEstimado;
 	protected float precio;
 	protected String prodCompuesto;
@@ -25,7 +26,7 @@ public abstract class Producto {
 		this.nombre = nombre;
 		this.minimo = minimo;
 		this.comisionExtra = comisionExtra;
-		this.lotes = null;
+		this.lotes = new Vector<Lote>();
 		this.consumoEstimado = consumoEstimado;
 		this.precio = precio;
 		/*
@@ -149,6 +150,14 @@ public abstract class Producto {
 
 	public void setProdCompuesto(String prodCompuesto) {
 		this.prodCompuesto = prodCompuesto;
+	}
+	
+	public float getStock(){
+		return this.stock;
+	}
+	
+	public void setStock(float stock){
+		this.stock=stock;
 	}
 	
 

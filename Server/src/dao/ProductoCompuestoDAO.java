@@ -109,6 +109,7 @@ public class ProductoCompuestoDAO {
 		pse.setSectorEncargado(p.getSectorEncargado());
 		pse.setTiempoElaboracion(p.getTiempoElaboracion());
 		pse.setSectorEncargado(p.getSectorEncargado());
+		pse.setStock(p.getStock());
 		/*for(ProductoSimple arreglo : p.getItems()){
 			pse.agregarItems(ProductoSimpleDAO.getInstance().toEntity(arreglo));
 		}*/

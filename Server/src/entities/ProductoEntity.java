@@ -47,7 +47,17 @@ public abstract class ProductoEntity implements Serializable {
 	private float comisionExtra;
 	@Column(name="ProductoCompuesto")
 	private String prodCompuesto;
+	@Column(name="stock")
+	private float stock;
 	
+	public float getStock() {
+		return stock;
+	}
+
+	public void setStock(float stock) {
+		this.stock = stock;
+	}
+
 	public String getProdCompuesto() {
 		return prodCompuesto;
 	}

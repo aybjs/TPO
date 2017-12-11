@@ -42,7 +42,7 @@ public class HibernateUtil
         	// config.addAnnotatedClass(ItemOCEntity.class);
         	// config.addAnnotatedClass(ItemRemitoEntity.class);
         	 config.addAnnotatedClass(MozoEntity.class);
-        	 config.addAnnotatedClass(LoteEntity.class);
+        	 //config.addAnnotatedClass(LoteEntity.class);
         	 //config.addAnnotatedClass(MovStockEntity.class);
         	 //config.addAnnotatedClass(NotaDevEntity.class);
         	 //config.addAnnotatedClass(OrdenCompraEntity.class);

@@ -9,7 +9,7 @@ public class ProductoCompuesto extends Producto {
 	private Vector<ProductoSimple> items;
 	//private Vector<Integer> cantItem;
 	private int tiempoElaboracion; // siempre en minutos
-	private float stock;
+	//private float stock;
 	private float precio;
 
 	public ProductoCompuesto(int codigo, String nombre, String sectorEncargado,
