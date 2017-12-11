@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.Vector;
 
 import javax.servlet.ServletException;
@@ -45,7 +46,7 @@ public class CalcularComisiones extends HttpServlet {
 				resp = resp + "<tr>";
 				resp = resp + "<td>" + comisiones.elementAt(i).getSucursal() + "</td>";
 				resp = resp + "<td>" + comisiones.elementAt(i).getMozo() + "</td>";
-				resp = resp + "<td>" + comisiones.elementAt(i).getComision()/100 + "</td>";
+				resp = resp + "<td>" + comisiones.elementAt(i).getComision() + "</td>";
 				resp = resp + "</tr>";
 			}
 			resp = resp + "</table>";
