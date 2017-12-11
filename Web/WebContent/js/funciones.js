@@ -188,7 +188,7 @@ function crearAlgo(){
 	var nombre = document.getElementById("nombre").value;
 	var stock = document.getElementById("stock").value;
 	var comisionExtra = document.getElementById("comisionExtra").value;
-	var areaProd = document.getElementById("areaProd").value;
+	var areaProd = 'Cocina';
 	
 	crearRequest();
 	var url = "CrearPlato?precio=" + precio + "&nombre=" + nombre + "&stock=" + stock + "&comisionExtra=" + comisionExtra + "&areaProd=" + areaProd;
