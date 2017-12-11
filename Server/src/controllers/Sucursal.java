@@ -3,6 +3,7 @@ package controllers;
 import java.time.LocalDateTime;
 import java.util.Vector;
 
+import dao.ProductoCompuestoDAO;
 import dto.*;
 import exceptions.CierreException;
 import exceptions.MesaException;
@@ -175,8 +176,17 @@ public class Sucursal {
 	
 	public double agregarPedido(PedidoDTO pedido){
 		Pedido p = new Pedido(pedido);
+		descontarStock(p);
 		this.pedidos.add(p);
 		return p.getId();		
+	}
+
+	public void descontarStock(Pedido p) {
+		// TODO Auto-generated method stub
+		for (ProductoCompuesto prod : p.getItems()) {
+			prod.setStock(prod.getStock()-1);
+			ProductoCompuestoDAO.getInstance().actualizarProducto(prod);
+		}
 	}
 
 	public MesaDTO getMesa(int nroMesa) throws MesaException{

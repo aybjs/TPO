@@ -376,6 +376,7 @@ public class ControladorCentral {
 	public void agregarItem(double idPedido, int sucursal, Vector<ProductoDTO> prod) {
 		for (ProductoDTO aux : prod) {
 			sucursales.get(sucursal).getPedido(idPedido).agregarItem(new ProductoCompuesto(aux));
+			sucursales.get(sucursal).descontarStock(sucursales.get(sucursal).getPedido(idPedido));
 		}
 	}
 

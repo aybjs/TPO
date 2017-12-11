@@ -24,6 +24,10 @@ function buscarPedido(idDiv, idMesa, numero, sucursal){
 		cargarPedidos();
 	}
 	else{
+		///
+		document.getElementById("sucursalPedidoValue").innerHTML = sucursal;
+		document.getElementById("mesaPedidoValue").innerHTML  = numero;
+		////
 		var pedido = document.getElementById(idMesa).innerHTML;
 		var pagoEfectivoOTarjeta = null;
 		var radios = document.getElementsByName('pago');
@@ -154,7 +158,6 @@ function pedirAjax(array, idMesa, mesa, cantidad, suc){
 
 function sumarAjax(array, idMesa, mesa, cantidad, suc, pedido){
 	var url = "AgregarAlPedido?array=" + array + "&mesa=" + mesa + "&sucursal=" + suc + "&pedido=" + pedido;
-	alert("AgregarAlPedido?array=" + array + "&mesa=" + mesa + "&sucursal=" + suc + "&pedido=" + document.getElementById("mesa" + suc + mesa).innerHTML);
 	request.onreadystatechange = function(){sumarProductoAlPedido();};
 	request.open("GET", url);
 	request.send(null);
