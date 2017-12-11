@@ -100,18 +100,34 @@ public class Caja {
 		Vector<ComisionesDTO> rta = new Vector<ComisionesDTO>();
 		for(Factura f : facturas){
 			String mozo = f.getPedido().getMesa().getMozo().getNombre();
-			float extra = f.getPedido().getMesa().getMozo().getComision();
+			float extra = f.getPedido().getMesa().getMozo().getComision() / 100;
 			float base = 0;
 			for (ProductoCompuesto p : f.getPedido().getItems()){
 				float complato = p.getComisionExtra();
 				float cometa = complato + extra; 
 				base = base  + p.getPrecio() * cometa;
 			}
-			rta.add(new ComisionesDTO(mozo, base, codigoResto));
+			Integer indice = BuscarMozo(rta, mozo);
+			if (indice == null)
+				rta.add(new ComisionesDTO(mozo, base, codigoResto));
+			else{
+				rta.elementAt(indice).setComision(base + rta.elementAt(indice).getComision());
+			}
 		}
 		this.comisiones = rta;
 	}
 	
+	private Integer BuscarMozo(Vector<ComisionesDTO> rta, String mozo) {
+		// TODO Auto-generated method stub
+		int i = 0;
+		for (ComisionesDTO cometa : rta){
+			if (cometa.getMozo().compareToIgnoreCase(mozo)==0)
+				return i;
+			i++;			
+		}
+		return null;
+	}
+
 	public void agregarFactura (Factura factura){
 		this.facturas.add(factura);
 	}
