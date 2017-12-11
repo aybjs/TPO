@@ -1,6 +1,6 @@
 package entities;
 
-import javafx.util.converter.LocalDateStringConverter;
+//import javafx.util.converter.LocalDateStringConverter;
 
 import javax.persistence.*;
 
@@ -38,7 +38,8 @@ public class NotaDevEntity {
 	}
 
 	public LocalDate getFecha() {
-		return new LocalDateStringConverter().fromString(this.fecha);
+		//return new LocalDateStringConverter().fromString(this.fecha);
+		return null;
 	}
 
 	public void setFecha(LocalDate fecha) {

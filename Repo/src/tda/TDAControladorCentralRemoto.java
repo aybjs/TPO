@@ -57,4 +57,5 @@ public interface TDAControladorCentralRemoto extends Remote {
 	
 	public MesaDTO getMesa(int suc, int nroMesa) throws MesaException, RemoteException;
 	
+	public void agregarItem(double idPedido, int sucursal, Vector<ProductoDTO> prod) throws RemoteException;
 }

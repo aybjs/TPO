@@ -9,6 +9,13 @@ function crearRequest() {
 	}
 }
 
+function agregar(idDiv, idMesa, numero, sucursal){
+	document.getElementById("sucursalPedidoValue").innerHTML = sucursal;
+	document.getElementById("mesaPedidoValue").innerHTML  = numero;
+	sumarPedidos();
+}
+
+
 function buscarPedido(idDiv, idMesa, numero, sucursal){
 	var div = document.getElementById(idDiv);
 	if(div.className == "cajaMesaVacia"){
@@ -17,7 +24,6 @@ function buscarPedido(idDiv, idMesa, numero, sucursal){
 		cargarPedidos();
 	}
 	else{
-		div.className = "cajaMesaVacia";
 		var pedido = document.getElementById(idMesa).innerHTML;
 		var pagoEfectivoOTarjeta = null;
 		var radios = document.getElementsByName('pago');
@@ -29,6 +35,8 @@ function buscarPedido(idDiv, idMesa, numero, sucursal){
 		}
 		facturarPedido(pedido, pagoEfectivoOTarjeta);		
 		document.getElementById(idMesa).innerHTML = "Mesa " + sucursal + numero;
+		cambiarEstadoMesa(idDiv, idMesa, numero, sucursal);
+
 	}
 }
 
@@ -51,6 +59,14 @@ function facturarPedidoAJAX(){
 function cargarPedidos(){
 	crearRequest();
 	var url = "CargarPedidos";
+	request.onreadystatechange = function(){cargarPedidosEnDiv();};
+	request.open("GET", url);
+	request.send(null);
+}
+
+function sumarPedidos(){
+	crearRequest();
+	var url = "SumarPedidos";
 	request.onreadystatechange = function(){cargarPedidosEnDiv();};
 	request.open("GET", url);
 	request.send(null);
@@ -84,6 +100,34 @@ function pedir(){
 	cambiarEstadoMesa(idDiv, idMesa, mesa, suc);
 }
 
+function sumarAlPedido(){
+	var checks = document.querySelectorAll('input[type=checkbox]');
+	var suc = document.getElementById("sucursalPedidoValue").innerHTML;
+	var mesa = document.getElementById("mesaPedidoValue").innerHTML;
+	var idDiv = "div" + suc + mesa
+	var idMesa = "mesa" + suc + mesa
+	var i;
+	var j = 0;
+	var array = new Array();
+	for (i = 0; i < checks.length; i++) {
+		if(checks[i].checked == true){
+			array[j] = checks[i].value;
+			j++;
+		}
+	}
+	var pedido = document.getElementById("mesa" + suc + mesa).innerHTML;
+	otroAjax(array, mesa, suc, pedido);
+	sumarAjax(array, idMesa, mesa, cantidad, suc, pedido);
+}
+
+function otroAjax(array, mesa, suc, pedido){
+	crearRequest();
+	var url = "AgregarAlPedido?array=" + array + "&mesa=" + mesa + "&sucursal=" + suc + "&pedido=" + pedido;
+	request.onreadystatechange = function(){sumarProductoAlPedido();};
+	request.open("GET", url);
+	request.send(null);
+}
+
 function pedirAjax(array, idMesa, mesa, cantidad, suc){
 	crearRequest();
 	var url = "GenerarPedido?array=" + array + "&mesa=" + mesa + "&cant=" + cantidad + "&sucursal=" + suc;
@@ -92,11 +136,37 @@ function pedirAjax(array, idMesa, mesa, cantidad, suc){
 	request.send(null);
 }
 
+function sumarAjax(array, idMesa, mesa, cantidad, suc, pedido){
+	var url = "AgregarAlPedido?array=" + array + "&mesa=" + mesa + "&sucursal=" + suc + "&pedido=" + pedido;
+	alert("AgregarAlPedido?array=" + array + "&mesa=" + mesa + "&sucursal=" + suc + "&pedido=" + document.getElementById("mesa" + suc + mesa).innerHTML);
+	request.onreadystatechange = function(){sumarProductoAlPedido();};
+	request.open("GET", url);
+	request.send(null);
+}
+
 function cargarPedidosEnMesa(idMesa){
 	if (request.readyState == 4) {
 		if (request.status == 200) {
 			document.getElementById(idMesa).innerHTML = request.responseText.replace(".0","");
+			var sucursal = idMesa.substring(4,5);
+			var mesa = idMesa.substring(5,6);
+			var idMas = 'add' + sucursal + mesa;
+			document.getElementById(idMas).innerHTML = "+";
 			document.getElementById("detallePedido").innerHTML = "";
+		}
+	}
+}
+
+function sumarProductoAlPedido(){
+	if (request.readyState == 4) {
+		if (request.status == 200) {
+			if (request.responseText == 1){
+				alert ("Agregado OK");
+				document.getElementById("detallePedido").innerHTML = "";	
+			}
+			else{
+				alert("No agregado");
+			}
 		}
 	}
 }
@@ -109,6 +179,7 @@ function cambiarEstadoMesa(idDiv, idMesa, numero, sucursal){
 	else{
 		div.className = "cajaMesaVacia";
 		document.getElementById(idMesa).innerHTML = "Mesa " + sucursal + numero;
+		document.getElementById('add' + sucursal + numero).innerHTML = "";
 	}
 }
 

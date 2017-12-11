@@ -54,8 +54,6 @@ public class Mesa {
 
 	public void CerrarMesa() {
 		estado = "abierta";
-		
-		
 	}
 
 	public void HabilitarMesa() {

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import javafx.util.converter.LocalDateStringConverter;
+//import javafx.util.converter.LocalDateStringConverter;
 
 import javax.persistence.*;
 @Entity
@@ -81,7 +81,8 @@ public class MovStockEntity implements Serializable {
 	}
 
 	public LocalDate getFecha() {
-		return new LocalDateStringConverter().fromString(this.fecha);
+		//return new LocalDateStringConverter().fromString(this.fecha);
+		return null;
 	}
 	
 	public void setFecha(LocalDate fecha){

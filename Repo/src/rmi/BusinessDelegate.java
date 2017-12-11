@@ -188,4 +188,11 @@ public class BusinessDelegate{
 		
 	}
 	
+	public void agregarItem(double idPedido, int sucursal, Vector<ProductoDTO> prod) throws BusinessDelegateException {
+		try{
+			ControladorCentralRemoto.agregarItem(idPedido, sucursal, prod);
+		}
+		catch (RemoteException  e) { throw new BusinessDelegateException("Problemas con RMI");}
+	}
+	
 }

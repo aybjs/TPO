@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Vector;
 import java.time.LocalDate;
 
-import javafx.util.converter.LocalDateStringConverter;
+//import javafx.util.converter.LocalDateStringConverter;
 
 import javax.persistence.*;
 
@@ -41,7 +41,8 @@ public class RemitoEntity {
 	}
 
 	public LocalDate getFecha() {
-		return new LocalDateStringConverter().fromString(this.fecha);
+		//return new LocalDateStringConverter().fromString(this.fecha);
+		return null;
 	}
 	
 	public void setFecha(LocalDate fecha) {

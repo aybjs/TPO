@@ -206,7 +206,7 @@ public class Sucursal {
 		return flo;
 	}
 	
-	private Pedido getPedido(double id) {
+	public Pedido getPedido(double id) {
 		Pedido aux = null;
 		for(Pedido p: this.pedidos){
 			if(p.getId()==id)
@@ -214,6 +214,5 @@ public class Sucursal {
 		}
 		return aux;
 	}
-	
 
 }

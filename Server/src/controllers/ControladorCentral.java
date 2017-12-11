@@ -372,6 +372,12 @@ public class ControladorCentral {
 	public double GenerarPedido (PedidoDTO p, int suc){
 		return sucursales.get(suc).agregarPedido(p);
 	}
+	
+	public void agregarItem(double idPedido, int sucursal, Vector<ProductoDTO> prod) {
+		for (ProductoDTO aux : prod) {
+			sucursales.get(sucursal).getPedido(idPedido).agregarItem(new ProductoCompuesto(aux));
+		}
+	}
 
 	public float cerrarMesa(Pedido pedCierra){
 		return 0;
